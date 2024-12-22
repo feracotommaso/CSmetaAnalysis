@@ -1,0 +1,28 @@
+---
+title: "Character strengths, well-being, and mental health; a meta-analysis"
+subtitle: "CS meta-analysis"
+author: "Nicole Casali, Tommaso Feraco"
+#include-in-header: assets/header.html
+format: 
+  html:
+    self-contained: true
+    toc: true   
+    toc-depth: 3 
+    toc-expand: 3 
+    code-fold: false 
+    message: false
+#    css: "assets/custom.css"
+editor: visual
+---
+
+## Materials
+
+Additional materials here:
+
+-   **Paper** - [html](https://feracotommaso.github.io/Personality-and-individual-differences/chapters/personalitySkills.html){target="_blank"} - [pdf](Slides/0.GettingStartedR.pdf){target="_blank"}
+-   **Supplementary** -
+-   **Shiny app -**
+
+::: {style="font-size:11px;"}
+GitHub repository associated to the present course website: <https://github.com/feracotommaso/CSmetaAnalysis>
+:::
