@@ -19,12 +19,12 @@ csl               : "`r system.file('rmd', 'apa7.csl', package = 'papaja')`"
 documentclass     : "apa6"
 classoption       : "man"
 output: 
-    papaja::apa6_docx: default
     papaja::apa6_pdf:
         latex_engine: xelatex
         in_header: header.tex
         toc: true
         toc_depth: 2
+    papaja::apa6_docx: default
 header-includes:
   - \usepackage{setspace}
   - \captionsetup[figure]{font={stretch=1,footnotesize}}
@@ -67,7 +67,7 @@ library(pacman)
 
 # utils functions for the paper
 output_format <- knitr::opts_knit$get("rmarkdown.pandoc.to")
-source(here("paper", "utils-paper.R"), local = knitr::knit_global())
+source(here("supplementary", "utils-paper.R"), local = knitr::knit_global())
 # 
 folder_path <- "R"  # Adjust this if the folder is located elsewhere
 r_files <- list.files(folder_path, full.names = TRUE, pattern = "\\.R$")

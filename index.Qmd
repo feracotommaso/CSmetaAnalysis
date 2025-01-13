@@ -21,7 +21,7 @@ Additional materials here:
 
 -   **Paper** - [html](https://feracotommaso.github.io/Personality-and-individual-differences/chapters/personalitySkills.html){target="_blank"} - [pdf](Slides/0.GettingStartedR.pdf){target="_blank"}
 -   **Supplementary** -
--   **Shiny app -**
+-   **Shiny app -** <https://feracoshiny.shinyapps.io/shinymeta-1/>
 
 ::: {style="font-size:11px;"}
 GitHub repository associated to the present course website: <https://github.com/feracotommaso/CSmetaAnalysis>

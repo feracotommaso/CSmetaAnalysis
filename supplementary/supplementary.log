@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.31)  16 DEC 2024 17:51
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.31)  13 JAN 2025 15:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**paper.tex
-(./paper.tex
+**supplementary.tex
+(./supplementary.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (c:/texlive/2023/texmf-dist/tex/latex/apa6/ap
 a6.cls
@@ -328,8 +328,8 @@ File: l3backend-xetex.def 2023-01-16 L3 backend support: XeTeX
 \g__pdf_backend_object_int=\count287
 \g__pdf_backend_annotation_int=\count288
 \g__pdf_backend_link_int=\count289
-) (./paper.aux)
-\openout1 = `paper.aux'.
+) (./supplementary.aux)
+\openout1 = `supplementary.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
 LaTeX Font Info:    ... okay on input line 30.
@@ -430,22 +430,23 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 32.
 [1
 
-] (./paper.toc)
+] (./supplementary.toc)
 \tf@toc=\write5
-\openout5 = `paper.toc'.
+\openout5 = `supplementary.toc'.
 
 [2] [3] [4] [5] [6] [7] [8] [9] [10]
 
 LaTeX Warning: Float too large for page by 59.78442pt on input line 466.
 
-AED endfloat: Processing end Figures and Tables [11] [12] (./paper.aux) ) 
+AED endfloat: Processing end Figures and Tables [11] [12] (./supplementary.aux)
+ ) 
 Here is how much of TeX's memory you used:
  11686 strings out of 476683
- 189453 string characters out of 5807575
+ 189573 string characters out of 5807575
  1879012 words of memory out of 5000000
  31779 multiletter control sequences out of 15000+600000
  547733 words of font info for 57 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 86i,13n,90p,348b,373s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 86i,13n,90p,356b,373s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on paper.pdf (12 pages).
+Output written on supplementary.pdf (12 pages).
