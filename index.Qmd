@@ -19,8 +19,9 @@ editor: visual
 
 Additional materials here:
 
+-   **OSF project** - [link](https://osf.io/prjxb/?view_only=ac793325b8c94a97b604677f482dfe0e) including data and code
 -   **Paper** - [html](https://feracotommaso.github.io/Personality-and-individual-differences/chapters/personalitySkills.html){target="_blank"} - [pdf](Slides/0.GettingStartedR.pdf){target="_blank"}
--   **Supplementary tables** - [pdf](https://feracotommaso.github.io/CSmetaAnalysis/supplementary/supplementary.pdf)
+-   **Detailed results** - [pdf](https://feracotommaso.github.io/CSmetaAnalysis/supplementary/supplementary.pdf)
 -   **Shiny app -** <https://feracoshiny.shinyapps.io/shinymeta-1/>
 
 ::: {style="font-size:11px;"}
