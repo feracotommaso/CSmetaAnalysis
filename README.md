@@ -6,6 +6,6 @@ PROSPERO preregistration here: https://www.crd.york.ac.uk/prospero/display_recor
 
 Shiny app for navigating results: https://feracoshiny.shinyapps.io/shinymeta/
 
-Detailed results: https://feracotommaso.github.io/CSmetaAnalysis/supplementary/DetailedResults.pdf
+Detailed results: https://feracotommaso.github.io/CSmetaAnalysis/Supplementary/DetailedResults.pdf
 
 Author version of the paper here: 

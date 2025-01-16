@@ -21,7 +21,7 @@ Additional materials here:
 
 -   **OSF project** - [link](https://osf.io/prjxb/?view_only=ac793325b8c94a97b604677f482dfe0e) including data and code
 -   **Paper** - pdf
--   **Detailed results** - [pdf](https://feracotommaso.github.io/CSmetaAnalysis/supplementary/DetailedResults.pdf)
+-   **Detailed results** - [pdf](https://feracotommaso.github.io/CSmetaAnalysis/Supplementary/DetailedResults.pdf)
 -   **Shiny app -** <https://feracoshiny.shinyapps.io/shinymeta-1/>
 -   **Prospero preregistration** - [link](https://www.crd.york.ac.uk/prospero/display_record.php?ID=CRD42023488089)
 
