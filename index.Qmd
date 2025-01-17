@@ -1,7 +1,7 @@
 ---
 title: "Character strengths, well-being, and mental health; a meta-analysis"
 subtitle: "CS meta-analysis"
-author: "Nicole Casali, Tommaso Feraco"
+author: "XXX"
 #include-in-header: assets/header.html
 format: 
   html:
@@ -21,10 +21,10 @@ Additional materials here:
 
 -   **Shiny app -** <https://feracoshiny.shinyapps.io/shinymeta-1/>
 -   **OSF project** - [link](https://osf.io/prjxb/?view_only=ac793325b8c94a97b604677f482dfe0e) including data and code
--   **Paper** - pdf
 -   **Detailed results** (supplementary) - [pdf](https://feracotommaso.github.io/CSmetaAnalysis/supplementary/DetailedResults.pdf)
 -   **Supplementary tables** (supplementary) - [pdf](https://feracotommaso.github.io/CSmetaAnalysis/supplementary/SupplementaryTables.pdf)
 -   **Prospero preregistration** - [link](https://www.crd.york.ac.uk/prospero/display_record.php?ID=CRD42023488089) and [pdf](https://feracotommaso.github.io/CSmetaAnalysis/PROSPERO_preregistration.pdf)
+-   **Paper** - NA
 
 ::: {style="font-size:11px;"}
 GitHub repository associated to the present course website: <https://github.com/feracotommaso/CSmetaAnalysis>
