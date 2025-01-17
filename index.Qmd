@@ -23,7 +23,7 @@ Additional materials here:
 -   **Paper** - pdf
 -   **Detailed results** - [pdf](https://feracotommaso.github.io/CSmetaAnalysis/supplementary/DetailedResults.pdf)
 -   **Shiny app -** <https://feracoshiny.shinyapps.io/shinymeta-1/>
--   **Prospero preregistration** - [link](https://www.crd.york.ac.uk/prospero/display_record.php?ID=CRD42023488089)
+-   **Prospero preregistration** - [link](https://www.crd.york.ac.uk/prospero/display_record.php?ID=CRD42023488089) and [pdf](https://feracotommaso.github.io/CSmetaAnalysis/PROSPERO_preregistration.pdf)
 
 ::: {style="font-size:11px;"}
 GitHub repository associated to the present course website: <https://github.com/feracotommaso/CSmetaAnalysis>
