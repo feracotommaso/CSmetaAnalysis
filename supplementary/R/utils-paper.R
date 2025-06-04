@@ -19,7 +19,8 @@ knitrMeta <- function(knitTab, formatOut, capt = "", foot = NA, scaled=TRUE){
       format.args = list(big.mark = ","),
       align = c("l", rep("c",(ncol(knitTab)-1))),
       caption = capt
-    ) %>%
+    )  %>%
+      kable_styling(latex_options = c("HOLD_position","striped")) %>%
       {if (scaled == TRUE) kableExtra::kable_styling(., latex_options = "scale_down") else .} %>%
       kableExtra::add_footnote(label = foot, notation = "symbol")
   } 

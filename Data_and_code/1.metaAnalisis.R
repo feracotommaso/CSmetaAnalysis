@@ -11,16 +11,21 @@ library(pacman)
 library(flextable)
 library(reshape2)
 
+folder_path <- "R"  # Adjust this if the folder is located elsewhere
+r_files <- list.files(folder_path, full.names = TRUE, pattern = "\\.R$")
+for (r_file in r_files) {
+  source(r_file)  # This will run the R code in the specified script file
+}
+
 # ------          Data          ------- #
 
 # Clear environment
-rm(list = ls())
-dtot = read_excel("metaData/finalMetaData.xlsx")
+dtot = read_excel(here::here("Data_and_code/metaData/finalMetaData.xlsx"))
 
 strengths24 <- colnames(dtot[, which(colnames(dtot) == "Appreciation_of_beauty"):
-                            which(colnames(dtot) == "Zest")])
+                               which(colnames(dtot) == "Zest")])
 #Reverse negative scales
-dtot[dtot$Valence == "neg", strengths24] <- dtot[dtot$Valence == "neg", strengths24] * -1
+# dtot[dtot$Valence == "neg", strengths24] <- dtot[dtot$Valence == "neg", strengths24] * -1
 
 # Create dataset with non-duplicated samples for descriptive stats
 uniqueD <- dtot[!duplicated(dtot$sample), ]
@@ -61,11 +66,11 @@ for (i in 1:length(strengths24)) {
                                      paste0(sum(dsum$CS_measure=="other",na.rm=TRUE), 
                                             " (",length(unique(dsum$sample[dsum$CS_measure == "other"])),")"), # Other CS measures
                                      paste0(sum(dsum$Outcome=="wb",na.rm=TRUE), 
-                                            " (",length(unique(dsum$sample[dsum$CS_measure == "wb"])),")"), # WB outcomes
+                                            " (",length(unique(dsum$sample[dsum$Outcome == "wb"])),")"), # WB outcomes
                                      paste0(sum(dsum$Outcome=="mh",na.rm=TRUE), 
-                                            " (",length(unique(dsum$sample[dsum$CS_measure == "mh"])),")"), # MH outcomes
+                                            " (",length(unique(dsum$sample[dsum$Outcome == "mh"])),")"), # MH outcomes
                                      paste0(sum(dsum$Population=="clinical",na.rm=TRUE), 
-                                            " (",length(unique(dsum$sample[dsum$CS_measure == "clinical"])),")") # Clinical populations
+                                            " (",length(unique(dsum$sample[dsum$Population == "clinical"])),")") # Clinical populations
                                      )
 }
 
@@ -147,15 +152,30 @@ dm <- dm[is.na(dm$ri)==FALSE, ]
 range(dm$ri)
 dm <- escalc(measure = "ZCOR", ri = ri, ni = N, data = dm)
 
+range(dm$vi)
+range(dm$yi)
+
+# Correct for unreliability
+brunaAlpha <- data.frame(strenth = strengths24,
+                         alphas = c(.80,.75,.86,.80,
+                                     .78,.81,.80,.76,
+                                     .81,.75,.85,.81,
+                                     .75,.77,.81,.75,
+                                     .84,.78,.74,.71,
+                                     .76,.84,.76,.78))
+dm$cs_rel <- brunaAlpha$alphas[dm$strength]
+dm$out_rel <- ifelse(is.na(dm$out_rel)==TRUE, 1, dm$out_rel)
+dm$vi <- dm$vi / (dm$out_rel * dm$cs_rel)
+dm$yi <- dm$yi / sqrt(dm$out_rel * dm$cs_rel)
+
 # -----------------------------------------------------------------------------------------------------------------#
 ############################################## HEALTY FUNCTIONING ##################################################
 # -----------------------------------------------------------------------------------------------------------------#
 # Loop for each strength
 outList <- list()
 metaCol <- c("b","cil","ciu","se","z","p",
-             #,"sig2",
              "r","rcil","rciu","rpil","rpiu",
-             "tau2","rho",
+             "tau2","i2",
              "k","N",
              "q","qdf","qp")
 metaRes <- matrix(nrow = length(strengths24), ncol = length(metaCol))
@@ -164,12 +184,14 @@ rownames(metaRes) <- strengths24
 
 for (i in 1:length(strengths24)) {
   di <- dm[dm$strength == strengths24[i] & is.na(dm$ri) == F,]
-  outList[[i]] <- rma.mv(yi = yi, V = vi, random = ~ ID | sample, data = di)
+  outList[[i]] <- rma.mv(yi = yi, V = vi, random = ~ 1 | ID / sample, test = "t", data = di)
   mres <- summary(outList[[i]])
   pred <- predict(mres, transf=transf.ztor)
+  tau2 <- sum(mres$sigma2)
+  i2 <- i2fun(mres)
   metaRes[i,] <- c(mres$beta,mres$ci.lb,mres$ci.ub,mres$se,mres$zval,mres$pval,
                    pred$pred,pred$ci.lb,pred$ci.ub,pred$pi.lb,pred$pi.ub,
-                   mres$tau2, mres$rho,
+                   tau2, i2,
                    nrow(di),sum(di$N[di$sample %in% unique(di$sample)]),
                    mres$QE,mres$QEdf,mres$QEp
                    )
@@ -191,7 +213,7 @@ forestMod <- list()
 modCol <- c("deltaR","cil","ciu","se","z","p",
             "r0","rcil0","rciu0","rpil0","rpiu0", "k0","N0",
             "r1","rcil1","rciu1","rpil1","rpiu1", "k1","N1",
-            "tau2","rho",
+            "tau2","i2",
             "q","qdf","qp",
             "qM","qMdf","qMp")
 modRes <- matrix(nrow = length(strengths24), ncol = length(modCol))
@@ -200,16 +222,18 @@ rownames(modRes) <- strengths24
 
 for (i in 1:length(strengths24)) {
   di <- dm[dm$strength == strengths24[i] & is.na(dm$ri) == F,]
-  outListMod[[i]] <- rma.mv(yi = yi, V = vi, mods = ~ Outcome, random = ~ sample | ID, data = di)
+  outListMod[[i]] <- rma.mv(yi = yi, V = vi, mods = ~ Outcome, random = ~ 1 | ID / sample, test = "t", data = di)
   modres <- summary(outListMod[[i]])
   modpred <- predict(modres, transf=transf.ztor, newmods = c(0,1))
+  tau2 <- sum(modres$sigma2)
+  i2 <- i2fun(modres)
   modRes[i,] <- c(transf.ztor(modres$beta[2]),transf.ztor(modres$ci.lb[2]),transf.ztor(modres$ci.ub[2]),
                   modres$se[2],modres$zval[2],modres$pval[2],
                   modpred$pred[1],modpred$ci.lb[1],modpred$ci.ub[1],modpred$pi.lb[1],modpred$pi.ub[1],
                   sum(di$Outcome=="mh",na.rm = T),sum(di$N[di$sample %in% unique(di$sample)&di$Outcome=="mh"]),
                   modpred$pred[2],modpred$ci.lb[2],modpred$ci.ub[2],modpred$pi.lb[2],modpred$pi.ub[2],
                   sum(di$Outcome=="wb",na.rm = T),sum(di$N[di$sample %in% unique(di$sample)&di$Outcome=="wb"]),
-                  modres$tau2, modres$rho,
+                  tau2, i2,
                   modres$QE,modres$QEdf,modres$QEp,
                   modres$QM,modres$QMdf[1],modres$QMp
                   )
@@ -231,7 +255,7 @@ wbModPop <- list()
 wbModPopcol <- c("deltaR","cil","ciu","se","z","p",
             "r0","rcil0","rciu0","rpil0","rpiu0", "k0","N0",
             "r1","rcil1","rciu1","rpil1","rpiu1", "k1","N1",
-            "tau2","rho",
+            "tau2","i2",
             "q","qdf","qp",
             "qM","qMdf","qMp")
 wbmodPopRes <- matrix(nrow = length(strengths24), ncol = length(wbModPopcol))
@@ -239,22 +263,26 @@ colnames(wbmodPopRes) <- wbModPopcol
 rownames(wbmodPopRes) <- strengths24
 for (i in 1:length(strengths24)) {
   di <- dm[dm$strength == strengths24[i] & is.na(dm$ri) == F & dm$Outcome == "wb",]
-  wbModPop[[i]] <- rma.mv(yi = yi, V = vi, mods = ~ Population, random = ~ sample | ID, data = di)
+  wbModPop[[i]] <- rma.mv(yi = yi, V = vi, mods = ~ Population, random = ~ 1 | ID / sample, test = "t", data = di)
   modres <- summary(wbModPop[[i]])
   modpred <- predict(modres, transf=transf.ztor, newmods = c(0,1))
+  tau2 <- sum(modres$sigma2)
+  i2 <- i2fun(modres)
   wbmodPopRes[i,] <- c(transf.ztor(modres$beta[2]),transf.ztor(modres$ci.lb[2]),transf.ztor(modres$ci.ub[2]),
                        modres$se[2],modres$zval[2],modres$pval[2],
                        modpred$pred[1],modpred$ci.lb[1],modpred$ci.ub[1],modpred$pi.lb[1],modpred$pi.ub[1],
                        sum(di$Population=="clinical",na.rm = T),sum(di$N[di$sample %in% unique(di$sample)&di$Population=="clinical"]),
                        modpred$pred[2],modpred$ci.lb[2],modpred$ci.ub[2],modpred$pi.lb[2],modpred$pi.ub[2],
                        sum(di$Population=="not_clinical",na.rm = T),sum(di$N[di$sample %in% unique(di$sample)&di$Population=="not_clinical"]),
-                       modres$tau2, modres$rho,
+                       tau2, i2,
                        modres$QE,modres$QEdf,modres$QEp,
                        modres$QM,modres$QMdf[1],modres$QMp
   )
 }
 rm(modres)
 rm(modpred)
+
+round(wbmodPopRes,2)
 
 wbmodPopRes <- data.frame(round(wbmodPopRes,3))
 wbmodPopRes$strength = gsub("_", " ", strengths24)
@@ -265,7 +293,7 @@ wbModVia <- list()
 wbModViacol <- c("deltaR","cil","ciu","se","z","p",
                  "r0","rcil0","rciu0","rpil0","rpiu0", "k0","N0",
                  "r1","rcil1","rciu1","rpil1","rpiu1", "k1","N1",
-                 "tau2","rho",
+                 "tau2","i2",
                  "q","qdf","qp",
                  "qM","qMdf","qMp")
 wbmodViaRes <- matrix(nrow = length(strengths24), ncol = length(wbModPopcol))
@@ -274,16 +302,18 @@ rownames(wbmodViaRes) <- strengths24
 
 for (i in 1:length(strengths24)) {
   di <- dm[dm$strength == strengths24[i] & is.na(dm$ri) == F & dm$Outcome == "wb" & dm$CS_measure %in% c("long", "short"),]
-  wbModVia[[i]] <- rma.mv(yi = yi, V = vi, mods = ~ CS_measure, random = ~ sample | ID, data = di)
+  wbModVia[[i]] <- rma.mv(yi = yi, V = vi, mods = ~ CS_measure, random = ~ 1 | ID / sample, test = "t", data = di)
   modres <- summary(wbModVia[[i]])
   modpred <- predict(modres, transf=transf.ztor, newmods = c(0,1))
+  tau2 <- sum(modres$sigma2)
+  i2 <- i2fun(modres)
   wbmodViaRes[i,] <- c(transf.ztor(modres$beta[2]),transf.ztor(modres$ci.lb[2]),transf.ztor(modres$ci.ub[2]),
                        modres$se[2],modres$zval[2],modres$pval[2],
                        modpred$pred[1],modpred$ci.lb[1],modpred$ci.ub[1],modpred$pi.lb[1],modpred$pi.ub[1],
                        sum(di$CS_measure=="long",na.rm = T),sum(di$N[di$sample %in% unique(di$sample)&di$CS_measure=="long"]),
                        modpred$pred[2],modpred$ci.lb[2],modpred$ci.ub[2],modpred$pi.lb[2],modpred$pi.ub[2],
                        sum(di$CS_measure=="short",na.rm = T),sum(di$N[di$sample %in% unique(di$sample)&di$CS_measure=="short"]),
-                       modres$tau2, modres$rho,
+                       tau2, i2,
                        modres$QE,modres$QEdf,modres$QEp,
                        modres$QM,modres$QMdf[1],modres$QMp
                        )
@@ -310,7 +340,7 @@ wbModwbCol <- c("r1","rcil1","rciu1","rpil1","rpiu1", "k1","N1",
                 "r5","rcil5","rciu5","rpil5","rpiu5", "k5","N5",
                 "r6","rcil6","rciu6","rpil6","rpiu6", "k6","N6",
                 "r7","rcil7","rciu7","rpil7","rpiu7", "k7","N7",
-                 "tau2","rho",
+                 "tau2","i2",
                 "q","qdf","qp",
                 "qM","qMdf","qMp")
 wbmodwbRes <- as.data.frame(matrix(nrow = length(strengths24), ncol = length(wbModwbCol)))
@@ -325,9 +355,11 @@ m<-matrix(c(0,1,0,0,0,0,0,
 
 for (i in 1:length(strengths24)) {
   di <- dm[dm$strength == strengths24[i] & is.na(dm$ri) == F & dm$Outcome == "wb" & dm$spec_out %in% wbMeasures,]
-  wbModwb[[i]] <- rma.mv(yi = yi, V = vi, mods = ~ 1+spec_out, random = ~ sample | ID, data = di)
+  wbModwb[[i]] <- rma.mv(yi = yi, V = vi, mods = ~ 1+spec_out, random = ~ 1 | ID / sample, test = "t", data = di)
   modres <- summary(wbModwb[[i]])
   modpred <- as.data.frame(predict(modres, transf=transf.ztor, newmods = m))
+  tau2 <- sum(modres$sigma2)
+  i2 <- i2fun(modres)
   wbmodwbRes[i,] <- c(unlist(modpred[1,]),sum(di$spec_out=="domsat",na.rm = T),
                       sum(di$N[di$sample %in% unique(di$sample)&di$spec_out=="domsat"],na.rm = T),
                         unlist(modpred[2,]),sum(di$spec_out=="happy",na.rm = T),
@@ -342,7 +374,7 @@ for (i in 1:length(strengths24)) {
                                                   sum(di$N[di$sample %in% unique(di$sample)&di$spec_out=="pwb"],na.rm = T),
                                                          unlist(modpred[7,]),sum(di$spec_out=="swb",na.rm = T),
                                                          sum(di$N[di$sample %in% unique(di$sample)&di$spec_out=="swb"],na.rm = T),
-                       modres$tau2, modres$rho,
+                      tau2, i2,
                       modres$QE,modres$QEdf,modres$QEp,
                       modres$QM,modres$QMdf[1],modres$QMp
   )
@@ -360,7 +392,7 @@ mhModPop <- list()
 mhModPopcol <- c("deltaR","cil","ciu","se","z","p",
                  "r0","rcil0","rciu0","rpil0","rpiu0", "k0","N0",
                  "r1","rcil1","rciu1","rpil1","rpiu1", "k1","N1",
-                 "tau2","rho",
+                 "tau2","i2",
                  "q","qdf","qp",
                  "qM","qMdf","qMp")
 mhmodPopRes <- matrix(nrow = length(strengths24), ncol = length(mhModPopcol))
@@ -369,18 +401,20 @@ rownames(mhmodPopRes) <- strengths24
 for (i in 1:length(strengths24)) {
   di <- dm[dm$strength == strengths24[i] & is.na(dm$ri) == F & dm$Outcome == "mh",]
   if (i != which(strengths24=="Humor")) {
-    mhModPop[[i]] <- rma.mv(yi = yi, V = vi, mods = ~ Population, random = ~ sample | ID, data = di)
-  } else {mhModPop[[i]] <- rma.mv(yi = yi, V = vi, mods = ~ Population, random = ~ sample | ID, data = di,
+    mhModPop[[i]] <- rma.mv(yi = yi, V = vi, mods = ~ Population, random = ~ 1 | ID / sample, test = "t", data = di)
+  } else {mhModPop[[i]] <- rma.mv(yi = yi, V = vi, mods = ~ Population, random = ~ 1 | ID / sample, test = "t", data = di,
                                   control=list(optimizer="Nelder-Mead"))}
   modres <- summary(mhModPop[[i]])
   modpred <- predict(modres, transf=transf.ztor, newmods = c(0,1))
+  tau2 <- sum(modres$sigma2)
+  i2 <- i2fun(modres)
   mhmodPopRes[i,] <- c(transf.ztor(modres$beta[2]),transf.ztor(modres$ci.lb[2]),transf.ztor(modres$ci.ub[2]),
                        modres$se[2],modres$zval[2],modres$pval[2],
                        modpred$pred[1],modpred$ci.lb[1],modpred$ci.ub[1],modpred$pi.lb[1],modpred$pi.ub[1],
                        sum(di$Population=="clinical",na.rm = T),sum(di$N[di$sample %in% unique(di$sample)&di$Population=="clinical"]),
                        modpred$pred[2],modpred$ci.lb[2],modpred$ci.ub[2],modpred$pi.lb[2],modpred$pi.ub[2],
                        sum(di$Population=="not_clinical",na.rm = T),sum(di$N[di$sample %in% unique(di$sample)&di$Population=="not_clinical"]),
-                       modres$tau2, modres$rho,
+                       tau2, i2,
                        modres$QE,modres$QEdf,modres$QEp,
                        modres$QM,modres$QMdf[1],modres$QMp
   )
@@ -396,7 +430,7 @@ mhModVia <- list()
 mhModViacol <- c("deltaR","cil","ciu","se","z","p",
                  "r0","rcil0","rciu0","rpil0","rpiu0", "k0","N0",
                  "r1","rcil1","rciu1","rpil1","rpiu1", "k1","N1",
-                 "tau2","rho",
+                 "tau2","i2",
                  "q","qdf","qp",
                  "qM","qMdf","qMp")
 mhmodViaRes <- matrix(nrow = length(strengths24), ncol = length(mhModPopcol))
@@ -404,19 +438,18 @@ colnames(mhmodViaRes) <- mhModViacol
 rownames(mhmodViaRes) <- strengths24
 for (i in 1:length(strengths24)) {
   di <- dm[dm$strength == strengths24[i] & is.na(dm$ri) == F & dm$Outcome == "mh" & dm$CS_measure %in% c("long", "short"),]
-  if (i != which(strengths24=="Humor")) {
-    mhModVia[[i]] <- rma.mv(yi = yi, V = vi, mods = ~ CS_measure, random = ~ sample | ID, data = di)
-  } else {mhModVia[[i]] <- rma.mv(yi = yi, V = vi, mods = ~ CS_measure, random = ~ sample | ID, data = di,
-                                  control=list(optimizer="Nelder-Mead"))}
+  mhModVia[[i]] <- rma.mv(yi = yi, V = vi, mods = ~ CS_measure, random = ~ 1 | ID / sample, test = "t", data = di)
   modres <- summary(mhModVia[[i]])
   modpred <- predict(modres, transf=transf.ztor, newmods = c(0,1))
+  tau2 <- sum(modres$sigma2)
+  i2 <- i2fun(modres)
   mhmodViaRes[i,] <- c(transf.ztor(modres$beta[2]),transf.ztor(modres$ci.lb[2]),transf.ztor(modres$ci.ub[2]),
                        modres$se[2],modres$zval[2],modres$pval[2],
                        modpred$pred[1],modpred$ci.lb[1],modpred$ci.ub[1],modpred$pi.lb[1],modpred$pi.ub[1],
                        sum(di$CS_measure=="long",na.rm = T),sum(di$N[di$sample %in% unique(di$sample)&di$CS_measure=="long"]),
                        modpred$pred[2],modpred$ci.lb[2],modpred$ci.ub[2],modpred$pi.lb[2],modpred$pi.ub[2],
                        sum(di$CS_measure=="short",na.rm = T),sum(di$N[di$sample %in% unique(di$sample)&di$CS_measure=="short"]),
-                       modres$tau2, modres$rho,
+                       tau2, i2,
                        modres$QE,modres$QEdf,modres$QEp,
                        modres$QM,modres$QMdf[1],modres$QMp
   )
@@ -434,7 +467,7 @@ mhModmhCol <- c("r1","rcil1","rciu1","rpil1","rpiu1", "k1","N1",
                 "r2","rcil2","rciu2","rpil2","rpiu2", "k2","N2",
                 "r3","rcil3","rciu3","rpil3","rpiu3", "k3","N3",
                 "r4","rcil4","rciu4","rpil4","rpiu4", "k4","N4",
-                "tau2","rho",
+                "tau2","i2",
                 "q","qdf","qp",
                 "qM","qMdf","qMp")
 mhmodmhRes <- as.data.frame(matrix(nrow = length(strengths24), ncol = length(mhModmhCol)))
@@ -446,12 +479,11 @@ m<-matrix(c(0,1,0,0,
 
 for (i in 1:length(strengths24)) {
   di <- dm[dm$strength == strengths24[i] & is.na(dm$ri) == F & dm$Outcome == "mh" & dm$spec_out %in% mhMeasures,]
-  if (i != which(strengths24=="Humor")) {
-    mhModmh[[i]] <- rma.mv(yi = yi, V = vi, mods = ~ spec_out, random = ~ sample | ID, data = di)
-  } else {mhModmh[[i]] <- rma.mv(yi = yi, V = vi, mods = ~ spec_out, random = ~ sample | ID, data = di,
-                                  control=list(optimizer="Nelder-Mead"))}
+  mhModmh[[i]] <- rma.mv(yi = yi, V = vi, mods = ~ spec_out, random = ~ 1 | ID / sample, test = "t", data = di)
   modres <- summary(mhModmh[[i]])
   modpred <- as.data.frame(predict(modres, transf=transf.ztor, newmods = m))
+  tau2 <- sum(modres$sigma2)
+  i2 <- i2fun(modres)
   mhmodmhRes[i,] <- c(unlist(modpred[1,]),sum(di$spec_out=="anx",na.rm = T),
                       sum(di$N[di$sample %in% unique(di$sample)&di$spec_out=="anx"],na.rm = T),
                       unlist(modpred[2,]),sum(di$spec_out=="dep",na.rm = T),
@@ -460,7 +492,7 @@ for (i in 1:length(strengths24)) {
                       sum(di$N[di$sample %in% unique(di$sample)&di$spec_out=="gen"],na.rm = T),
                       unlist(modpred[4,]),sum(di$spec_out=="stress",na.rm = T),
                       sum(di$N[di$sample %in% unique(di$sample)&di$spec_out=="stress"],na.rm = T),
-                      modres$tau2, modres$rho,
+                      tau2, i2,
                       modres$QE,modres$QEdf,modres$QEp,
                       modres$QM,modres$QMdf[1],modres$QMp
   )
@@ -469,3 +501,139 @@ for (i in 1:length(strengths24)) {
 round(mhmodmhRes,2)
 mhmodmhRes <- data.frame(round(mhmodmhRes,3))
 mhmodmhRes$strength = gsub("_", " ", strengths24)
+
+# -----------------------------------------------------------------------------------------------------------------#
+################################################# LEAVE ONE OUT ####################################################
+# -----------------------------------------------------------------------------------------------------------------#
+
+# Well-being
+l1o_res <- list()
+
+for (strng in 1:24) {
+  print(strng)
+  
+  di <- dm[dm$strength == strengths24[strng] & is.na(dm$ri) == F & dm$Outcome == "wb",]
+  model <- rma.mv(yi = yi, V = vi, random = ~ 1 | ID / sample, test = "t", data = di)
+  
+  l1o_res[[strengths24[strng]]] <- data.frame(
+    sample = di$sample,
+    beta = rep(NA, nrow(di)),
+    cil = transf.ztor(summary(model)$ci.lb),
+    ciu = transf.ztor(summary(model)$ci.ub),
+    target_est = transf.ztor(summary(model)$beta)
+  )
+
+  for (i in 1:nrow(di)) {
+  
+    d_out <- di[-i,]
+    out_fit <- rma.mv(yi = yi, V = vi, random = ~ 1 | ID / sample, test = "t", data = d_out)
+    
+    l1o_res[[ strengths24[strng] ]]$beta[i] <- transf.ztor(summary(out_fit)$beta)
+    
+  }
+  
+}
+
+                          
+# Mental health
+l1o_res_mh <- list()
+
+for (strng in 1:24) {
+  print(strng)
+  
+  di <- dm[dm$strength == strengths24[strng] & is.na(dm$ri) == F & dm$Outcome == "wb",]
+  model <- rma.mv(yi = yi, V = vi, random = ~ 1 | ID / sample, test = "t", data = di)
+  
+  l1o_res_mh[[strengths24[strng]]] <- data.frame(
+    sample = di$sample,
+    beta = rep(NA, nrow(di)),
+    cil = transf.ztor(summary(model)$ci.lb),
+    ciu = transf.ztor(summary(model)$ci.ub),
+    target_est = transf.ztor(summary(model)$beta)
+  )
+  
+  for (i in 1:nrow(di)) {
+    
+    d_out <- di[-i,]
+    out_fit <- rma.mv(yi = yi, V = vi, random = ~ 1 | ID / sample, test = "t", data = d_out)
+    
+    l1o_res_mh[[ strengths24[strng] ]]$beta[i] <- transf.ztor(summary(out_fit)$beta)
+    
+  }
+  
+}
+
+# -----------------------------------------------------------------------------------------------------------------#
+############################################### PUBLICATION BIAS ###################################################
+# -----------------------------------------------------------------------------------------------------------------#
+# Add standard error and its square to the data
+dm$sei <- sqrt(dm$vi)
+dm$sei2 <- dm$sei^2
+
+# Use PET regressions with sei to test for publication bias in wellbeing and mental health associations
+# ------- Wellbeing
+wbBias <- list()
+wbBiasTest <- c(rep(NA, length(strengths24)))
+
+for (i in 1:length(strengths24)) {
+  di <- dm[dm$strength == strengths24[i] & is.na(dm$ri) == F & dm$Outcome == "wb",]
+  wbBias[[i]] <- rma.mv(yi = yi,
+                        V = vi,
+                        mods = ~ sei,
+                        random = ~ 1 | ID/sample,
+                        test = "t",
+                        data = di)
+  wbBiasTest[i] <- wbBias[[i]]$pval[2]
+}
+
+# ------- Mental health
+mhBias <- list()
+mhBiasTest <- c(rep(NA, length(strengths24)))
+
+for (i in 1:length(strengths24)) {
+  di <- dm[dm$strength == strengths24[i] & is.na(dm$ri) == F & dm$Outcome == "mh",]
+  mhBias[[i]] <- rma.mv(yi = yi,
+                        V = vi,
+                        mods = ~ sei,
+                        random = ~ 1 | ID/sample,
+                        test = "t",
+                        data = di)
+  mhBiasTest[i] <- mhBias[[i]]$pval[2]
+}
+
+# -----------------------------------------------------------------------------------------------------------------#
+############################################## STORE RESULTS META ##################################################
+# -----------------------------------------------------------------------------------------------------------------#
+resList = list(
+  overall = outList,
+  mainMod = outListMod,
+  mhPop = mhModPop,
+  mhVia = mhModVia,
+  wbPop = wbModPop,
+  wbVia = wbModVia,
+  wbwb = wbModwb,
+  mhmh = mhModmh
+)
+saveRDS(resList, here::here("results/resList.RDS"))
+
+effList = list(
+  overall = metaRes,
+  mainMod = modRes,
+  mhPop = mhmodPopRes,
+  mhVia = mhmodViaRes,
+  wbPop = wbmodPopRes,
+  wbVia = wbmodViaRes,
+  wbwb = wbmodwbRes,
+  mhmh = mhmodmhRes
+)
+saveRDS(effList, "results/effList.RDS")
+
+resBias = list(
+  wbl1o = l1o_res,
+  mhl1o = l1o_res_mh,
+  biaswb = wbBias,
+  biasmh = mhBias,
+  biaswb = wbBiasTest,
+  biasmh = mhBiasTest
+)
+saveRDS(resBias, "results/resBias.RDS")

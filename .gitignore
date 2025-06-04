@@ -2,3 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
+.git
+.gitignore
+/Shiny_app_code/rsconnect

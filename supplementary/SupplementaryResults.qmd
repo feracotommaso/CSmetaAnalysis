@@ -1,0 +1,671 @@
+---
+title: "Supplementary materials: detailed results"
+subtitle: "Character strengths, well-being, and ill-being"
+format: 
+  pdf:
+    toc: true
+    number-sections: true
+    
+editor: visual
+execute:
+  echo: false
+  
+crossref:
+  # ref-type: supptbl
+  # latex-env: supptbl
+  fig-prefix: Figure S
+  fig-title: Figure S
+
+  # ref-type: supptbl
+  # latex-env: supptbl
+  tbl-prefix: Table S
+  tbl-title: Table S
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+    fig.align = "center",
+    comment = "#>",
+    size = "footnotesize",
+    dev = c("pdf", "tiff")
+)
+options(tinytex.verbose = TRUE)
+options(knitr.table.format = "latex")
+```
+
+```{r packages, include = FALSE}
+# Writing packages
+library(papaja)
+library(kableExtra)
+library(here)
+library(knitr)
+library(flextable)
+# Analysis packages
+library(ggplot2)
+library(metafor)
+library(readxl)
+library(dplyr)
+library(pacman)
+
+# utils functions for the paper
+output_format <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+source(here("supplementary", "R/utils-paper.R"), local = knitr::knit_global())
+# 
+folder_path <- "R"  # Adjust this if the folder is located elsewhere
+r_files <- list.files(folder_path, full.names = TRUE, pattern = "\\.R$")
+for (r_file in r_files) {
+  source(r_file)  # This will run the R code in the specified script file
+}
+
+load(here::here("results/strengths.R"))
+resList <- readRDS(here::here("results/resList.RDS"))
+effList <- readRDS(here::here("results/effList.RDS"))
+bias <- readRDS(here::here("results/resBias.RDS"))
+dtot = read_excel(here::here("Data_and_code/metaData/finalMetaData.xlsx"))
+
+strengths24 <- colnames(dtot[, which(colnames(dtot) == "Appreciation_of_beauty"):
+                            which(colnames(dtot) == "Zest")])
+#Reverse negative scales
+dtot[dtot$Valence == "neg", strengths24] <- dtot[dtot$Valence == "neg", strengths24] * -1
+
+# Create dataset with non-duplicated samples for descriptive stats
+uniqueD <- dtot[!duplicated(dtot$sample), ]
+
+```
+
+\newpage
+
+# Descriptive statistics
+
+```{r}
+# Create a dataframe with one line per strength and one column per information
+summStat <- data.frame(strength = strengths24,
+                       N = rep(NA,24),
+                       sampleSize = rep(NA,24),
+                       k = rep(NA,24),
+                       samples = rep(NA, 24),
+                       studies = rep(NA, 24),
+                       # Specific CS measure,
+                       CS_short = rep(NA,24),
+                       CS_long = rep(NA,24),
+                       CS_other = rep(NA,24),
+                       # Outcomes
+                       Wellbeing = rep(NA,24),
+                       MentalHealt = rep(NA,24),
+                       # Clinical
+                       Clinical = rep(NA, 24)
+                       )
+
+# Calculate each info for each skill by subsetting the data
+for (i in 1:length(strengths24)) {
+  dsum <- dtot[is.na(dtot[,strengths24[i]]) == F, ]
+  summStat[i, 2:ncol(summStat)] <- c(
+                                     sum(dsum$N[!duplicated(dsum$ID)], na.rm = TRUE), # N
+                                     paste0("[", min(dsum$N,na.rm=TRUE), "; ", max(dsum$N,na.rm=TRUE),"]"), # N range
+                                     nrow(dsum), # Effects (k)
+                                     length(unique(dsum$sample)), # Samples
+                                     length(unique(dsum$ID)), # Studies
+                                     # Moderators
+                                     paste0(sum(dsum$CS_measure=="short",na.rm=TRUE), 
+                                            " (",length(unique(dsum$sample[dsum$CS_measure == "short"])),")"), # Short VIA
+                                     paste0(sum(dsum$CS_measure=="long",na.rm=TRUE), 
+                                     " (",length(unique(dsum$sample[dsum$CS_measure == "long"])),")"), # Long VIA
+                                     paste0(sum(dsum$CS_measure=="other",na.rm=TRUE), 
+                                            " (",length(unique(dsum$sample[dsum$CS_measure == "other"])),")"), # Other CS measures
+                                     paste0(sum(dsum$Outcome=="wb",na.rm=TRUE), 
+                                            " (",length(unique(dsum$sample[dsum$Outcome == "wb"])),")"), # WB outcomes
+                                     paste0(sum(dsum$Outcome=="mh",na.rm=TRUE), 
+                                            " (",length(unique(dsum$sample[dsum$Outcome == "mh"])),")"), # MH outcomes
+                                     paste0(sum(dsum$Population=="clinical",na.rm=TRUE), 
+                                            " (",length(unique(dsum$sample[dsum$Population == "clinical"])),")") # Clinical populations
+                                     )
+}
+
+# Stats for the total sample
+# Calculate each info for the total sample
+totStat <- c("FullSample",
+             sum(dtot$N[!duplicated(dtot$ID)], na.rm = TRUE),
+             paste0("[", min(dtot$N,na.rm=TRUE), "; ", max(dtot$N,na.rm=TRUE),"]"),
+             sum(is.na(dtot[,strengths24])==FALSE),
+             length(unique(dtot$sample)),
+             length(unique(dtot$ID)),
+             paste0(sum(is.na(dtot[dtot$CS_measure == "short",strengths24])==FALSE), 
+                    " (",length(unique(dtot$sample[dtot$CS_measure == "short"])),")"),
+             paste0(sum(is.na(dtot[dtot$CS_measure == "long",strengths24])==FALSE), 
+                    " (",length(unique(dtot$sample[dtot$CS_measure == "long"])),")"),
+             paste0(sum(is.na(dtot[dtot$CS_measure == "other",strengths24])==FALSE), 
+                    " (",length(unique(dtot$sample[dtot$CS_measure == "other"])),")"),
+             paste0(sum(is.na(dtot[dtot$Outcome == "wb",strengths24])==FALSE), 
+                    " (",length(unique(dtot$sample[dtot$Outcome == "wb"])),")"),
+             paste0(sum(is.na(dtot[dtot$Outcome == "mh",strengths24])==FALSE), 
+                    " (",length(unique(dtot$sample[dtot$Outcome == "mh"])),")"),
+             paste0(sum(is.na(dtot[dtot$Population == "clinical",strengths24])==FALSE), 
+                    " (",length(unique(dtot$sample[dtot$Population == "clinical"])),")")
+)
+TableStat <- rbind(summStat, totStat)
+
+colnames(TableStat)<-gsub("_", " ", colnames(TableStat))
+colnames(TableStat) <- c("","N","N range", "k", "Samples", "Studies", 
+                         "VIA short", "VIA long", "VIA other", 
+                         "Wellbeing", "Mental health", 
+                         "Clinical samples")
+knitrMeta(TableStat,output_format
+          ,foot = "k = effect sizes; VIA = Values In Action inventory form",
+          capt="Descriptive statistics. The number of unique samples is reported in parenthesis."
+          )%>%
+  row_spec(0, angle = 90)
+```
+
+\newpage
+
+# Detailed number of effects for specific outcomes
+
+```{r}
+fixvar <- colnames(dtot[, !colnames(dtot)%in%strengths24])
+dm <- reshape2::melt(dtot, id.vars = fixvar, 
+           variable.name = "strength",
+           value.name = "ri")
+dm <- dm[is.na(dm$ri)==FALSE, ]
+dm$spec_out <- ifelse(dm$Outcome_type == "meaning", "pwb", 
+                      ifelse(dm$Outcome_type == "distress", "gen", 
+                             ifelse(dm$Outcome_type == "ptsd", NA,
+                                    dm$Outcome_type)))
+specOut <- table(dm$spec_out,dm$strength)
+rownames(specOut) <- c("Anxiety", "Depression", "Domain satisfaction",
+                       "General mental health", "Happiness", "Life satisfaction",
+                       "Negative affect", "Positive affect", "Psychological well-being",
+                       "Stress", "Subjective well-being")
+colnames(specOut)<-gsub("_", " ", colnames(specOut))
+
+knitrMeta(t(specOut),output_format,
+          capt="Effects (k) for each specific outcome",
+          foot="")%>%
+  kable_styling(font_size = 8)%>%
+  row_spec(0, angle = 90)
+```
+
+\newpage
+
+# Detailed results healthy functioning
+
+```{r}
+metaRes <- effList[["overall"]]
+
+Table2 <- data.frame(
+  Strength = metaRes$strength,
+  N = metaRes$N,
+  k = metaRes$k,
+  r = paste0(format(round(metaRes$r, 3),nsmall=3),ifelse(metaRes$p < .01, "*", "")),
+  se = format(round(metaRes$se,3),nsmall=3),
+  CI_95 = paste0("[",format(round(metaRes$rcil,3),nsmall=3),"; ",
+                     format(round(metaRes$rciu,3),nsmall=3),"]"),
+  PI_95 = paste0("[",format(round(metaRes$rpil,3),nsmall=3),"; ",
+                 format(round(metaRes$rpiu,3),nsmall=3),"]"),
+  tau2 = format(round(metaRes$tau2,3),nsmall=3),
+  I2 = round(metaRes$i2),
+  Q = paste0(round(metaRes$q),
+             ifelse(metaRes$qp < .01, "*", ""))
+)
+
+knitrMeta(Table2,output_format,scaled=FALSE,
+          capt="Meta-analytical associations between character strengths and mental health and well-being",
+          foot="N = total sample size; k = number of effects; 
+          r = back-transformed meta-analytic correlation coefficient; se = standard error;
+          CI = confidence intervals; PI = predicted intervals; 
+          tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;
+          Q = Q statistic. See the shiny app for additional info"
+          )%>%
+  kable_styling(font_size = 9)
+```
+
+<!-- \newpage -->
+
+# Detailed results on mental health vs well-being moderator analysis
+
+```{r}
+modRes = effList[["mainMod"]]
+
+biasTest <- data.frame(
+  wb = rep(NA,24),
+  mh = rep(NA,24)
+)
+
+for (i in 1:24) {
+  biasTest$wb[i] <- bias$biaswb[[i]]$pval[2]
+  biasTest$mh[i] <- bias$biasmh[[i]]$pval[2]
+}
+
+biasTestRes <- merged <- c(rbind(biasTest$mh, biasTest$wb))
+
+Table3 <- data.frame(
+  Strength = as.vector(rbind(modRes$strength, "")),
+  Outcome = as.vector(rbind(rep("MH", 24), 
+                            rep("WB", 24))),
+  r = as.vector(rbind(paste0(format(modRes$r0,nsmall = 3),
+                             " [",format(modRes$rcil0,nsmall = 3),"; ",
+                             format(modRes$rciu0,nsmall = 3),"]"),
+                      paste0(format(modRes$r1,nsmall = 3),
+                             " [",format(modRes$rcil1,nsmall = 3),"; ",
+                             format(modRes$rciu1,nsmall = 3),"]"))),
+  N = as.vector(rbind(modRes$N0,
+                      modRes$N1)),
+  k = as.vector(rbind(modRes$k0,
+                      modRes$k1)),
+  delta_r = as.vector(rbind(paste0(format(modRes$deltaR, nsmall = 3), 
+                                   ifelse(modRes$p < .01, "*", ""),
+                                   " [",format(modRes$cil,nsmall = 3),"; ",
+                                   format(modRes$ciu,nsmall = 3),"]"),
+                            "")),
+  se = as.vector(rbind(format(modRes$se,nsmall = 3),
+                       "")),
+  z = as.vector(rbind(format(modRes$z,nsmall = 3),
+                      "")),
+  tau2 = as.vector(rbind(format(modRes$tau2,nsmall = 3),
+                         "")),
+  I2 = as.vector(rbind(round(modRes$i2),
+                       "")),
+  Q = as.vector(rbind(paste0(round(modRes$q), ifelse(modRes$qp < .01, "*", "")),
+                      "")),
+  QM = as.vector(rbind(paste0(round(modRes$qM), ifelse(modRes$qMp < .01, "*", "")),
+                       "")),
+  PET = paste0(round(biasTestRes,3), ifelse(biasTestRes < .01, "*",""))
+)
+
+colnames(Table3)<-gsub("_", " ", colnames(Table3))
+knitrMeta(Table3,output_format,
+          capt="Moderator analysis testing for differences between mental health (MH) and well-being (WB) outcomes",
+          foot="N = total sample size; k = number of effects; 
+          r = back-transformed meta-analytic correlation coefficient; se = standard error;
+          CI = confidence intervals; PI = predicted intervals; 
+          tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;
+          Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info;
+          PET = p value of the PET regression for publication bias.")
+```
+
+\newpage
+
+# Detailed results on short vs long VIA formats (MH)
+
+```{r}
+mhmodViaRes <- effList[["mhVia"]]
+
+Table8 <- data.frame(
+  Strength = as.vector(rbind(modRes$strength, "")),
+  VIA = as.vector(rbind(rep("Long", 24), 
+                        rep("Short", 24))),
+  r = as.vector(rbind(paste0(format(mhmodViaRes$r0,nsmall = 3),
+                             " [",format(mhmodViaRes$rcil0,nsmall = 3),"; ",
+                             format(mhmodViaRes$rciu0,nsmall = 3),"]"),
+                      paste0(format(mhmodViaRes$r1,nsmall = 3),
+                             " [",format(mhmodViaRes$rcil1,nsmall = 3),"; ",
+                             format(mhmodViaRes$rciu1,nsmall = 3),"]"))),
+  N = as.vector(rbind(mhmodViaRes$N0,
+                      mhmodViaRes$N1)),
+  k = as.vector(rbind(mhmodViaRes$k0,
+                      mhmodViaRes$k1)),
+  delta_r = as.vector(rbind(paste0(format(mhmodViaRes$deltaR, nsmall = 3), 
+                                   ifelse(mhmodViaRes$p < .01, "*", ""),
+                                   " [",format(mhmodViaRes$cil,nsmall = 3),"; ",
+                                   format(mhmodViaRes$ciu,nsmall = 3),"]"),
+                            "")),
+  se = as.vector(rbind(format(mhmodViaRes$se,nsmall = 3),
+                       "")),
+  z = as.vector(rbind(format(mhmodViaRes$z,nsmall = 3),
+                      "")),
+  tau2 = as.vector(rbind(format(mhmodViaRes$tau2,nsmall = 3),
+                         "")),
+  I2 = as.vector(rbind(round(mhmodViaRes$i2),
+                       "")),
+  Q = as.vector(rbind(paste0(round(mhmodViaRes$q), ifelse(mhmodViaRes$qp < .01, "*", "")),
+                      "")),
+  QM = as.vector(rbind(paste0(round(mhmodViaRes$qM), ifelse(mhmodViaRes$qMp < .01, "*", "")),
+                       ""))
+)
+
+colnames(Table8)<-gsub("_", " ", colnames(Table8))
+knitrMeta(Table8,output_format,
+          capt="Moderator analysis testing for differences between short and long VIA formats on MH outcomes",
+          foot="N = total sample size; k = number of effects; 
+          r = back-transformed meta-analytic correlation coefficient; se = standard error;
+          CI = confidence intervals; PI = predicted intervals; 
+          tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;
+          Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info")
+
+```
+
+\newpage
+
+# Detailed results on short vs long VIA formats (WB)
+
+```{r}
+wbmodViaRes <- effList[["wbVia"]]
+
+Table5 <- data.frame(
+  Strength = as.vector(rbind(modRes$strength, "")),
+  VIA = as.vector(rbind(rep("Long", 24), 
+                        rep("Short", 24))),
+  r = as.vector(rbind(paste0(format(wbmodViaRes$r0,nsmall = 3),
+                             " [",format(wbmodViaRes$rcil0,nsmall = 3),"; ",
+                             format(wbmodViaRes$rciu0,nsmall = 3),"]"),
+                      paste0(format(wbmodViaRes$r1,nsmall = 3),
+                             " [",format(wbmodViaRes$rcil1,nsmall = 3),"; ",
+                             format(wbmodViaRes$rciu1,nsmall = 3),"]"))),
+  N = as.vector(rbind(wbmodViaRes$N0,
+                      wbmodViaRes$N1)),
+  k = as.vector(rbind(wbmodViaRes$k0,
+                      wbmodViaRes$k1)),
+  delta_r = as.vector(rbind(paste0(format(wbmodViaRes$deltaR, nsmall = 3), 
+                                   ifelse(wbmodViaRes$p < .01, "*", ""),
+                                   " [",format(wbmodViaRes$cil,nsmall = 3),"; ",
+                                   format(wbmodViaRes$ciu,nsmall = 3),"]"),
+                            "")),
+  se = as.vector(rbind(format(wbmodViaRes$se,nsmall = 3),
+                       "")),
+  z = as.vector(rbind(format(wbmodViaRes$z,nsmall = 3),
+                      "")),
+  tau2 = as.vector(rbind(format(wbmodViaRes$tau2,nsmall = 3),
+                         "")),
+  I2 = as.vector(rbind(round(wbmodViaRes$i2),
+                       "")),
+  Q = as.vector(rbind(paste0(round(wbmodViaRes$q), ifelse(wbmodViaRes$qp < .01, "*", "")),
+                      "")),
+  QM = as.vector(rbind(paste0(round(wbmodViaRes$qM), ifelse(wbmodViaRes$qMp < .01, "*", "")),
+                       ""))
+)
+
+colnames(Table5)<-gsub("_", " ", colnames(Table5))
+knitrMeta(Table5,output_format,
+          capt="Moderator analysis testing for differences between short and long VIA formats on WB outcomes",
+          foot="N = total sample size; k = number of effects; 
+          r = back-transformed meta-analytic correlation coefficient; se = standard error;
+          CI = confidence intervals; PI = predicted intervals; 
+          tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;
+          Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info")
+```
+
+\newpage
+
+# Detailed results on specific well-being outcomes
+
+```{r}
+wbmodwbRes <- effList[["wbwb"]]
+Table6 <- data.frame(Strength = wbmodwbRes$strength,
+                     Domain_satisfaction = paste0(format(wbmodwbRes$r1,nsmall=2),
+                                        " [",format(wbmodwbRes$rcil1,nsmall=2),"; ",
+                                        format(wbmodwbRes$rciu1,nsmall=2),"]"),
+                     Happyness = paste0(format(wbmodwbRes$r2,nsmall=2),
+                                        " [",format(wbmodwbRes$rcil2,nsmall=2),"; ",
+                                        format(wbmodwbRes$rciu2,nsmall=2),"]"),
+                     Life_satisfaction = paste0(format(wbmodwbRes$r3,nsmall=2),
+                                        " [",format(wbmodwbRes$rcil3,nsmall=2),"; ",
+                                        format(wbmodwbRes$rciu3,nsmall=2),"]"),
+                     Negative_affect = paste0(format(wbmodwbRes$r4,nsmall=2),
+                                        " [",format(wbmodwbRes$rcil4,nsmall=2),"; ",
+                                        format(wbmodwbRes$rciu4,nsmall=2),"]"),
+                     Positive_affect = paste0(format(wbmodwbRes$r5,nsmall=2),
+                                        " [",format(wbmodwbRes$rcil5,nsmall=2),"; ",
+                                        format(wbmodwbRes$rciu5,nsmall=2),"]"),
+                     Psychological_wellbeing = paste0(format(wbmodwbRes$r6,nsmall=2),
+                                        " [",format(wbmodwbRes$rcil6,nsmall=2),"; ",
+                                        format(wbmodwbRes$rciu6,nsmall=2),"]"),
+                     Subjective_wellbeing = paste0(format(wbmodwbRes$r7,nsmall=2),
+                                        " [",format(wbmodwbRes$rcil7,nsmall=2),"; ",
+                                        format(wbmodwbRes$rciu7,nsmall=2),"]"),
+                     Overall_effect= paste0(format(modRes$r1,nsmall=2),
+                                        " [",format(modRes$rcil1,nsmall=2),"; ",
+                                        format(modRes$rciu1,nsmall=2),"]"),
+                     tau2 = wbmodwbRes$tau2,
+                     Q =paste0(format(wbmodwbRes$q), "(",wbmodwbRes$qdf,")",ifelse(wbmodwbRes$qp < .01, "*", "")),
+                     QM =paste0(format(wbmodwbRes$qM), "(",wbmodwbRes$qMdf,")",ifelse(wbmodwbRes$qMp < .01, "*", ""))
+)
+colnames(Table6)<-gsub("_", " ", colnames(Table6))
+knitrMeta(Table6,output_format,
+          capt="Moderator analysis testing for differences between specific WB outcomes. Back-transformed meta-analytic correlation coefficient and confidence intervals are reported.",
+          foot="tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;
+          Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info")
+
+```
+
+
+
+# Detailed results on specific mental health outcome
+
+```{r}
+mhmodmhRes <- effList[["mhmh"]]
+Table9 <- data.frame(Strength = mhmodmhRes$strength,
+                     Anxiety = paste0(round(mhmodmhRes$r1,2),
+                                                  " [",round(mhmodmhRes$rcil1,2),"; ",
+                                                  round(mhmodmhRes$rciu1,2),"]"),
+                     Depression = paste0(round(mhmodmhRes$r2,2),
+                                         " [",round(mhmodmhRes$rcil2,2),"; ",
+                                         round(mhmodmhRes$rciu2,2),"]"),
+                     General_mental_health = paste0(round(mhmodmhRes$r3,2),
+                                                  " [",round(mhmodmhRes$rcil3,2),"; ",
+                                                  round(mhmodmhRes$rciu3,2),"]"),
+                     Stress = paste0(round(mhmodmhRes$r4,2),
+                                     " [",round(mhmodmhRes$rcil4,2),"; ",
+                                     round(mhmodmhRes$rciu4,2),"]"),
+                     Overall_effect = paste0(round(modRes$r0,2),
+                                             " [",round(modRes$rcil0,2),"; ",
+                                             round(modRes$rciu0,2),"]"),
+                     tau2 = mhmodmhRes$tau2,
+                     I2 = round(metaRes$i2),
+                     Q =paste0(format(mhmodmhRes$q), ifelse(mhmodmhRes$qp < .01, "*", "")),#"(",modRes$qdf,")",
+                     QM =paste0(format(mhmodmhRes$qM), ifelse(mhmodmhRes$qMp < .01, "*", ""))#"(",modRes$qMdf,")",
+)
+colnames(Table9)<-gsub("_", " ", colnames(Table9))
+
+knitrMeta(Table9,output_format,
+          capt="Moderator analysis testing for differences between specific MH outcomes. Back-transformed meta-analytic correlation coefficient and confidence intervals are reported.",
+           foot="tau2 = total variance (between + within); 
+           I2 = percentage of variance due to heterogeneity;
+           Q = Q statistic; QM = Q test for the moderator analysis. 
+           See the shiny app for additional info")
+
+
+```
+
+\newpage
+
+# Clinical and non-clinical samples
+
+For what concerns clinical and non-clinical population, results for both well-being and mental health outcomes are mainly inconclusive. Indeed, although effects are generally higher in non-clinical populations, effects within clinical populations are extremely heterogeneous and significance tests not informative. The high heterogeneity of the findings, other than visually clear, is supported by the Q and tau statistics. According to these results, we did not proceed with further analysis of clinical populations.
+
+![Well-being associations by population](Figures/WB.png)
+
+![Mental health associations by population](Figures/MH.png)
+
+\newpage
+
+## Well-being - Detailed results on clinical vs non-clinical population
+
+```{r}
+wbmodPopRes <- effList[["wbPop"]]
+
+Table4 <- data.frame(
+  Strength = as.vector(rbind(modRes$strength, "")),
+  Population = as.vector(rbind(rep("Clinical", 24), 
+                               rep("Not clinical", 24))),
+  r = as.vector(rbind(paste0(format(wbmodPopRes$r0,nsmall = 3),
+                             " [",format(wbmodPopRes$rcil0,nsmall = 3),"; ",
+                             format(wbmodPopRes$rciu0,nsmall = 3),"]"),
+                      paste0(format(wbmodPopRes$r1,nsmall = 3),
+                             " [",format(wbmodPopRes$rcil1,nsmall = 3),"; ",
+                             format(wbmodPopRes$rciu1,nsmall = 3),"]"))),
+  N = as.vector(rbind(wbmodPopRes$N0,
+                      wbmodPopRes$N1)),
+  k = as.vector(rbind(wbmodPopRes$k0,
+                      wbmodPopRes$k1)),
+  delta_r = as.vector(rbind(paste0(format(wbmodPopRes$deltaR, nsmall = 3), 
+                                   ifelse(wbmodPopRes$p < .01, "*", ""),
+                                   " [",format(wbmodPopRes$cil,nsmall = 3),"; ",
+                                   format(wbmodPopRes$ciu,nsmall = 3),"]"),
+                            "")),
+  se = as.vector(rbind(format(wbmodPopRes$se,nsmall = 3),
+                       "")),
+  z = as.vector(rbind(format(wbmodPopRes$z,nsmall = 3),
+                      "")),
+  tau2 = as.vector(rbind(format(wbmodPopRes$tau2,nsmall = 3),
+                         "")),
+  I2 = as.vector(rbind(round(wbmodPopRes$i2),
+                         "")),
+  Q = as.vector(rbind(paste0(round(wbmodPopRes$q), ifelse(wbmodPopRes$qp < .01, "*", "")),
+                      "")),
+  QM = as.vector(rbind(paste0(round(wbmodPopRes$qM), ifelse(wbmodPopRes$qMp < .01, "*", "")),
+                       ""))
+)
+
+colnames(Table4)<-gsub("_", " ", colnames(Table4))
+knitrMeta(Table4,output_format,
+          capt="Moderator analysis testing for differences between clinical and non-clinical population on WB outcomes",
+          foot="N = total sample size; k = number of effects; 
+          r = back-transformed meta-analytic correlation coefficient; se = standard error;
+          CI = confidence intervals; PI = predicted intervals; 
+          tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;
+          Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info")
+```
+
+\newpage
+
+## Mental health - Detailed results on clinical vs non-clinical populations
+
+```{r}
+mhmodPopRes = effList[["mhPop"]]
+
+Table7 <- data.frame(
+  Strength = as.vector(rbind(modRes$strength, "")),
+  Population = as.vector(rbind(rep("Clinical", 24), 
+                               rep("Not clinical", 24))),
+  r = as.vector(rbind(paste0(format(mhmodPopRes$r0,nsmall = 3),
+                             " [",format(mhmodPopRes$rcil0,nsmall = 3),"; ",
+                             format(mhmodPopRes$rciu0,nsmall = 3),"]"),
+                      paste0(format(mhmodPopRes$r1,nsmall = 3),
+                             " [",format(mhmodPopRes$rcil1,nsmall = 3),"; ",
+                             format(mhmodPopRes$rciu1,nsmall = 3),"]"))),
+  N = as.vector(rbind(mhmodPopRes$N0,
+                      mhmodPopRes$N1)),
+  k = as.vector(rbind(mhmodPopRes$k0,
+                      mhmodPopRes$k1)),
+  delta_r = as.vector(rbind(paste0(format(mhmodPopRes$deltaR, nsmall = 3), 
+                                   ifelse(mhmodPopRes$p < .01, "*", ""),
+                                   " [",format(mhmodPopRes$cil,nsmall = 3),"; ",
+                                   format(mhmodPopRes$ciu,nsmall = 3),"]"),
+                            "")),
+  se = as.vector(rbind(format(mhmodPopRes$se,nsmall = 3),
+                       "")),
+  z = as.vector(rbind(format(mhmodPopRes$z,nsmall = 3),
+                      "")),
+  tau2 = as.vector(rbind(format(mhmodPopRes$tau2,nsmall = 3),
+                         "")),
+  I2 = as.vector(rbind(round(mhmodPopRes$i2),
+                         "")),
+  Q = as.vector(rbind(paste0(round(mhmodPopRes$q), ifelse(mhmodPopRes$qp < .01, "*", "")),
+                      "")),
+  QM = as.vector(rbind(paste0(round(mhmodPopRes$qM), ifelse(mhmodPopRes$qMp < .01, "*", "")),
+                       ""))
+)
+
+colnames(Table7)<-gsub("_", " ", colnames(Table7))
+knitrMeta(Table7,output_format,
+          capt="Moderator analysis testing for differences between clinical and non-clinical populations on MH outcomes",
+          foot="N = total sample size; k = number of effects; 
+          r = back-transformed meta-analytic correlation coefficient; se = standard error;
+          CI = confidence intervals; PI = predicted intervals; 
+          tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;
+          Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info")
+```
+
+\newpage
+
+# Robustness checks
+
+## Well-being
+```{r, results='asis'}
+#| fig-height: 2
+
+wbPlots <- bias$wbl1o
+
+i=1
+plotList <- list()
+for (i in 1:24) {
+  dout <- wbPlots[[i]]
+  plotList[[i]] <- ggplot(dout, aes(x = sample, y = beta)) +
+    geom_point() +
+    geom_hline(yintercept = c(dout$cil[1],
+                              dout$ciu[1])) +
+    geom_hline(yintercept = c(dout$target_est[1]),
+             col = "red") +
+    theme_bw(base_size = 8) + 
+    labs(x = paste(gsub("_", " ", strengths24[i]))) +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks = element_blank()
+      ) +
+    scale_y_continuous(name = expression("Back-transformed " * hat(r) * " values"))
+  
+}
+
+# captions <- paste0(gsub("_", " ", strengths24[i]), " and well-being leave one out results")
+
+for (i in seq_along(plotList)) {
+  # Start a figure div
+  cat("::: {.cell-output-display}\n")
+  
+  # Print the plot
+  print(plotList[[i]])
+  
+  caption <- paste0(gsub("_", " ", strengths24[i]), " and well-being leave one out results")
+  
+  # Print the caption
+  cat(paste0("**Figure FigureS", i, ".** ", caption, "\n"))
+  
+  # End the figure div
+  cat(":::\n\n")
+}
+
+```
+## Mental health
+
+```{r, results='asis'}
+#| fig-height: 2
+
+mhPlots <- bias$mhl1o
+
+plotList <- list()
+for (i in 1:24) {
+  dout <- mhPlots[[i]]
+  plotList[[i]] <- ggplot(dout, aes(x = sample, y = beta)) +
+    geom_point() +
+    geom_hline(yintercept = c(dout$cil[1],
+                              dout$ciu[1])) +
+    geom_hline(yintercept = c(dout$target_est[1]),
+             col = "red") +
+    theme_bw(base_size = 8) + 
+    labs(x = paste(gsub("_", " ", strengths24[i]))) +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks = element_blank()
+      ) +
+    scale_y_continuous(name = expression("Back-transformed " * hat(r) * " values"))
+  
+}
+
+# captions <- paste0(gsub("_", " ", strengths24[i]), " and well-being leave one out results")
+
+for (i in seq_along(plotList)) {
+  # Start a figure div
+  cat("::: {.cell-output-display}\n")
+  
+  # Print the plot
+  print(plotList[[i]])
+  
+  caption <- paste0(gsub("_", " ", strengths24[i]), " and mental health leave one out results")
+  
+  # Print the caption
+  cat(paste0("**Figure FigureS", (i+24), ".** ", caption, "\n"))
+  
+  # End the figure div
+  cat(":::\n\n")
+}
+
+```

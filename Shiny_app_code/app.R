@@ -19,7 +19,7 @@ load("results/strengths.R")
 d <- readRDS("results/resList.RDS")
 # Define UI for application that draws a histogram
 ui <- navbarPage(
-  title = "Prova Character strengths meta analysis",
+  title = "Character strengths meta analysis",
   id = "pages",
   
   #### PAGE 1: INTRODUCTION  
@@ -256,9 +256,3 @@ server <- function(input, output, session) {
 
 # Run the application 
 shinyApp(ui = ui, server = server)
-
-# rsconnect::setAccountInfo(name='feracoshiny',
-#                           token='A47AC911721175295B55E72B4BBDBA64',
-#                           secret='RDBYEXaqWAtSZDRAFdq1s2WgiKe+Gn9pC6fbLoKQ')
-# 
-rsconnect::deployApp(getwd())
