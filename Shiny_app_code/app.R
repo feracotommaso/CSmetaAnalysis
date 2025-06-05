@@ -237,9 +237,9 @@ server <- function(input, output, session) {
   output$yourtable2 <-
     renderUI({ #renderTable
       # Convert flextable to HTML and render it
-      S = input$strength
+      S = input$strength2
       S2 = which(strengths24 == S)
-      O = input$outcome
+      O = input$outcome2
       M = ifelse(O == "overall", "1",
                  ifelse(O == "mainMod", "Outcome",
                         ifelse(O %in% c("mhPop", "wbPop"), "Population", 
