@@ -4,4 +4,5 @@
 .Ruserdata
 .git
 .gitignore
+/supplementary/nul
 /Shiny_app_code/rsconnect
