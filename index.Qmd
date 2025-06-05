@@ -1,7 +1,21 @@
 ---
 title: "Character strengths, well-being, and mental health; a meta-analysis"
-subtitle: "CS meta-analysis"
-author: "XXX"
+subtitle: "Index of the materials"
+#author: "XXX"
+author: 
+  - name: "Nicole Casali"
+    affiliation: "Max Planck Institute for the Study of Crime, Security and Law, Freiburg, Germany"
+    email: "n.casali@csl.mpg.de"
+  - name: "Tommaso Feraco"
+    affiliation: "Department of General Psychology, University of Padova, Italy"
+
+#       
+# affiliation:
+#   - id            : "1"
+#     institution   : "Max Planck Institute for the Study of Crime, Security and Law, Freiburg, Germany"
+#   - id            : "2"
+#     institution   : "Department of General Psychology, University of Padova, Italy"
+
 #include-in-header: assets/header.html
 format: 
   html:

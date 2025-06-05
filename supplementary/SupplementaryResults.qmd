@@ -9,6 +9,7 @@ format:
 editor: visual
 execute:
   echo: false
+  cache: true
   
 crossref:
   # ref-type: supptbl
@@ -75,6 +76,254 @@ uniqueD <- dtot[!duplicated(dtot$sample), ]
 
 \newpage
 
+# Deviations from the preregistration
+
+Following discussions with the Editor and the Reviewers, we modified part of the analysis and slightly deviated from our preregistration. For transparency, we report here all the deviations from the preregistration.
+
+| Topic                                                     | Deviation                                                                                              | Explanation                                      |
+|--------------------|---------------------------------|-------------------|
+| Moderation analyses for clinical and non-clinical samples | Not performed in the main paper but reported in supplementary.                                         | The minimum number of k effects was not reached. |
+| Robustness check                                          | We performed a non-preregistered leave-one-out analysis to check the robustness of our findings.       | Accepted reviewers' suggestion                   |
+| Publication bias analysis                                 | We performed non-preregistered PET regressions to test for possible publication bias in our data.      | Accepted reviewers' suggestion                   |
+| Correction for unreliability                              | We considered corrected and not (as preregistered) raw correlations coefficients for the meta-analysis | Accepted reviewers' suggestion                   |
+
+: Deviations from the preregistration
+
+\newpage
+
+# Comparisons with personality traits
+
+| Character strength     | Most correlated facet¹     | Corresponding broad trait | Expected r with well-being² | Expected r with mental health³ |
+|---------------|---------------|---------------|:-------------:|:-------------:|
+| Appreciation of beauty | **Aesthetic Appreciation** | HEXACO Openness           |          .16 ‒ .19          |           -.02 ‒ .06           |
+|                        | **Aesthetics**             | Big 5 Openness            |                             |                                |
+| Bravery                | **Social boldness**        | HEXACO Extraversion       |          .16 ‒ .46          |           -.02 ‒ .40           |
+|                        | **Assertiveness**          | Big 5 Extraversion        |                             |                                |
+|                        | Creativity                 | HEXACO Extraversion       |                             |                                |
+|                        | Self-Consciousness         | Big 5 Extraversion        |                             |                                |
+| Creativity             | **Creativity**             | HEXACO Openness           |          .16 ‒ .19          |           -.02 ‒ .06           |
+|                        | **Ideas**                  | Big 5 Openness            |                             |                                |
+|                        | Fantasy                    | Big 5 Openness            |                             |                                |
+| Curiosity              | **Inquisitiveness**        | HEXACO Openness           |          .18 ‒ .48          |           -.02 ‒ .40           |
+|                        | **Ideas**                  | Big 5 Openness            |                             |                                |
+|                        | Aesthetics                 | Big 5 Openness            |                             |                                |
+|                        | Liveliness                 | HEXACO Extraversion       |                             |                                |
+| Fairness               | **Altruism**               | HEXACO Interstitial scale |          .25 ‒ .46          |           .23 ‒ .27            |
+|                        | **Gentleness**             | HEXACO Agreeableness      |                             |                                |
+|                        | Altruism                   | Big 5 Agreeableness       |                             |                                |
+|                        | Angry Hostility            | Big 5 Neuroticism         |                             |                                |
+| Forgiveness            | **Compliance**             | Big 5 Agreeableness       |          .18 ‒ .25          |           .21 ‒ .23            |
+|                        | **Forgivingness**          | HEXACO Agreeableness      |                             |                                |
+| Gratitude              | Sentimentality             | HEXACO Agreeableness      |          .18 ‒ .48          |           .11 ‒ .40            |
+|                        | Altruism                   | HEXACO Interstitial scale |                             |                                |
+|                        | Positive emotions          | Big 5 Extraversion        |                             |                                |
+|                        | Liveliness                 | HEXACO Extraversion       |                             |                                |
+|                        | Warmth                     | Big Five Extraversion     |                             |                                |
+|                        | Altruism                   | Big 5 Agreeableness       |                             |                                |
+| Honesty                | **Fairness**               | Honesty-Humility          |          .16 ‒ .46          |           .22 ‒ .27            |
+|                        | **Dutifulnes**s            | Big 5 Conscientiousness   |                             |                                |
+|                        | Diligence                  | HEXACO Conscientiousness  |                             |                                |
+|                        | Vulnerability              | Big 5 Neuroticism         |                             |                                |
+| Hope                   | **Liveliness**             | HEXACO Extraversion       |          .46 ‒ .48          |           .27 ‒ .40            |
+|                        | **Depression**             | Big 5 Neuroticism         |                             |                                |
+|                        | Positive emotions          | Big 5 Extraversion        |                             |                                |
+| Humility               | **Modesty**                | Honesty-Humility          |          .16 ‒ .18          |           .22 ‒ .23            |
+|                        | **Modesty**                | Big 5 Agreeableness       |                             |                                |
+|                        | Gentleness                 | HEXACO Agreeableness      |                             |                                |
+| Humor                  | **Liveliness**             | HEXACO Extraversion       |          .37 ‒ .48          |           .11 ‒ .40            |
+|                        | **Positive Emotions**      | Big 5 Extraversion        |                             |                                |
+| Judgment               | **Prudence**               | HEXACO Conscientiousness  |          .28 ‒ .36          |           .22 ‒ .26            |
+|                        | **Deliberation**           | Big 5 Conscientiousness   |                             |                                |
+|                        | Competence                 | Big 5 Conscientiousness   |                             |                                |
+| Kindness               | **Altruism**               | HEXACO Interstitial scale |          .16 ‒ .37          |           .11 ‒ .19            |
+|                        | **Warmth**                 | Big 5 Extraversion        |                             |                                |
+|                        | Sentimentality             | HEXACO Emotionality       |                             |                                |
+|                        | Altruism                   | Big 5 Agreeableness       |                             |                                |
+| Leadership             | **Assertiveness**          | Big 5 Extraversion        |          .28 ‒ .48          |           .11 ‒ .40            |
+|                        | **Social boldness**        | HEXACO Extraversion       |                             |                                |
+|                        | Diligence                  | HEXACO Conscientiousness  |                             |                                |
+| Love                   | **Warmth**                 | Big 5 Extraversion        |          .37 ‒ .48          |           .11 ‒ .40            |
+|                        | Social Self-Esteem         | HEXACO Extraversion       |                             |                                |
+|                        | Positive Emotions          | HEXACO Extraversion       |                             |                                |
+|                        | Sociability                | HEXACO Extraversion       |                             |                                |
+|                        | Liveliness                 | HEXACO Extraversion       |                             |                                |
+| Love of learning       | **Ideas**                  | HEXACO Openness           |          .16 ‒ .19          |           -.02 ‒ .06           |
+|                        | **Inquisitiveness**        | Big 5 Openness            |                             |                                |
+|                        | Aesthetic Appreciation     | HEXACO Openness           |                             |                                |
+| Perseverance           | **Diligence**              | HEXACO Conscientiousness  |          .28 ‒ .36          |           .22 ‒ .26            |
+|                        | **Self-discipline**        | Big 5 Conscientiousness   |                             |                                |
+|                        | Achieve Striving           | Big 5 Conscientiousness   |                             |                                |
+| Perspective            | **Competence**             | Big 5 Conscientiousness   |          .16 ‒ .46          |           -.02 ‒ .27           |
+|                        | Diligence                  | HEXACO Conscientiousness  |                             |                                |
+|                        | Vulnerability              | Big 5 Neuroticism         |                             |                                |
+|                        | Liveliness                 | Big 5 Extraversion        |                             |                                |
+|                        | Creativity                 | HEXACO Openness           |                             |                                |
+| Prudence               | **Prudence**               | HEXACO Conscientiousness  |          .28 ‒ .36          |           .22 ‒ .26            |
+|                        | **Deliberation**           | Big 5 Conscientiousness   |                             |                                |
+|                        | Dutifulness                | Big 5 Conscientiousness   |                             |                                |
+| Self-regulation        | **Diligence**              | HEXACO Conscientiousness  |          .28 ‒ .46          |           .26 ‒ .27            |
+|                        | **Impulsiveness**          | Big 5 Neuroticism         |                             |                                |
+|                        | Self-discipline            | Big 5 Conscientiousness   |                             |                                |
+| Social intelligence    | **Warmth**                 | Big 5 Extraversion        |          .37 ‒ .48          |           .11 ‒ .40            |
+|                        | **Social Boldnes**s        | HEXACO Extraversion       |                             |                                |
+|                        | Sociability                | HEXACO Extraversion       |                             |                                |
+| Spirituality           | Values                     | Big 5 Openness            |          .16 ‒ .48          |           -.02 ‒ .19           |
+|                        | Fairness                   | Honesty-Humility          |                             |                                |
+|                        | Liveliness                 | HEXACO Extraversion       |                             |                                |
+|                        | Tender-mindedness          | Big 5 Agreeableness       |                             |                                |
+| Teamwork               | **Sociability**            | HEXACO Extraversion       |          .18 ‒ .48          |           .11 ‒ .40            |
+|                        | **Warmth**                 | Big 5 Extraversion        |                             |                                |
+|                        | Gregariousness             | Big 5 Extraversion        |                             |                                |
+|                        | Gentleness                 | HEXACO Agreeableness      |                             |                                |
+| Zest                   | **Liveliness**             | HEXACO Extraversion       |          .36 ‒ .48          |           .22 ‒ .40            |
+|                        | Activity                   | Big Five Extraversion     |                             |                                |
+|                        | Achieve Striving           | Big 5 Conscientiousness   |                             |                                |
+|                        | Depression                 | Big 5 Neuroticism         |                             |                                |
+
+: Correspondence between character strengths and personality, and expected correlations with well-being and mental health {#tbl-s1}
+
+**Note.** In bold are facets that have been found to be the best correlates in multiple samples.\
+¹ Based on NEO-PI-R and IPIP-NEO facets in McGrath (2020) and the NEO-PI-R facets in Noftle et al. (2011).\
+² Based on Anglim et al. (2020) and Pletzer et al. (2024).\
+³ Based on Pletzer et al. (2024) and Strickhouser et al. (2017). For example, appreciation of beauty was found to be most associated to the “Aesthetic Appreciation” and “Aesthetics” facets; correlations for well-being ranged from .16 to .19 depending on the meta-analysis, while correlations for mental health ranged from -.02 to .06.
+
+\newpage
+
+| Character strength     | Broad trait | Exp. r well-being² | $\hat{r}$ well-being | Exp. r mental health³ | $\hat{r}$ mental health |
+|------------|:----------:|:----------:|:----------:|:----------:|:----------:|
+| Appreciation of beauty |      O      |      .16 –.19      |         .18          |       -.02 –.06       |           .06           |
+| Bravery                |   E, O, N   |      .16 –.46      |         .27          |       -.02 –.40       |           .17           |
+| Creativity             |      O      |      .16 –.19      |         .22          |       -.02 –.06       |           .11           |
+| Curiosity              |    O, E     |      .18 –.48      |         .38          |       -.02 –.40       |           .25           |
+| Fairness               |   I, A, N   |      .25 –.46      |         .21          |       .23 –.27        |           .14           |
+| Forgiveness            |      A      |      .18 –.25      |         .25          |       .21 –.23        |           .21           |
+| Gratitude              |   A, I, E   |      .18 –.48      |         .43          |       .11 –.40        |           .30           |
+| Honesty                |  HH, C, N   |      .16 –.46      |         .25          |       .22 –.27        |           .20           |
+| Hope                   |    E, N     |      .46 –.48      |         .53          |       .27 –.40        |           .46           |
+| Humility               |    HH, A    |      .16 –.18      |         .07          |       .22 –.23        |           .06           |
+| Humor                  |      E      |      .37 –.48      |         .28          |       .11 –.40        |           .19           |
+| Judgment               |      C      |      .28 –.36      |         .21          |       .22 –.26        |           .16           |
+| Kindness               | I, E, N, A  |      .16 –.37      |         .26          |       .11 –.19        |           .14           |
+| Leadership             |    E, C     |      .28 –.48      |         .28          |       .11 –.40        |           .19           |
+| Love                   |      E      |      .37 –.48      |         .43          |       .11 –.40        |           .34           |
+| Love of learning       |      O      |      .16 –.19      |         .24          |       -.02 –.06       |           .19           |
+| Perseverance           |      C      |      .28 –.36      |         .35          |       .22 –.26        |           .27           |
+| Perspective            | C, N, E, O  |      .16 –.46      |         .30          |       -.02 –.27       |           .20           |
+| Prudence               |      C      |      .28 –.36      |         .19          |       .22 –.26        |           .18           |
+| Self-regulation        |    C, N     |      .28 –.46      |         .30          |       .26 –.27        |           .29           |
+| Social intelligence    |      E      |      .37 –.48      |         .33          |       .11 –.40        |           .24           |
+| Spirituality           | O, HH, E, A |      .16 –.48      |         .23          |       -.02 –.19       |           .14           |
+| Teamwork               |    E, A     |      .18 –.48      |         .30          |       .11 –.40        |           .23           |
+| Zest                   |   E, C, N   |      .36 –.48      |         .53          |       .22 –.40        |           .43           |
+
+: Correspondence between character strengths and personality, expected and current correlations with well-being and mental health {#tbl-s2}
+
+**Note.**\
+¹ Based on McGrath (2020) and Noftle et al. (2011).\
+² Based on Anglim et al. (2020) and Pletzer et al. (2024).\
+³ Based on Pletzer et al. (2024) and Strickhouser et al. (2017).\
+$\hat{r}$ = meta-analytical correlation
+
+\newpage
+
+::: {=latex}
+```{=tex}
+\begingroup
+\scriptsize
+```
+:::
+
+| Character strength | Trait       | Life satisfaction | Positive affect | Negative affect | SWB            | PWB            |
+|:----------|:----------|:----------|:----------|:----------|:----------|:----------|
+| App. Beauty        | O           | .16 (.05 –.10)    | .23 (.13 –.24)  | .08 (.01 – .04) | .14 (.08)      | .15 (.11)      |
+| Brav.              | E, O, N     | .21 (.05 –.48)    | .27 (.13 –.51)  | .10 (.01 – .39) | .17 (.08 –.42) | .30 (.09 –.37) |
+| Creat.             | O           | .19 (.05 –.10)    | .30 (.13 –.24)  | .02 (.01 – .04) | .14 (.08)      | .25 (.11)      |
+| Cur.               | O, E        | .32 (.05 –.41)    | .40 (.13 –.51)  | .12 (.01 – .39) | .30 (.08 –.42) | .35 (.11 –.37) |
+| Fair.              | I, A, N     | .17 (.09 –.39)    | .19 (.12 –.34)  | .15 (.06 – .56) | .16 (.13 –.19) | .19 (.09 –.14) |
+| Forg.              | A           | .21 (.17 –.20)    | .24 (.14 –.24)  | .22 (.21 – .25) | .17 (.18)      | .17 (.14)      |
+| Grat.              | A, I, E     | .42 (.14 –.48)    | .37 (.14 –.51)  | .19 (.06 – .39) | .34 (.18 –.42) | .36 (.14 –.37) |
+| Hone.              | HH, C, N    | .22 (.09 –.39)    | .24 (.07 –.35)  | .13 (.15 – .56) | .22 (.12 –.18) | .31 (.09 –.22) |
+| Hope               | E, N        | .49 (.09 –.48)    | .51 (.12 –.51)  | .33 (-.56 –.21) | .48 (.13 –.42) | .45 (.09 –.37) |
+| Humil.             | HH, A       | .08 (.09 –.20)    | .04 (.07 –.24)  | .04 (.15 – .25) | .05 (.12 –.18) | .05 (.14)      |
+| Humor              | E           | .23 (.32 –.41)    | .28 (.44 –.51)  | .11 (.21 – .39) | .25 (.42)      | .27 (.37)      |
+| Judgm.             | C           | .18 (.19 –.27)    | .23 (.20 –.35)  | .06 (.12 – .25) | .14 (.19)      | .23 (.22)      |
+| Kind.              | I, E, N, A  | .21 (.09 –.48)    | .23 (.12 –.51)  | .09 (.06 – .56) | .18 (.13 –.42) | .26 (.09 –.34) |
+| Lead.              | E, C        | .24 (.19 –.41)    | .28 (.20 –.51)  | .12 (.12 – .39) | .19 (.19 –.42) | .29 (.22 –.37) |
+| Love               | E           | .39 (.32 –.41)    | .33 (.44 –.51)  | .16 (.21 – .39) | .37 (.42)      | .38 (.37)      |
+| Learn.             | O           | .18 (.05 –.10)    | .28 (.13 –.24)  | .13 (.01 – .04) | .17 (.08)      | .22 (.11)      |
+| Perse.             | C           | .31 (.19 –.27)    | .34 (.20 –.35)  | .16 (.12 – .25) | .25 (.19)      | .35 (.22)      |
+| Persp.             | C, N, E, O  | .27 (.06 –.48)    | .33 (.12 –.61)  | .12 (.01 – .56) | .22 (.09 –.50) | .31 (.09 –.37) |
+| Prud.              | C           | .17 (.19 –.27)    | .16 (.20 –.35)  | .10 (.12 – .25) | .08 (.19)      | .18 (.22)      |
+| Self-reg           | C, N        | .27 (.09 –.27)    | .28 (.12 –.35)  | .23 (.12 – .56) | .17 (.13 –.19) | .26 (.09 –.22) |
+| Soc.Int            | E           | .28 (.32 –.41)    | .34 (.44 –.51)  | .14 (.21 – .39) | .24 (.42)      | .33 (.37)      |
+| Spir.              | O, HH, E, A | .22 (.05 –.41)    | .22 (.07 –.51)  | .09 (.01 – .39) | .18 (.08 –.42) | .19 (.09 –.37) |
+| Team.              | E, A        | .25 (.17 –.41)    | .25 (.14 –.51)  | .16 (.21 – .39) | .24 (.18 –.42) | .27 (.14 –.37) |
+| Zest               | E, C, N     | .45 (.09 –.41)    | .52 (.12 –.51)  | .25 (.12 – .56) | .40 (.13 –.42) | .42 (.09 –.37) |
+
+: Correspondence between character strengths and personality: expected and current correlations with well-being specific outcomes {#tbl-s3}
+
+**Note.**\
+² Based on Anglim et al. (2020) and Pletzer et al. (2024).\
+³ Based on Pletzer et al. (2024). Please note that happiness and domain-specific satisfaction are not included due to a lack of meta-analytical information.\
+$\hat{r}$ = meta-analytical association
+
+::: {=latex}
+```{=tex}
+\endgroup
+```
+:::
+
+\newpage
+
+::: {=latex}
+```{=tex}
+\begingroup
+\scriptsize
+```
+:::
+
+| Character strength  | Broad trait | General mental health | Anxiety         | Depression      | Stress         |
+|------------|------------|------------|------------|------------|------------|
+| App. Beauty         | O           | .06 (.13)             | –.04 (.10)      | .02 (.06)       | .00 (.06)      |
+| Bravery             | E, O, N     | .12 (.13 –.56)        | .06 (.10 –.45)  | .14 (.06 –.46)  | .09 (.06 –.33) |
+| Creativity          | O           | .14 (.16)             | .02 (.12)       | .12 (.08)       | .06 (.07)      |
+| Curiosity           | O, E        | .22 (.13 –.56)        | .10 (.10 –.45)  | .24 (.06 –.46)  | .16 (.06 –.33) |
+| Fairness            | I, A, N     | .09 (.25 –.27)        | .05 (.15 –.29)  | .07 (.17 –.18)  | .11 (.14 –.19) |
+| Forgiveness         | A           | .14 (.25)             | .11 (.15)       | .16 (.18)       | .21 (.14)      |
+| Gratitude           | A, I, E     | .20 (.25 –.56)        | .12 (.15 –.45)  | .29 (.18 –.46)  | .19 (.14 –.33) |
+| Honesty             | HH, C, N    | .12 (.09 –.27)        | .10 (.07 –.29)  | .16 (.04 –.20)  | .13 (.10 –.19) |
+| Hope                | E, N        | .30 (.27 –.56)        | .25 (.29 –.45)  | .41 (.18 –.46)  | .29 (.19 –.33) |
+| Humility            | HH, A       | .03 (.09 –.25)        | –.01 (.07 –.15) | –.02 (.04 –.18) | .03 (.10 –.14) |
+| Humor               | E           | .20 (.56)             | .10 (.45)       | .16 (.46)       | .11 (.33)      |
+| Judgment            | C           | .11 (.15)             | .09 (.17)       | .12 (.20)       | .12 (.19)      |
+| Kindness            | I, E, N, A  | .05 (.25 –.56)        | .01 (.15 –.45)  | .07 (.17 –.46)  | .06 (.14 –.33) |
+| Leadership          | E, C        | .15 (.15 –.56)        | .09 (.17 –.45)  | .15 (.20 –.46)  | .09 (.19 –.33) |
+| Love                | E           | .19 (.56)             | .14 (.45)       | .30 (.46)       | .16 (.33)      |
+| Love of learning    | O           | .17 (.16)             | .08 (.12)       | .17 (.08)       | .11 (.07)      |
+| Perseverance        | C           | .16 (.15)             | .14 (.17)       | .26 (.20)       | .15 (.19)      |
+| Perspective         | C, N, E, O  | .13 (.13 –.56)        | .05 (.10 –.45)  | .15 (.06 –.46)  | .10 (.06 –.33) |
+| Prudence            | C           | .08 (.15)             | .08 (.17)       | .12 (.20)       | .13 (.19)      |
+| Self-regulation     | C, N        | .23 (.15 –.27)        | .20 (.17 –.29)  | .21 (.17 –.20)  | .29 (.19)      |
+| Social intelligence | E           | .18 (.56)             | .10 (.45)       | .17 (.46)       | .16 (.33)      |
+| Spirituality        | O, HH, E, A | .08 (.13 –.56)        | .04 (.10 –.45)  | .15 (.06 –.46)  | .07 (.06 –.33) |
+| Teamwork            | E, A        | .13 (.25 –.56)        | .09 (.15 –.45)  | .15 (.18 –.46)  | .11 (.14 –.33) |
+| Zest                | E, C, N     | .32 (.15 –.56)        | .23 (.17 –.45)  | .44 (.17 –.46)  | .27 (.19 –.33) |
+
+: Correspondence between character strengths and personality: expected and current correlations with mental health specific outcomes
+
+**Note.**\
+² Based on Pletzer et al. (2024).\
+O = Openness to experience, E = Extraversion, N = Neuroticism/Emotionality,\
+I = Interstitial facet of altruism, A = Agreeableness, HH = Honesty-Humility, C = Conscientiousness.
+
+::: {=latex}
+```{=tex}
+\endgroup
+```
+:::
+
+\newpage
+
 # Descriptive statistics
 
 ```{r}
@@ -97,6 +346,7 @@ summStat <- data.frame(strength = strengths24,
                        )
 
 # Calculate each info for each skill by subsetting the data
+
 for (i in 1:length(strengths24)) {
   dsum <- dtot[is.na(dtot[,strengths24[i]]) == F, ]
   summStat[i, 2:ncol(summStat)] <- c(
@@ -106,22 +356,23 @@ for (i in 1:length(strengths24)) {
                                      length(unique(dsum$sample)), # Samples
                                      length(unique(dsum$ID)), # Studies
                                      # Moderators
-                                     paste0(sum(dsum$CS_measure=="short",na.rm=TRUE), 
+                                     paste0(sum(dsum$CS_measure=="short",na.rm=TRUE),
                                             " (",length(unique(dsum$sample[dsum$CS_measure == "short"])),")"), # Short VIA
-                                     paste0(sum(dsum$CS_measure=="long",na.rm=TRUE), 
+                                     paste0(sum(dsum$CS_measure=="long",na.rm=TRUE),
                                      " (",length(unique(dsum$sample[dsum$CS_measure == "long"])),")"), # Long VIA
-                                     paste0(sum(dsum$CS_measure=="other",na.rm=TRUE), 
+                                     paste0(sum(dsum$CS_measure=="other",na.rm=TRUE),
                                             " (",length(unique(dsum$sample[dsum$CS_measure == "other"])),")"), # Other CS measures
-                                     paste0(sum(dsum$Outcome=="wb",na.rm=TRUE), 
+                                     paste0(sum(dsum$Outcome=="wb",na.rm=TRUE),
                                             " (",length(unique(dsum$sample[dsum$Outcome == "wb"])),")"), # WB outcomes
-                                     paste0(sum(dsum$Outcome=="mh",na.rm=TRUE), 
+                                     paste0(sum(dsum$Outcome=="mh",na.rm=TRUE),
                                             " (",length(unique(dsum$sample[dsum$Outcome == "mh"])),")"), # MH outcomes
-                                     paste0(sum(dsum$Population=="clinical",na.rm=TRUE), 
+                                     paste0(sum(dsum$Population=="clinical",na.rm=TRUE),
                                             " (",length(unique(dsum$sample[dsum$Population == "clinical"])),")") # Clinical populations
                                      )
 }
 
 # Stats for the total sample
+
 # Calculate each info for the total sample
 totStat <- c("FullSample",
              sum(dtot$N[!duplicated(dtot$ID)], na.rm = TRUE),
@@ -129,26 +380,27 @@ totStat <- c("FullSample",
              sum(is.na(dtot[,strengths24])==FALSE),
              length(unique(dtot$sample)),
              length(unique(dtot$ID)),
-             paste0(sum(is.na(dtot[dtot$CS_measure == "short",strengths24])==FALSE), 
+             paste0(sum(is.na(dtot[dtot$CS_measure == "short",strengths24])==FALSE),
                     " (",length(unique(dtot$sample[dtot$CS_measure == "short"])),")"),
-             paste0(sum(is.na(dtot[dtot$CS_measure == "long",strengths24])==FALSE), 
+             paste0(sum(is.na(dtot[dtot$CS_measure == "long",strengths24])==FALSE),
                     " (",length(unique(dtot$sample[dtot$CS_measure == "long"])),")"),
-             paste0(sum(is.na(dtot[dtot$CS_measure == "other",strengths24])==FALSE), 
+             paste0(sum(is.na(dtot[dtot$CS_measure == "other",strengths24])==FALSE),
                     " (",length(unique(dtot$sample[dtot$CS_measure == "other"])),")"),
-             paste0(sum(is.na(dtot[dtot$Outcome == "wb",strengths24])==FALSE), 
+             paste0(sum(is.na(dtot[dtot$Outcome == "wb",strengths24])==FALSE),
                     " (",length(unique(dtot$sample[dtot$Outcome == "wb"])),")"),
-             paste0(sum(is.na(dtot[dtot$Outcome == "mh",strengths24])==FALSE), 
+             paste0(sum(is.na(dtot[dtot$Outcome == "mh",strengths24])==FALSE),
                     " (",length(unique(dtot$sample[dtot$Outcome == "mh"])),")"),
-             paste0(sum(is.na(dtot[dtot$Population == "clinical",strengths24])==FALSE), 
+             paste0(sum(is.na(dtot[dtot$Population == "clinical",strengths24])==FALSE),
                     " (",length(unique(dtot$sample[dtot$Population == "clinical"])),")")
 )
-TableStat <- rbind(summStat, totStat)
 
+TableStat <- rbind(summStat, totStat)
 colnames(TableStat)<-gsub("_", " ", colnames(TableStat))
-colnames(TableStat) <- c("","N","N range", "k", "Samples", "Studies", 
-                         "VIA short", "VIA long", "VIA other", 
-                         "Wellbeing", "Mental health", 
+colnames(TableStat) <- c("","N","N range", "k", "Samples", "Studies",
+                         "VIA short", "VIA long", "VIA other",
+                         "Wellbeing", "Mental health",
                          "Clinical samples")
+
 knitrMeta(TableStat,output_format
           ,foot = "k = effect sizes; VIA = Values In Action inventory form",
           capt="Descriptive statistics. The number of unique samples is reported in parenthesis."
@@ -162,27 +414,46 @@ knitrMeta(TableStat,output_format
 
 ```{r}
 fixvar <- colnames(dtot[, !colnames(dtot)%in%strengths24])
-dm <- reshape2::melt(dtot, id.vars = fixvar, 
+
+dm <- reshape2::melt(dtot, id.vars = fixvar,
+
            variable.name = "strength",
+
            value.name = "ri")
+
 dm <- dm[is.na(dm$ri)==FALSE, ]
-dm$spec_out <- ifelse(dm$Outcome_type == "meaning", "pwb", 
-                      ifelse(dm$Outcome_type == "distress", "gen", 
+
+dm$spec_out <- ifelse(dm$Outcome_type == "meaning", "pwb",
+
+                      ifelse(dm$Outcome_type == "distress", "gen",
+
                              ifelse(dm$Outcome_type == "ptsd", NA,
+
                                     dm$Outcome_type)))
+
 specOut <- table(dm$spec_out,dm$strength)
+
 rownames(specOut) <- c("Anxiety", "Depression", "Domain satisfaction",
+
                        "General mental health", "Happiness", "Life satisfaction",
+
                        "Negative affect", "Positive affect", "Psychological well-being",
+
                        "Stress", "Subjective well-being")
+
 colnames(specOut)<-gsub("_", " ", colnames(specOut))
 
 knitrMeta(t(specOut),output_format,
+
           capt="Effects (k) for each specific outcome",
+
           foot="")%>%
+
   kable_styling(font_size = 8)%>%
+
   row_spec(0, angle = 90)
 ```
+
 
 \newpage
 
@@ -192,33 +463,49 @@ knitrMeta(t(specOut),output_format,
 metaRes <- effList[["overall"]]
 
 Table2 <- data.frame(
+
   Strength = metaRes$strength,
+
   N = metaRes$N,
+
   k = metaRes$k,
+
   r = paste0(format(round(metaRes$r, 3),nsmall=3),ifelse(metaRes$p < .01, "*", "")),
+
   se = format(round(metaRes$se,3),nsmall=3),
+
   CI_95 = paste0("[",format(round(metaRes$rcil,3),nsmall=3),"; ",
+
                      format(round(metaRes$rciu,3),nsmall=3),"]"),
+
   PI_95 = paste0("[",format(round(metaRes$rpil,3),nsmall=3),"; ",
+
                  format(round(metaRes$rpiu,3),nsmall=3),"]"),
+
   tau2 = format(round(metaRes$tau2,3),nsmall=3),
+
   I2 = round(metaRes$i2),
+
   Q = paste0(round(metaRes$q),
+
              ifelse(metaRes$qp < .01, "*", ""))
+
 )
 
 knitrMeta(Table2,output_format,scaled=FALSE,
           capt="Meta-analytical associations between character strengths and mental health and well-being",
-          foot="N = total sample size; k = number of effects; 
+          foot="N = total sample size; k = number of effects;
           r = back-transformed meta-analytic correlation coefficient; se = standard error;
-          CI = confidence intervals; PI = predicted intervals; 
+          CI = confidence intervals; PI = predicted intervals;
           tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;
           Q = Q statistic. See the shiny app for additional info"
           )%>%
+
   kable_styling(font_size = 9)
+
 ```
 
-<!-- \newpage -->
+\newpage
 
 # Detailed results on mental health vs well-being moderator analysis
 
@@ -226,60 +513,102 @@ knitrMeta(Table2,output_format,scaled=FALSE,
 modRes = effList[["mainMod"]]
 
 biasTest <- data.frame(
+
   wb = rep(NA,24),
+
   mh = rep(NA,24)
+
 )
 
 for (i in 1:24) {
+
   biasTest$wb[i] <- bias$biaswb[[i]]$pval[2]
+
   biasTest$mh[i] <- bias$biasmh[[i]]$pval[2]
+
 }
 
 biasTestRes <- merged <- c(rbind(biasTest$mh, biasTest$wb))
 
 Table3 <- data.frame(
+
   Strength = as.vector(rbind(modRes$strength, "")),
-  Outcome = as.vector(rbind(rep("MH", 24), 
+
+  Outcome = as.vector(rbind(rep("MH", 24),
+
                             rep("WB", 24))),
+
   r = as.vector(rbind(paste0(format(modRes$r0,nsmall = 3),
+
                              " [",format(modRes$rcil0,nsmall = 3),"; ",
+
                              format(modRes$rciu0,nsmall = 3),"]"),
+
                       paste0(format(modRes$r1,nsmall = 3),
+
                              " [",format(modRes$rcil1,nsmall = 3),"; ",
+
                              format(modRes$rciu1,nsmall = 3),"]"))),
+
   N = as.vector(rbind(modRes$N0,
+
                       modRes$N1)),
+
   k = as.vector(rbind(modRes$k0,
+
                       modRes$k1)),
-  delta_r = as.vector(rbind(paste0(format(modRes$deltaR, nsmall = 3), 
+
+  delta_r = as.vector(rbind(paste0(format(modRes$deltaR, nsmall = 3),
+
                                    ifelse(modRes$p < .01, "*", ""),
+
                                    " [",format(modRes$cil,nsmall = 3),"; ",
+
                                    format(modRes$ciu,nsmall = 3),"]"),
+
                             "")),
+
   se = as.vector(rbind(format(modRes$se,nsmall = 3),
+
                        "")),
+
   z = as.vector(rbind(format(modRes$z,nsmall = 3),
+
                       "")),
+
   tau2 = as.vector(rbind(format(modRes$tau2,nsmall = 3),
+
                          "")),
+
   I2 = as.vector(rbind(round(modRes$i2),
+
                        "")),
+
   Q = as.vector(rbind(paste0(round(modRes$q), ifelse(modRes$qp < .01, "*", "")),
+
                       "")),
+
   QM = as.vector(rbind(paste0(round(modRes$qM), ifelse(modRes$qMp < .01, "*", "")),
+
                        "")),
+
   PET = paste0(round(biasTestRes,3), ifelse(biasTestRes < .01, "*",""))
+
 )
 
 colnames(Table3)<-gsub("_", " ", colnames(Table3))
+
 knitrMeta(Table3,output_format,
+
           capt="Moderator analysis testing for differences between mental health (MH) and well-being (WB) outcomes",
-          foot="N = total sample size; k = number of effects; 
+
+          foot="N = total sample size; k = number of effects;
           r = back-transformed meta-analytic correlation coefficient; se = standard error;
-          CI = confidence intervals; PI = predicted intervals; 
+          CI = confidence intervals; PI = predicted intervals;
           tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;
           Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info;
-          PET = p value of the PET regression for publication bias.")
+          PET = p value of the PET regression for publication bias.")%>%
+  kable_styling(font_size = 8)
 ```
 
 \newpage
@@ -290,97 +619,164 @@ knitrMeta(Table3,output_format,
 mhmodViaRes <- effList[["mhVia"]]
 
 Table8 <- data.frame(
+
   Strength = as.vector(rbind(modRes$strength, "")),
-  VIA = as.vector(rbind(rep("Long", 24), 
+
+  VIA = as.vector(rbind(rep("Long", 24),
+
                         rep("Short", 24))),
+
   r = as.vector(rbind(paste0(format(mhmodViaRes$r0,nsmall = 3),
+
                              " [",format(mhmodViaRes$rcil0,nsmall = 3),"; ",
+
                              format(mhmodViaRes$rciu0,nsmall = 3),"]"),
+
                       paste0(format(mhmodViaRes$r1,nsmall = 3),
+
                              " [",format(mhmodViaRes$rcil1,nsmall = 3),"; ",
+
                              format(mhmodViaRes$rciu1,nsmall = 3),"]"))),
+
   N = as.vector(rbind(mhmodViaRes$N0,
+
                       mhmodViaRes$N1)),
+
   k = as.vector(rbind(mhmodViaRes$k0,
+
                       mhmodViaRes$k1)),
-  delta_r = as.vector(rbind(paste0(format(mhmodViaRes$deltaR, nsmall = 3), 
+
+  delta_r = as.vector(rbind(paste0(format(mhmodViaRes$deltaR, nsmall = 3),
+
                                    ifelse(mhmodViaRes$p < .01, "*", ""),
+
                                    " [",format(mhmodViaRes$cil,nsmall = 3),"; ",
+
                                    format(mhmodViaRes$ciu,nsmall = 3),"]"),
+
                             "")),
+
   se = as.vector(rbind(format(mhmodViaRes$se,nsmall = 3),
+
                        "")),
+
   z = as.vector(rbind(format(mhmodViaRes$z,nsmall = 3),
+
                       "")),
+
   tau2 = as.vector(rbind(format(mhmodViaRes$tau2,nsmall = 3),
+
                          "")),
+
   I2 = as.vector(rbind(round(mhmodViaRes$i2),
+
                        "")),
+
   Q = as.vector(rbind(paste0(round(mhmodViaRes$q), ifelse(mhmodViaRes$qp < .01, "*", "")),
+
                       "")),
+
   QM = as.vector(rbind(paste0(round(mhmodViaRes$qM), ifelse(mhmodViaRes$qMp < .01, "*", "")),
+
                        ""))
+
 )
 
 colnames(Table8)<-gsub("_", " ", colnames(Table8))
+
 knitrMeta(Table8,output_format,
           capt="Moderator analysis testing for differences between short and long VIA formats on MH outcomes",
-          foot="N = total sample size; k = number of effects; 
+          foot="N = total sample size; k = number of effects;
           r = back-transformed meta-analytic correlation coefficient; se = standard error;
-          CI = confidence intervals; PI = predicted intervals; 
+          CI = confidence intervals; PI = predicted intervals;
           tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;
-          Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info")
-
+          Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info")%>%
+  kable_styling(font_size = 7)
 ```
+
 
 \newpage
 
 # Detailed results on short vs long VIA formats (WB)
 
 ```{r}
+
 wbmodViaRes <- effList[["wbVia"]]
 
 Table5 <- data.frame(
+
   Strength = as.vector(rbind(modRes$strength, "")),
-  VIA = as.vector(rbind(rep("Long", 24), 
+
+  VIA = as.vector(rbind(rep("Long", 24),
+
                         rep("Short", 24))),
+
   r = as.vector(rbind(paste0(format(wbmodViaRes$r0,nsmall = 3),
+
                              " [",format(wbmodViaRes$rcil0,nsmall = 3),"; ",
+
                              format(wbmodViaRes$rciu0,nsmall = 3),"]"),
+
                       paste0(format(wbmodViaRes$r1,nsmall = 3),
+
                              " [",format(wbmodViaRes$rcil1,nsmall = 3),"; ",
+
                              format(wbmodViaRes$rciu1,nsmall = 3),"]"))),
+
   N = as.vector(rbind(wbmodViaRes$N0,
+
                       wbmodViaRes$N1)),
+
   k = as.vector(rbind(wbmodViaRes$k0,
+
                       wbmodViaRes$k1)),
-  delta_r = as.vector(rbind(paste0(format(wbmodViaRes$deltaR, nsmall = 3), 
+
+  delta_r = as.vector(rbind(paste0(format(wbmodViaRes$deltaR, nsmall = 3),
+
                                    ifelse(wbmodViaRes$p < .01, "*", ""),
+
                                    " [",format(wbmodViaRes$cil,nsmall = 3),"; ",
+
                                    format(wbmodViaRes$ciu,nsmall = 3),"]"),
+
                             "")),
+
   se = as.vector(rbind(format(wbmodViaRes$se,nsmall = 3),
+
                        "")),
+
   z = as.vector(rbind(format(wbmodViaRes$z,nsmall = 3),
+
                       "")),
+
   tau2 = as.vector(rbind(format(wbmodViaRes$tau2,nsmall = 3),
+
                          "")),
+
   I2 = as.vector(rbind(round(wbmodViaRes$i2),
+
                        "")),
+
   Q = as.vector(rbind(paste0(round(wbmodViaRes$q), ifelse(wbmodViaRes$qp < .01, "*", "")),
+
                       "")),
+
   QM = as.vector(rbind(paste0(round(wbmodViaRes$qM), ifelse(wbmodViaRes$qMp < .01, "*", "")),
+
                        ""))
+
 )
 
 colnames(Table5)<-gsub("_", " ", colnames(Table5))
+
 knitrMeta(Table5,output_format,
           capt="Moderator analysis testing for differences between short and long VIA formats on WB outcomes",
-          foot="N = total sample size; k = number of effects; 
+          foot="N = total sample size; k = number of effects;
           r = back-transformed meta-analytic correlation coefficient; se = standard error;
-          CI = confidence intervals; PI = predicted intervals; 
+          CI = confidence intervals; PI = predicted intervals;
           tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;
-          Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info")
+          Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info")%>%
+  kable_styling(font_size = 8)
 ```
 
 \newpage
@@ -389,80 +785,128 @@ knitrMeta(Table5,output_format,
 
 ```{r}
 wbmodwbRes <- effList[["wbwb"]]
+
 Table6 <- data.frame(Strength = wbmodwbRes$strength,
+
                      Domain_satisfaction = paste0(format(wbmodwbRes$r1,nsmall=2),
+
                                         " [",format(wbmodwbRes$rcil1,nsmall=2),"; ",
+
                                         format(wbmodwbRes$rciu1,nsmall=2),"]"),
+
                      Happyness = paste0(format(wbmodwbRes$r2,nsmall=2),
+
                                         " [",format(wbmodwbRes$rcil2,nsmall=2),"; ",
+
                                         format(wbmodwbRes$rciu2,nsmall=2),"]"),
+
                      Life_satisfaction = paste0(format(wbmodwbRes$r3,nsmall=2),
+
                                         " [",format(wbmodwbRes$rcil3,nsmall=2),"; ",
+
                                         format(wbmodwbRes$rciu3,nsmall=2),"]"),
+
                      Negative_affect = paste0(format(wbmodwbRes$r4,nsmall=2),
+
                                         " [",format(wbmodwbRes$rcil4,nsmall=2),"; ",
+
                                         format(wbmodwbRes$rciu4,nsmall=2),"]"),
+
                      Positive_affect = paste0(format(wbmodwbRes$r5,nsmall=2),
+
                                         " [",format(wbmodwbRes$rcil5,nsmall=2),"; ",
+
                                         format(wbmodwbRes$rciu5,nsmall=2),"]"),
+
                      Psychological_wellbeing = paste0(format(wbmodwbRes$r6,nsmall=2),
+
                                         " [",format(wbmodwbRes$rcil6,nsmall=2),"; ",
+
                                         format(wbmodwbRes$rciu6,nsmall=2),"]"),
+
                      Subjective_wellbeing = paste0(format(wbmodwbRes$r7,nsmall=2),
+
                                         " [",format(wbmodwbRes$rcil7,nsmall=2),"; ",
+
                                         format(wbmodwbRes$rciu7,nsmall=2),"]"),
+
                      Overall_effect= paste0(format(modRes$r1,nsmall=2),
+
                                         " [",format(modRes$rcil1,nsmall=2),"; ",
+
                                         format(modRes$rciu1,nsmall=2),"]"),
+
                      tau2 = wbmodwbRes$tau2,
+
                      Q =paste0(format(wbmodwbRes$q), "(",wbmodwbRes$qdf,")",ifelse(wbmodwbRes$qp < .01, "*", "")),
+
                      QM =paste0(format(wbmodwbRes$qM), "(",wbmodwbRes$qMdf,")",ifelse(wbmodwbRes$qMp < .01, "*", ""))
+
 )
+
 colnames(Table6)<-gsub("_", " ", colnames(Table6))
+
 knitrMeta(Table6,output_format,
           capt="Moderator analysis testing for differences between specific WB outcomes. Back-transformed meta-analytic correlation coefficient and confidence intervals are reported.",
           foot="tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;
           Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info")
-
 ```
-
-
 
 # Detailed results on specific mental health outcome
 
 ```{r}
 mhmodmhRes <- effList[["mhmh"]]
+
 Table9 <- data.frame(Strength = mhmodmhRes$strength,
+
                      Anxiety = paste0(round(mhmodmhRes$r1,2),
+
                                                   " [",round(mhmodmhRes$rcil1,2),"; ",
+
                                                   round(mhmodmhRes$rciu1,2),"]"),
+
                      Depression = paste0(round(mhmodmhRes$r2,2),
+
                                          " [",round(mhmodmhRes$rcil2,2),"; ",
+
                                          round(mhmodmhRes$rciu2,2),"]"),
+
                      General_mental_health = paste0(round(mhmodmhRes$r3,2),
+
                                                   " [",round(mhmodmhRes$rcil3,2),"; ",
+
                                                   round(mhmodmhRes$rciu3,2),"]"),
+
                      Stress = paste0(round(mhmodmhRes$r4,2),
+
                                      " [",round(mhmodmhRes$rcil4,2),"; ",
+
                                      round(mhmodmhRes$rciu4,2),"]"),
+
                      Overall_effect = paste0(round(modRes$r0,2),
+
                                              " [",round(modRes$rcil0,2),"; ",
+
                                              round(modRes$rciu0,2),"]"),
+
                      tau2 = mhmodmhRes$tau2,
+
                      I2 = round(metaRes$i2),
+
                      Q =paste0(format(mhmodmhRes$q), ifelse(mhmodmhRes$qp < .01, "*", "")),#"(",modRes$qdf,")",
+
                      QM =paste0(format(mhmodmhRes$qM), ifelse(mhmodmhRes$qMp < .01, "*", ""))#"(",modRes$qMdf,")",
+
 )
+
 colnames(Table9)<-gsub("_", " ", colnames(Table9))
 
 knitrMeta(Table9,output_format,
           capt="Moderator analysis testing for differences between specific MH outcomes. Back-transformed meta-analytic correlation coefficient and confidence intervals are reported.",
-           foot="tau2 = total variance (between + within); 
+           foot="tau2 = total variance (between + within);
            I2 = percentage of variance due to heterogeneity;
-           Q = Q statistic; QM = Q test for the moderator analysis. 
+           Q = Q statistic; QM = Q test for the moderator analysis.
            See the shiny app for additional info")
-
-
 ```
 
 \newpage
@@ -483,44 +927,76 @@ For what concerns clinical and non-clinical population, results for both well-be
 wbmodPopRes <- effList[["wbPop"]]
 
 Table4 <- data.frame(
+
   Strength = as.vector(rbind(modRes$strength, "")),
-  Population = as.vector(rbind(rep("Clinical", 24), 
+
+  Population = as.vector(rbind(rep("Clinical", 24),
+
                                rep("Not clinical", 24))),
+
   r = as.vector(rbind(paste0(format(wbmodPopRes$r0,nsmall = 3),
+
                              " [",format(wbmodPopRes$rcil0,nsmall = 3),"; ",
+
                              format(wbmodPopRes$rciu0,nsmall = 3),"]"),
+
                       paste0(format(wbmodPopRes$r1,nsmall = 3),
+
                              " [",format(wbmodPopRes$rcil1,nsmall = 3),"; ",
+
                              format(wbmodPopRes$rciu1,nsmall = 3),"]"))),
+
   N = as.vector(rbind(wbmodPopRes$N0,
+
                       wbmodPopRes$N1)),
+
   k = as.vector(rbind(wbmodPopRes$k0,
+
                       wbmodPopRes$k1)),
-  delta_r = as.vector(rbind(paste0(format(wbmodPopRes$deltaR, nsmall = 3), 
+
+  delta_r = as.vector(rbind(paste0(format(wbmodPopRes$deltaR, nsmall = 3),
+
                                    ifelse(wbmodPopRes$p < .01, "*", ""),
+
                                    " [",format(wbmodPopRes$cil,nsmall = 3),"; ",
+
                                    format(wbmodPopRes$ciu,nsmall = 3),"]"),
+
                             "")),
+
   se = as.vector(rbind(format(wbmodPopRes$se,nsmall = 3),
+
                        "")),
+
   z = as.vector(rbind(format(wbmodPopRes$z,nsmall = 3),
+
                       "")),
+
   tau2 = as.vector(rbind(format(wbmodPopRes$tau2,nsmall = 3),
+
                          "")),
+
   I2 = as.vector(rbind(round(wbmodPopRes$i2),
+
                          "")),
+
   Q = as.vector(rbind(paste0(round(wbmodPopRes$q), ifelse(wbmodPopRes$qp < .01, "*", "")),
+
                       "")),
+
   QM = as.vector(rbind(paste0(round(wbmodPopRes$qM), ifelse(wbmodPopRes$qMp < .01, "*", "")),
+
                        ""))
+
 )
 
 colnames(Table4)<-gsub("_", " ", colnames(Table4))
+
 knitrMeta(Table4,output_format,
           capt="Moderator analysis testing for differences between clinical and non-clinical population on WB outcomes",
-          foot="N = total sample size; k = number of effects; 
+          foot="N = total sample size; k = number of effects;
           r = back-transformed meta-analytic correlation coefficient; se = standard error;
-          CI = confidence intervals; PI = predicted intervals; 
+          CI = confidence intervals; PI = predicted intervals;
           tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;
           Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info")
 ```
@@ -533,139 +1009,212 @@ knitrMeta(Table4,output_format,
 mhmodPopRes = effList[["mhPop"]]
 
 Table7 <- data.frame(
+
   Strength = as.vector(rbind(modRes$strength, "")),
-  Population = as.vector(rbind(rep("Clinical", 24), 
+
+  Population = as.vector(rbind(rep("Clinical", 24),
+
                                rep("Not clinical", 24))),
+
   r = as.vector(rbind(paste0(format(mhmodPopRes$r0,nsmall = 3),
+
                              " [",format(mhmodPopRes$rcil0,nsmall = 3),"; ",
+
                              format(mhmodPopRes$rciu0,nsmall = 3),"]"),
+
                       paste0(format(mhmodPopRes$r1,nsmall = 3),
+
                              " [",format(mhmodPopRes$rcil1,nsmall = 3),"; ",
+
                              format(mhmodPopRes$rciu1,nsmall = 3),"]"))),
+
   N = as.vector(rbind(mhmodPopRes$N0,
+
                       mhmodPopRes$N1)),
+
   k = as.vector(rbind(mhmodPopRes$k0,
+
                       mhmodPopRes$k1)),
-  delta_r = as.vector(rbind(paste0(format(mhmodPopRes$deltaR, nsmall = 3), 
+
+  delta_r = as.vector(rbind(paste0(format(mhmodPopRes$deltaR, nsmall = 3),
+
                                    ifelse(mhmodPopRes$p < .01, "*", ""),
+
                                    " [",format(mhmodPopRes$cil,nsmall = 3),"; ",
+
                                    format(mhmodPopRes$ciu,nsmall = 3),"]"),
+
                             "")),
+
   se = as.vector(rbind(format(mhmodPopRes$se,nsmall = 3),
+
                        "")),
+
   z = as.vector(rbind(format(mhmodPopRes$z,nsmall = 3),
+
                       "")),
+
   tau2 = as.vector(rbind(format(mhmodPopRes$tau2,nsmall = 3),
+
                          "")),
+
   I2 = as.vector(rbind(round(mhmodPopRes$i2),
+
                          "")),
+
   Q = as.vector(rbind(paste0(round(mhmodPopRes$q), ifelse(mhmodPopRes$qp < .01, "*", "")),
+
                       "")),
+
   QM = as.vector(rbind(paste0(round(mhmodPopRes$qM), ifelse(mhmodPopRes$qMp < .01, "*", "")),
+
                        ""))
+
 )
 
 colnames(Table7)<-gsub("_", " ", colnames(Table7))
+
 knitrMeta(Table7,output_format,
           capt="Moderator analysis testing for differences between clinical and non-clinical populations on MH outcomes",
-          foot="N = total sample size; k = number of effects; 
+          foot="N = total sample size; k = number of effects;
           r = back-transformed meta-analytic correlation coefficient; se = standard error;
-          CI = confidence intervals; PI = predicted intervals; 
+          CI = confidence intervals; PI = predicted intervals;
           tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;
           Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info")
 ```
+
 
 \newpage
 
 # Robustness checks
 
 ## Well-being
-```{r, results='asis'}
-#| fig-height: 2
+
+```{r, results='asis', fig.height=2}
 
 wbPlots <- bias$wbl1o
 
-i=1
 plotList <- list()
+
 for (i in 1:24) {
+
   dout <- wbPlots[[i]]
+
   plotList[[i]] <- ggplot(dout, aes(x = sample, y = beta)) +
+
     geom_point() +
+
     geom_hline(yintercept = c(dout$cil[1],
+
                               dout$ciu[1])) +
+
     geom_hline(yintercept = c(dout$target_est[1]),
+
              col = "red") +
-    theme_bw(base_size = 8) + 
+
+    theme_bw(base_size = 8) +
+
     labs(x = paste(gsub("_", " ", strengths24[i]))) +
+
     theme(
+
       axis.text.x = element_blank(),
+
       axis.ticks = element_blank()
+
       ) +
+
     scale_y_continuous(name = expression("Back-transformed " * hat(r) * " values"))
-  
+
 }
 
-# captions <- paste0(gsub("_", " ", strengths24[i]), " and well-being leave one out results")
-
 for (i in seq_along(plotList)) {
+
   # Start a figure div
+
   cat("::: {.cell-output-display}\n")
-  
+
   # Print the plot
+
   print(plotList[[i]])
-  
+
   caption <- paste0(gsub("_", " ", strengths24[i]), " and well-being leave one out results")
-  
+
   # Print the caption
+
   cat(paste0("**Figure FigureS", i, ".** ", caption, "\n"))
-  
+
   # End the figure div
+
   cat(":::\n\n")
+
 }
 
 ```
+
 ## Mental health
 
-```{r, results='asis'}
-#| fig-height: 2
+```{r, results='asis', fig.height=2}
+
 
 mhPlots <- bias$mhl1o
 
 plotList <- list()
+
 for (i in 1:24) {
+
   dout <- mhPlots[[i]]
+
   plotList[[i]] <- ggplot(dout, aes(x = sample, y = beta)) +
+
     geom_point() +
+
     geom_hline(yintercept = c(dout$cil[1],
+
                               dout$ciu[1])) +
+
     geom_hline(yintercept = c(dout$target_est[1]),
+
              col = "red") +
-    theme_bw(base_size = 8) + 
+
+    theme_bw(base_size = 8) +
+
     labs(x = paste(gsub("_", " ", strengths24[i]))) +
+
     theme(
+
       axis.text.x = element_blank(),
+
       axis.ticks = element_blank()
+
       ) +
+
     scale_y_continuous(name = expression("Back-transformed " * hat(r) * " values"))
-  
+
 }
 
 # captions <- paste0(gsub("_", " ", strengths24[i]), " and well-being leave one out results")
 
 for (i in seq_along(plotList)) {
+
   # Start a figure div
+
   cat("::: {.cell-output-display}\n")
-  
+
   # Print the plot
+
   print(plotList[[i]])
-  
+
   caption <- paste0(gsub("_", " ", strengths24[i]), " and mental health leave one out results")
-  
+
   # Print the caption
+
   cat(paste0("**Figure FigureS", (i+24), ".** ", caption, "\n"))
-  
+
   # End the figure div
+
   cat(":::\n\n")
+
 }
 
 ```

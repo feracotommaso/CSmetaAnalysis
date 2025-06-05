@@ -1,0 +1,1500 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure S}
+\else
+  \newcommand\figurename{Figure S}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table S}
+\else
+  \newcommand\tablename{Table S}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Supplementary materials: detailed results},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Supplementary materials: detailed results}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Character strengths, well-being, and ill-being}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, frame hidden, breakable, interior hidden, boxrule=0pt, enhanced, sharp corners]}{\end{tcolorbox}}\fi
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\newpage
+
+\hypertarget{deviations-from-the-preregistration}{%
+\section{Deviations from the
+preregistration}\label{deviations-from-the-preregistration}}
+
+Following discussions with the Editor and the Reviewers, we modified
+part of the analysis and slightly deviated from our preregistration. For
+transparency, we report here all the deviations from the
+preregistration.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2778}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4583}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2639}}@{}}
+\caption{Deviations from the preregistration}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Topic
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Deviation
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Explanation
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Topic
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Deviation
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Explanation
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Moderation analyses for clinical and non-clinical samples & Not
+performed in the main paper but reported in supplementary. & The minimum
+number of k effects was not reached. \\
+Robustness check & We performed a non-preregistered leave-one-out
+analysis to check the robustness of our findings. & Accepted reviewers'
+suggestion \\
+Publication bias analysis & We performed non-preregistered PET
+regressions to test for possible publication bias in our data. &
+Accepted reviewers' suggestion \\
+Correction for unreliability & We considered corrected and not (as
+preregistered) raw correlations coefficients for the meta-analysis &
+Accepted reviewers' suggestion \\
+\end{longtable}
+
+\newpage
+
+\hypertarget{comparisons-with-personality-traits}{%
+\section{Comparisons with personality
+traits}\label{comparisons-with-personality-traits}}
+
+\hypertarget{tbl-s1}{}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\caption{\label{tbl-s1}Correspondence between character strengths and
+personality, and expected correlations with well-being and mental
+health}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Character strength
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Most correlated facet¹
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Corresponding broad trait
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Expected r with well-being²
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Expected r with mental health³
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Character strength
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Most correlated facet¹
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Corresponding broad trait
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Expected r with well-being²
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Expected r with mental health³
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Appreciation of beauty & \textbf{Aesthetic Appreciation} & HEXACO
+Openness & .16 ‒ .19 & -.02 ‒ .06 \\
+& \textbf{Aesthetics} & Big 5 Openness & & \\
+Bravery & \textbf{Social boldness} & HEXACO Extraversion & .16 ‒ .46 &
+-.02 ‒ .40 \\
+& \textbf{Assertiveness} & Big 5 Extraversion & & \\
+& Creativity & HEXACO Extraversion & & \\
+& Self-Consciousness & Big 5 Extraversion & & \\
+Creativity & \textbf{Creativity} & HEXACO Openness & .16 ‒ .19 & -.02 ‒
+.06 \\
+& \textbf{Ideas} & Big 5 Openness & & \\
+& Fantasy & Big 5 Openness & & \\
+Curiosity & \textbf{Inquisitiveness} & HEXACO Openness & .18 ‒ .48 &
+-.02 ‒ .40 \\
+& \textbf{Ideas} & Big 5 Openness & & \\
+& Aesthetics & Big 5 Openness & & \\
+& Liveliness & HEXACO Extraversion & & \\
+Fairness & \textbf{Altruism} & HEXACO Interstitial scale & .25 ‒ .46 &
+.23 ‒ .27 \\
+& \textbf{Gentleness} & HEXACO Agreeableness & & \\
+& Altruism & Big 5 Agreeableness & & \\
+& Angry Hostility & Big 5 Neuroticism & & \\
+Forgiveness & \textbf{Compliance} & Big 5 Agreeableness & .18 ‒ .25 &
+.21 ‒ .23 \\
+& \textbf{Forgivingness} & HEXACO Agreeableness & & \\
+Gratitude & Sentimentality & HEXACO Agreeableness & .18 ‒ .48 & .11 ‒
+.40 \\
+& Altruism & HEXACO Interstitial scale & & \\
+& Positive emotions & Big 5 Extraversion & & \\
+& Liveliness & HEXACO Extraversion & & \\
+& Warmth & Big Five Extraversion & & \\
+& Altruism & Big 5 Agreeableness & & \\
+Honesty & \textbf{Fairness} & Honesty-Humility & .16 ‒ .46 & .22 ‒
+.27 \\
+& \textbf{Dutifulnes}s & Big 5 Conscientiousness & & \\
+& Diligence & HEXACO Conscientiousness & & \\
+& Vulnerability & Big 5 Neuroticism & & \\
+Hope & \textbf{Liveliness} & HEXACO Extraversion & .46 ‒ .48 & .27 ‒
+.40 \\
+& \textbf{Depression} & Big 5 Neuroticism & & \\
+& Positive emotions & Big 5 Extraversion & & \\
+Humility & \textbf{Modesty} & Honesty-Humility & .16 ‒ .18 & .22 ‒
+.23 \\
+& \textbf{Modesty} & Big 5 Agreeableness & & \\
+& Gentleness & HEXACO Agreeableness & & \\
+Humor & \textbf{Liveliness} & HEXACO Extraversion & .37 ‒ .48 & .11 ‒
+.40 \\
+& \textbf{Positive Emotions} & Big 5 Extraversion & & \\
+Judgment & \textbf{Prudence} & HEXACO Conscientiousness & .28 ‒ .36 &
+.22 ‒ .26 \\
+& \textbf{Deliberation} & Big 5 Conscientiousness & & \\
+& Competence & Big 5 Conscientiousness & & \\
+Kindness & \textbf{Altruism} & HEXACO Interstitial scale & .16 ‒ .37 &
+.11 ‒ .19 \\
+& \textbf{Warmth} & Big 5 Extraversion & & \\
+& Sentimentality & HEXACO Emotionality & & \\
+& Altruism & Big 5 Agreeableness & & \\
+Leadership & \textbf{Assertiveness} & Big 5 Extraversion & .28 ‒ .48 &
+.11 ‒ .40 \\
+& \textbf{Social boldness} & HEXACO Extraversion & & \\
+& Diligence & HEXACO Conscientiousness & & \\
+Love & \textbf{Warmth} & Big 5 Extraversion & .37 ‒ .48 & .11 ‒ .40 \\
+& Social Self-Esteem & HEXACO Extraversion & & \\
+& Positive Emotions & HEXACO Extraversion & & \\
+& Sociability & HEXACO Extraversion & & \\
+& Liveliness & HEXACO Extraversion & & \\
+Love of learning & \textbf{Ideas} & HEXACO Openness & .16 ‒ .19 & -.02 ‒
+.06 \\
+& \textbf{Inquisitiveness} & Big 5 Openness & & \\
+& Aesthetic Appreciation & HEXACO Openness & & \\
+Perseverance & \textbf{Diligence} & HEXACO Conscientiousness & .28 ‒ .36
+& .22 ‒ .26 \\
+& \textbf{Self-discipline} & Big 5 Conscientiousness & & \\
+& Achieve Striving & Big 5 Conscientiousness & & \\
+Perspective & \textbf{Competence} & Big 5 Conscientiousness & .16 ‒ .46
+& -.02 ‒ .27 \\
+& Diligence & HEXACO Conscientiousness & & \\
+& Vulnerability & Big 5 Neuroticism & & \\
+& Liveliness & Big 5 Extraversion & & \\
+& Creativity & HEXACO Openness & & \\
+Prudence & \textbf{Prudence} & HEXACO Conscientiousness & .28 ‒ .36 &
+.22 ‒ .26 \\
+& \textbf{Deliberation} & Big 5 Conscientiousness & & \\
+& Dutifulness & Big 5 Conscientiousness & & \\
+Self-regulation & \textbf{Diligence} & HEXACO Conscientiousness & .28 ‒
+.46 & .26 ‒ .27 \\
+& \textbf{Impulsiveness} & Big 5 Neuroticism & & \\
+& Self-discipline & Big 5 Conscientiousness & & \\
+Social intelligence & \textbf{Warmth} & Big 5 Extraversion & .37 ‒ .48 &
+.11 ‒ .40 \\
+& \textbf{Social Boldnes}s & HEXACO Extraversion & & \\
+& Sociability & HEXACO Extraversion & & \\
+Spirituality & Values & Big 5 Openness & .16 ‒ .48 & -.02 ‒ .19 \\
+& Fairness & Honesty-Humility & & \\
+& Liveliness & HEXACO Extraversion & & \\
+& Tender-mindedness & Big 5 Agreeableness & & \\
+Teamwork & \textbf{Sociability} & HEXACO Extraversion & .18 ‒ .48 & .11
+‒ .40 \\
+& \textbf{Warmth} & Big 5 Extraversion & & \\
+& Gregariousness & Big 5 Extraversion & & \\
+& Gentleness & HEXACO Agreeableness & & \\
+Zest & \textbf{Liveliness} & HEXACO Extraversion & .36 ‒ .48 & .22 ‒
+.40 \\
+& Activity & Big Five Extraversion & & \\
+& Achieve Striving & Big 5 Conscientiousness & & \\
+& Depression & Big 5 Neuroticism & & \\
+\end{longtable}
+
+\textbf{Note.} In bold are facets that have been found to be the best
+correlates in multiple samples.\\
+¹ Based on NEO-PI-R and IPIP-NEO facets in McGrath (2020) and the
+NEO-PI-R facets in Noftle et al.~(2011).\\
+² Based on Anglim et al.~(2020) and Pletzer et al.~(2024).\\
+³ Based on Pletzer et al.~(2024) and Strickhouser et al.~(2017). For
+example, appreciation of beauty was found to be most associated to the
+``Aesthetic Appreciation'' and ``Aesthetics'' facets; correlations for
+well-being ranged from .16 to .19 depending on the meta-analysis, while
+correlations for mental health ranged from -.02 to .06.
+
+\newpage
+
+\hypertarget{tbl-s2}{}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}@{}}
+\caption{\label{tbl-s2}Correspondence between character strengths and
+personality, expected and current correlations with well-being and
+mental health}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Character strength
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Broad trait
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Exp. r well-being²
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(\hat{r}\) well-being
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Exp. r mental health³
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(\hat{r}\) mental health
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Character strength
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Broad trait
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Exp. r well-being²
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(\hat{r}\) well-being
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Exp. r mental health³
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(\hat{r}\) mental health
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Appreciation of beauty & O & .16 --.19 & .18 & -.02 --.06 & .06 \\
+Bravery & E, O, N & .16 --.46 & .27 & -.02 --.40 & .17 \\
+Creativity & O & .16 --.19 & .22 & -.02 --.06 & .11 \\
+Curiosity & O, E & .18 --.48 & .38 & -.02 --.40 & .25 \\
+Fairness & I, A, N & .25 --.46 & .21 & .23 --.27 & .14 \\
+Forgiveness & A & .18 --.25 & .25 & .21 --.23 & .21 \\
+Gratitude & A, I, E & .18 --.48 & .43 & .11 --.40 & .30 \\
+Honesty & HH, C, N & .16 --.46 & .25 & .22 --.27 & .20 \\
+Hope & E, N & .46 --.48 & .53 & .27 --.40 & .46 \\
+Humility & HH, A & .16 --.18 & .07 & .22 --.23 & .06 \\
+Humor & E & .37 --.48 & .28 & .11 --.40 & .19 \\
+Judgment & C & .28 --.36 & .21 & .22 --.26 & .16 \\
+Kindness & I, E, N, A & .16 --.37 & .26 & .11 --.19 & .14 \\
+Leadership & E, C & .28 --.48 & .28 & .11 --.40 & .19 \\
+Love & E & .37 --.48 & .43 & .11 --.40 & .34 \\
+Love of learning & O & .16 --.19 & .24 & -.02 --.06 & .19 \\
+Perseverance & C & .28 --.36 & .35 & .22 --.26 & .27 \\
+Perspective & C, N, E, O & .16 --.46 & .30 & -.02 --.27 & .20 \\
+Prudence & C & .28 --.36 & .19 & .22 --.26 & .18 \\
+Self-regulation & C, N & .28 --.46 & .30 & .26 --.27 & .29 \\
+Social intelligence & E & .37 --.48 & .33 & .11 --.40 & .24 \\
+Spirituality & O, HH, E, A & .16 --.48 & .23 & -.02 --.19 & .14 \\
+Teamwork & E, A & .18 --.48 & .30 & .11 --.40 & .23 \\
+Zest & E, C, N & .36 --.48 & .53 & .22 --.40 & .43 \\
+\end{longtable}
+
+\textbf{Note.}\\
+¹ Based on McGrath (2020) and Noftle et al.~(2011).\\
+² Based on Anglim et al.~(2020) and Pletzer et al.~(2024).\\
+³ Based on Pletzer et al.~(2024) and Strickhouser et al.~(2017).\\
+\(\hat{r}\) = meta-analytical correlation
+
+\newpage
+
+\begingroup
+\scriptsize
+
+\hypertarget{tbl-s3}{}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}@{}}
+\caption{\label{tbl-s3}Correspondence between character strengths and
+personality: expected and current correlations with well-being specific
+outcomes}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Character strength
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Trait
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Life satisfaction
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Positive affect
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Negative affect
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+SWB
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+PWB
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Character strength
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Trait
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Life satisfaction
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Positive affect
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Negative affect
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+SWB
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+PWB
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+App. Beauty & O & .16 (.05 --.10) & .23 (.13 --.24) & .08 (.01 -- .04) &
+.14 (.08) & .15 (.11) \\
+Brav. & E, O, N & .21 (.05 --.48) & .27 (.13 --.51) & .10 (.01 -- .39) &
+.17 (.08 --.42) & .30 (.09 --.37) \\
+Creat. & O & .19 (.05 --.10) & .30 (.13 --.24) & .02 (.01 -- .04) & .14
+(.08) & .25 (.11) \\
+Cur. & O, E & .32 (.05 --.41) & .40 (.13 --.51) & .12 (.01 -- .39) & .30
+(.08 --.42) & .35 (.11 --.37) \\
+Fair. & I, A, N & .17 (.09 --.39) & .19 (.12 --.34) & .15 (.06 -- .56) &
+.16 (.13 --.19) & .19 (.09 --.14) \\
+Forg. & A & .21 (.17 --.20) & .24 (.14 --.24) & .22 (.21 -- .25) & .17
+(.18) & .17 (.14) \\
+Grat. & A, I, E & .42 (.14 --.48) & .37 (.14 --.51) & .19 (.06 -- .39) &
+.34 (.18 --.42) & .36 (.14 --.37) \\
+Hone. & HH, C, N & .22 (.09 --.39) & .24 (.07 --.35) & .13 (.15 -- .56)
+& .22 (.12 --.18) & .31 (.09 --.22) \\
+Hope & E, N & .49 (.09 --.48) & .51 (.12 --.51) & .33 (-.56 --.21) & .48
+(.13 --.42) & .45 (.09 --.37) \\
+Humil. & HH, A & .08 (.09 --.20) & .04 (.07 --.24) & .04 (.15 -- .25) &
+.05 (.12 --.18) & .05 (.14) \\
+Humor & E & .23 (.32 --.41) & .28 (.44 --.51) & .11 (.21 -- .39) & .25
+(.42) & .27 (.37) \\
+Judgm. & C & .18 (.19 --.27) & .23 (.20 --.35) & .06 (.12 -- .25) & .14
+(.19) & .23 (.22) \\
+Kind. & I, E, N, A & .21 (.09 --.48) & .23 (.12 --.51) & .09 (.06 --
+.56) & .18 (.13 --.42) & .26 (.09 --.34) \\
+Lead. & E, C & .24 (.19 --.41) & .28 (.20 --.51) & .12 (.12 -- .39) &
+.19 (.19 --.42) & .29 (.22 --.37) \\
+Love & E & .39 (.32 --.41) & .33 (.44 --.51) & .16 (.21 -- .39) & .37
+(.42) & .38 (.37) \\
+Learn. & O & .18 (.05 --.10) & .28 (.13 --.24) & .13 (.01 -- .04) & .17
+(.08) & .22 (.11) \\
+Perse. & C & .31 (.19 --.27) & .34 (.20 --.35) & .16 (.12 -- .25) & .25
+(.19) & .35 (.22) \\
+Persp. & C, N, E, O & .27 (.06 --.48) & .33 (.12 --.61) & .12 (.01 --
+.56) & .22 (.09 --.50) & .31 (.09 --.37) \\
+Prud. & C & .17 (.19 --.27) & .16 (.20 --.35) & .10 (.12 -- .25) & .08
+(.19) & .18 (.22) \\
+Self-reg & C, N & .27 (.09 --.27) & .28 (.12 --.35) & .23 (.12 -- .56) &
+.17 (.13 --.19) & .26 (.09 --.22) \\
+Soc.Int & E & .28 (.32 --.41) & .34 (.44 --.51) & .14 (.21 -- .39) & .24
+(.42) & .33 (.37) \\
+Spir. & O, HH, E, A & .22 (.05 --.41) & .22 (.07 --.51) & .09 (.01 --
+.39) & .18 (.08 --.42) & .19 (.09 --.37) \\
+Team. & E, A & .25 (.17 --.41) & .25 (.14 --.51) & .16 (.21 -- .39) &
+.24 (.18 --.42) & .27 (.14 --.37) \\
+Zest & E, C, N & .45 (.09 --.41) & .52 (.12 --.51) & .25 (.12 -- .56) &
+.40 (.13 --.42) & .42 (.09 --.37) \\
+\end{longtable}
+
+\textbf{Note.}\\
+² Based on Anglim et al.~(2020) and Pletzer et al.~(2024).\\
+³ Based on Pletzer et al.~(2024). Please note that happiness and
+domain-specific satisfaction are not included due to a lack of
+meta-analytical information.\\
+\(\hat{r}\) = meta-analytical association
+
+\endgroup
+
+\newpage
+
+\begingroup
+\scriptsize
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}@{}}
+\caption{Correspondence between character strengths and personality:
+expected and current correlations with mental health specific
+outcomes}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Character strength
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Broad trait
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+General mental health
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Anxiety
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Depression
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Stress
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Character strength
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Broad trait
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+General mental health
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Anxiety
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Depression
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Stress
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+App. Beauty & O & .06 (.13) & --.04 (.10) & .02 (.06) & .00 (.06) \\
+Bravery & E, O, N & .12 (.13 --.56) & .06 (.10 --.45) & .14 (.06 --.46)
+& .09 (.06 --.33) \\
+Creativity & O & .14 (.16) & .02 (.12) & .12 (.08) & .06 (.07) \\
+Curiosity & O, E & .22 (.13 --.56) & .10 (.10 --.45) & .24 (.06 --.46) &
+.16 (.06 --.33) \\
+Fairness & I, A, N & .09 (.25 --.27) & .05 (.15 --.29) & .07 (.17 --.18)
+& .11 (.14 --.19) \\
+Forgiveness & A & .14 (.25) & .11 (.15) & .16 (.18) & .21 (.14) \\
+Gratitude & A, I, E & .20 (.25 --.56) & .12 (.15 --.45) & .29 (.18
+--.46) & .19 (.14 --.33) \\
+Honesty & HH, C, N & .12 (.09 --.27) & .10 (.07 --.29) & .16 (.04 --.20)
+& .13 (.10 --.19) \\
+Hope & E, N & .30 (.27 --.56) & .25 (.29 --.45) & .41 (.18 --.46) & .29
+(.19 --.33) \\
+Humility & HH, A & .03 (.09 --.25) & --.01 (.07 --.15) & --.02 (.04
+--.18) & .03 (.10 --.14) \\
+Humor & E & .20 (.56) & .10 (.45) & .16 (.46) & .11 (.33) \\
+Judgment & C & .11 (.15) & .09 (.17) & .12 (.20) & .12 (.19) \\
+Kindness & I, E, N, A & .05 (.25 --.56) & .01 (.15 --.45) & .07 (.17
+--.46) & .06 (.14 --.33) \\
+Leadership & E, C & .15 (.15 --.56) & .09 (.17 --.45) & .15 (.20 --.46)
+& .09 (.19 --.33) \\
+Love & E & .19 (.56) & .14 (.45) & .30 (.46) & .16 (.33) \\
+Love of learning & O & .17 (.16) & .08 (.12) & .17 (.08) & .11 (.07) \\
+Perseverance & C & .16 (.15) & .14 (.17) & .26 (.20) & .15 (.19) \\
+Perspective & C, N, E, O & .13 (.13 --.56) & .05 (.10 --.45) & .15 (.06
+--.46) & .10 (.06 --.33) \\
+Prudence & C & .08 (.15) & .08 (.17) & .12 (.20) & .13 (.19) \\
+Self-regulation & C, N & .23 (.15 --.27) & .20 (.17 --.29) & .21 (.17
+--.20) & .29 (.19) \\
+Social intelligence & E & .18 (.56) & .10 (.45) & .17 (.46) & .16
+(.33) \\
+Spirituality & O, HH, E, A & .08 (.13 --.56) & .04 (.10 --.45) & .15
+(.06 --.46) & .07 (.06 --.33) \\
+Teamwork & E, A & .13 (.25 --.56) & .09 (.15 --.45) & .15 (.18 --.46) &
+.11 (.14 --.33) \\
+Zest & E, C, N & .32 (.15 --.56) & .23 (.17 --.45) & .44 (.17 --.46) &
+.27 (.19 --.33) \\
+\end{longtable}
+
+\textbf{Note.}\\
+² Based on Pletzer et al.~(2024).\\
+O = Openness to experience, E = Extraversion, N =
+Neuroticism/Emotionality,\\
+I = Interstitial facet of altruism, A = Agreeableness, HH =
+Honesty-Humility, C = Conscientiousness.
+
+\endgroup
+
+\newpage
+
+\hypertarget{descriptive-statistics}{%
+\section{Descriptive statistics}\label{descriptive-statistics}}
+
+\begin{table}[H]
+\centering\centering
+\caption{Descriptive statistics. The number of unique samples is reported in parenthesis.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{lccccccccccc}
+\toprule
+\rotatebox{90}{} & \rotatebox{90}{N} & \rotatebox{90}{N range} & \rotatebox{90}{k} & \rotatebox{90}{Samples} & \rotatebox{90}{Studies} & \rotatebox{90}{VIA short} & \rotatebox{90}{VIA long} & \rotatebox{90}{VIA other} & \rotatebox{90}{Wellbeing} & \rotatebox{90}{Mental health} & \rotatebox{90}{Clinical samples}\\
+\midrule
+\cellcolor{gray!10}{Appreciation\_of\_beauty} & \cellcolor{gray!10}{193916} & \cellcolor{gray!10}{{}[32; 56998]} & \cellcolor{gray!10}{206} & \cellcolor{gray!10}{112} & \cellcolor{gray!10}{92} & \cellcolor{gray!10}{97 (43)} & \cellcolor{gray!10}{109 (71)} & \cellcolor{gray!10}{0 (0)} & \cellcolor{gray!10}{169 (103)} & \cellcolor{gray!10}{37 (27)} & \cellcolor{gray!10}{12 (8)}\\
+Bravery & 194235 & {}[26; 56998] & 201 & 113 & 93 & 97 (43) & 102 (70) & 2 (2) & 165 (104) & 36 (26) & 8 (6)\\
+\cellcolor{gray!10}{Creativity} & \cellcolor{gray!10}{196142} & \cellcolor{gray!10}{{}[32; 56998]} & \cellcolor{gray!10}{207} & \cellcolor{gray!10}{115} & \cellcolor{gray!10}{95} & \cellcolor{gray!10}{104 (46)} & \cellcolor{gray!10}{103 (71)} & \cellcolor{gray!10}{0 (0)} & \cellcolor{gray!10}{167 (104)} & \cellcolor{gray!10}{40 (28)} & \cellcolor{gray!10}{10 (7)}\\
+Curiosity & 196450 & {}[32; 56998] & 211 & 115 & 96 & 104 (46) & 107 (71) & 0 (0) & 174 (105) & 37 (27) & 8 (6)\\
+\cellcolor{gray!10}{Fairness} & \cellcolor{gray!10}{193138} & \cellcolor{gray!10}{{}[32; 56998]} & \cellcolor{gray!10}{199} & \cellcolor{gray!10}{110} & \cellcolor{gray!10}{91} & \cellcolor{gray!10}{97 (43)} & \cellcolor{gray!10}{102 (69)} & \cellcolor{gray!10}{0 (0)} & \cellcolor{gray!10}{165 (103)} & \cellcolor{gray!10}{34 (24)} & \cellcolor{gray!10}{8 (6)}\\
+\addlinespace
+Forgiveness & 196010 & {}[32; 56998] & 216 & 119 & 98 & 102 (45) & 114 (76) & 0 (0) & 174 (106) & 42 (32) & 15 (9)\\
+\cellcolor{gray!10}{Gratitude} & \cellcolor{gray!10}{212430} & \cellcolor{gray!10}{{}[26; 56998]} & \cellcolor{gray!10}{231} & \cellcolor{gray!10}{125} & \cellcolor{gray!10}{104} & \cellcolor{gray!10}{110 (49)} & \cellcolor{gray!10}{119 (76)} & \cellcolor{gray!10}{2 (2)} & \cellcolor{gray!10}{189 (115)} & \cellcolor{gray!10}{42 (31)} & \cellcolor{gray!10}{13 (9)}\\
+Honesty & 194199 & {}[32; 56998] & 199 & 111 & 92 & 97 (43) & 102 (70) & 0 (0) & 163 (102) & 36 (26) & 8 (6)\\
+\cellcolor{gray!10}{Hope} & \cellcolor{gray!10}{238842} & \cellcolor{gray!10}{{}[32; 56998]} & \cellcolor{gray!10}{224} & \cellcolor{gray!10}{121} & \cellcolor{gray!10}{101} & \cellcolor{gray!10}{108 (47)} & \cellcolor{gray!10}{116 (76)} & \cellcolor{gray!10}{0 (0)} & \cellcolor{gray!10}{183 (110)} & \cellcolor{gray!10}{41 (30)} & \cellcolor{gray!10}{14 (9)}\\
+Humility & 237322 & {}[32; 56998] & 204 & 112 & 93 & 101 (44) & 103 (70) & 0 (0) & 169 (104) & 35 (25) & 12 (7)\\
+\addlinespace
+\cellcolor{gray!10}{Humor} & \cellcolor{gray!10}{238185} & \cellcolor{gray!10}{{}[32; 56998]} & \cellcolor{gray!10}{221} & \cellcolor{gray!10}{118} & \cellcolor{gray!10}{97} & \cellcolor{gray!10}{101 (44)} & \cellcolor{gray!10}{120 (76)} & \cellcolor{gray!10}{0 (0)} & \cellcolor{gray!10}{184 (109)} & \cellcolor{gray!10}{37 (27)} & \cellcolor{gray!10}{17 (10)}\\
+Judgment & 195537 & {}[32; 56998] & 201 & 112 & 93 & 97 (43) & 104 (71) & 0 (0) & 163 (102) & 38 (28) & 10 (7)\\
+\cellcolor{gray!10}{Kindness} & \cellcolor{gray!10}{197301} & \cellcolor{gray!10}{{}[32; 56998]} & \cellcolor{gray!10}{209} & \cellcolor{gray!10}{117} & \cellcolor{gray!10}{98} & \cellcolor{gray!10}{103 (46)} & \cellcolor{gray!10}{104 (71)} & \cellcolor{gray!10}{2 (2)} & \cellcolor{gray!10}{173 (108)} & \cellcolor{gray!10}{36 (26)} & \cellcolor{gray!10}{12 (7)}\\
+Leadership & 194570 & {}[32; 56998] & 202 & 111 & 92 & 102 (45) & 100 (68) & 0 (0) & 167 (103) & 35 (25) & 12 (7)\\
+\cellcolor{gray!10}{Love\_of\_learning} & \cellcolor{gray!10}{196136} & \cellcolor{gray!10}{{}[26; 56998]} & \cellcolor{gray!10}{208} & \cellcolor{gray!10}{115} & \cellcolor{gray!10}{95} & \cellcolor{gray!10}{99 (44)} & \cellcolor{gray!10}{107 (71)} & \cellcolor{gray!10}{2 (2)} & \cellcolor{gray!10}{171 (105)} & \cellcolor{gray!10}{37 (27)} & \cellcolor{gray!10}{8 (6)}\\
+\addlinespace
+Love & 194942 & {}[26; 56998] & 212 & 116 & 96 & 107 (46) & 103 (70) & 2 (2) & 177 (108) & 35 (25) & 14 (8)\\
+\cellcolor{gray!10}{Perseverance} & \cellcolor{gray!10}{194361} & \cellcolor{gray!10}{{}[32; 56998]} & \cellcolor{gray!10}{203} & \cellcolor{gray!10}{112} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{98 (44)} & \cellcolor{gray!10}{105 (70)} & \cellcolor{gray!10}{0 (0)} & \cellcolor{gray!10}{166 (103)} & \cellcolor{gray!10}{37 (26)} & \cellcolor{gray!10}{11 (7)}\\
+Perspective & 195402 & {}[32; 56998] & 202 & 112 & 93 & 97 (43) & 105 (71) & 0 (0) & 165 (102) & 37 (27) & 11 (7)\\
+\cellcolor{gray!10}{Prudence} & \cellcolor{gray!10}{193610} & \cellcolor{gray!10}{{}[32; 56998]} & \cellcolor{gray!10}{197} & \cellcolor{gray!10}{109} & \cellcolor{gray!10}{90} & \cellcolor{gray!10}{97 (43)} & \cellcolor{gray!10}{100 (68)} & \cellcolor{gray!10}{0 (0)} & \cellcolor{gray!10}{162 (101)} & \cellcolor{gray!10}{35 (25)} & \cellcolor{gray!10}{8 (6)}\\
+Self\_regulation & 193949 & {}[26; 56998] & 205 & 113 & 93 & 97 (43) & 106 (70) & 2 (2) & 168 (105) & 37 (26) & 11 (7)\\
+\addlinespace
+\cellcolor{gray!10}{Social\_intelligence} & \cellcolor{gray!10}{196471} & \cellcolor{gray!10}{{}[32; 56998]} & \cellcolor{gray!10}{213} & \cellcolor{gray!10}{116} & \cellcolor{gray!10}{96} & \cellcolor{gray!10}{106 (47)} & \cellcolor{gray!10}{107 (71)} & \cellcolor{gray!10}{0 (0)} & \cellcolor{gray!10}{176 (108)} & \cellcolor{gray!10}{37 (27)} & \cellcolor{gray!10}{16 (9)}\\
+Spirituality & 194116 & {}[32; 56998] & 208 & 113 & 93 & 97 (43) & 111 (72) & 0 (0) & 170 (104) & 38 (28) & 14 (9)\\
+\cellcolor{gray!10}{Teamwork} & \cellcolor{gray!10}{194873} & \cellcolor{gray!10}{{}[32; 56998]} & \cellcolor{gray!10}{203} & \cellcolor{gray!10}{112} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{102 (45)} & \cellcolor{gray!10}{101 (69)} & \cellcolor{gray!10}{0 (0)} & \cellcolor{gray!10}{168 (104)} & \cellcolor{gray!10}{35 (25)} & \cellcolor{gray!10}{12 (7)}\\
+Zest & 204403 & {}[32; 56998] & 213 & 116 & 97 & 103 (45) & 109 (72) & 1 (1) & 176 (107) & 37 (27) & 15 (9)\\
+\cellcolor{gray!10}{FullSample} & \cellcolor{gray!10}{275007} & \cellcolor{gray!10}{{}[26; 56998]} & \cellcolor{gray!10}{4995} & \cellcolor{gray!10}{154} & \cellcolor{gray!10}{130} & \cellcolor{gray!10}{2423 (56)} & \cellcolor{gray!10}{2559 (95)} & \cellcolor{gray!10}{13 (5)} & \cellcolor{gray!10}{4104 (135)} & \cellcolor{gray!10}{891 (42)} & \cellcolor{gray!10}{279 (13)}\\
+\bottomrule
+\multicolumn{12}{l}{\textsuperscript{*} k = effect sizes; VIA = Values In Action inventory form}\\
+\end{tabular}}
+\end{table}
+
+\newpage
+
+\hypertarget{detailed-number-of-effects-for-specific-outcomes}{%
+\section{Detailed number of effects for specific
+outcomes}\label{detailed-number-of-effects-for-specific-outcomes}}
+
+\begin{table}[H]
+\centering\centering\centering
+\caption{Effects (k) for each specific outcome}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{llcccccccccc}
+\toprule
+\rotatebox{90}{ } & \rotatebox{90}{Anxiety} & \rotatebox{90}{Depression} & \rotatebox{90}{Domain satisfaction} & \rotatebox{90}{General mental health} & \rotatebox{90}{Happiness} & \rotatebox{90}{Life satisfaction} & \rotatebox{90}{Negative affect} & \rotatebox{90}{Positive affect} & \rotatebox{90}{Psychological well-being} & \rotatebox{90}{Stress} & \rotatebox{90}{Subjective well-being}\\
+\midrule
+\cellcolor{gray!10}{Appreciation of beauty} & \cellcolor{gray!10}{7} & \cellcolor{gray!10}{20} & \cellcolor{gray!10}{17} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{11} & \cellcolor{gray!10}{60} & \cellcolor{gray!10}{21} & \cellcolor{gray!10}{23} & \cellcolor{gray!10}{28} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{4}\\
+Bravery & 7 & 18 & 17 & 5 & 11 & 58 & 19 & 21 & 30 & 5 & 4\\
+\cellcolor{gray!10}{Creativity} & \cellcolor{gray!10}{8} & \cellcolor{gray!10}{19} & \cellcolor{gray!10}{20} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{11} & \cellcolor{gray!10}{60} & \cellcolor{gray!10}{19} & \cellcolor{gray!10}{21} & \cellcolor{gray!10}{27} & \cellcolor{gray!10}{8} & \cellcolor{gray!10}{4}\\
+Curiosity & 7 & 18 & 17 & 5 & 11 & 61 & 21 & 23 & 31 & 7 & 4\\
+\cellcolor{gray!10}{Fairness} & \cellcolor{gray!10}{7} & \cellcolor{gray!10}{17} & \cellcolor{gray!10}{17} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{11} & \cellcolor{gray!10}{60} & \cellcolor{gray!10}{19} & \cellcolor{gray!10}{20} & \cellcolor{gray!10}{29} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{4}\\
+\addlinespace
+Forgiveness & 7 & 23 & 18 & 6 & 12 & 61 & 21 & 23 & 30 & 5 & 4\\
+\cellcolor{gray!10}{Gratitude} & \cellcolor{gray!10}{8} & \cellcolor{gray!10}{23} & \cellcolor{gray!10}{17} & \cellcolor{gray!10}{6} & \cellcolor{gray!10}{12} & \cellcolor{gray!10}{64} & \cellcolor{gray!10}{22} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{39} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{4}\\
+Honesty & 7 & 18 & 17 & 5 & 11 & 58 & 19 & 21 & 28 & 5 & 4\\
+\cellcolor{gray!10}{Hope} & \cellcolor{gray!10}{8} & \cellcolor{gray!10}{22} & \cellcolor{gray!10}{17} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{12} & \cellcolor{gray!10}{63} & \cellcolor{gray!10}{22} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{34} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{4}\\
+Humility & 7 & 18 & 17 & 5 & 11 & 60 & 21 & 23 & 28 & 5 & 4\\
+\addlinespace
+\cellcolor{gray!10}{Humor} & \cellcolor{gray!10}{7} & \cellcolor{gray!10}{20} & \cellcolor{gray!10}{17} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{11} & \cellcolor{gray!10}{65} & \cellcolor{gray!10}{24} & \cellcolor{gray!10}{26} & \cellcolor{gray!10}{32} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{4}\\
+Judgment & 7 & 19 & 17 & 5 & 12 & 58 & 19 & 21 & 27 & 7 & 4\\
+\cellcolor{gray!10}{Kindness} & \cellcolor{gray!10}{7} & \cellcolor{gray!10}{18} & \cellcolor{gray!10}{17} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{11} & \cellcolor{gray!10}{61} & \cellcolor{gray!10}{20} & \cellcolor{gray!10}{22} & \cellcolor{gray!10}{32} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{4}\\
+Leadership & 7 & 18 & 17 & 5 & 11 & 60 & 20 & 22 & 28 & 5 & 4\\
+\cellcolor{gray!10}{Love of learning} & \cellcolor{gray!10}{7} & \cellcolor{gray!10}{18} & \cellcolor{gray!10}{17} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{11} & \cellcolor{gray!10}{59} & \cellcolor{gray!10}{20} & \cellcolor{gray!10}{22} & \cellcolor{gray!10}{32} & \cellcolor{gray!10}{7} & \cellcolor{gray!10}{4}\\
+\addlinespace
+Love & 7 & 18 & 17 & 5 & 11 & 62 & 21 & 24 & 33 & 5 & 4\\
+\cellcolor{gray!10}{Perseverance} & \cellcolor{gray!10}{8} & \cellcolor{gray!10}{19} & \cellcolor{gray!10}{17} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{11} & \cellcolor{gray!10}{60} & \cellcolor{gray!10}{20} & \cellcolor{gray!10}{22} & \cellcolor{gray!10}{27} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{4}\\
+Perspective & 7 & 18 & 17 & 5 & 11 & 59 & 20 & 22 & 27 & 7 & 4\\
+\cellcolor{gray!10}{Prudence} & \cellcolor{gray!10}{7} & \cellcolor{gray!10}{18} & \cellcolor{gray!10}{17} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{11} & \cellcolor{gray!10}{58} & \cellcolor{gray!10}{19} & \cellcolor{gray!10}{21} & \cellcolor{gray!10}{27} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{4}\\
+Self regulation & 7 & 19 & 17 & 5 & 11 & 59 & 20 & 22 & 30 & 5 & 4\\
+\addlinespace
+\cellcolor{gray!10}{Social intelligence} & \cellcolor{gray!10}{7} & \cellcolor{gray!10}{19} & \cellcolor{gray!10}{19} & \cellcolor{gray!10}{6} & \cellcolor{gray!10}{12} & \cellcolor{gray!10}{63} & \cellcolor{gray!10}{21} & \cellcolor{gray!10}{23} & \cellcolor{gray!10}{29} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{4}\\
+Spirituality & 7 & 21 & 17 & 5 & 12 & 60 & 21 & 23 & 28 & 5 & 4\\
+\cellcolor{gray!10}{Teamwork} & \cellcolor{gray!10}{7} & \cellcolor{gray!10}{18} & \cellcolor{gray!10}{18} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{11} & \cellcolor{gray!10}{60} & \cellcolor{gray!10}{20} & \cellcolor{gray!10}{22} & \cellcolor{gray!10}{28} & \cellcolor{gray!10}{5} & \cellcolor{gray!10}{4}\\
+Zest & 7 & 20 & 18 & 5 & 12 & 63 & 21 & 24 & 29 & 5 & 4\\
+\bottomrule
+\multicolumn{12}{l}{\textsuperscript{*} }\\
+\end{tabular}}
+\end{table}
+
+\newpage
+
+\hypertarget{detailed-results-healthy-functioning}{%
+\section{Detailed results healthy
+functioning}\label{detailed-results-healthy-functioning}}
+
+\begin{table}[H]
+\centering\centering
+\caption{Meta-analytical associations between character strengths and mental health and well-being}
+\centering
+\fontsize{9}{11}\selectfont
+\begin{tabular}[t]{lccccccccc}
+\toprule
+Strength & N & k & r & se & CI\_95 & PI\_95 & tau2 & I2 & Q\\
+\midrule
+\cellcolor{gray!10}{Appreciation of beauty} & \cellcolor{gray!10}{297,966} & \cellcolor{gray!10}{206} & \cellcolor{gray!10}{0.162*} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{{}[0.137; 0.186]} & \cellcolor{gray!10}{{}[-0.061; 0.369]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{2317*}\\
+Bravery & 297,163 & 201 & 0.253* & 0.016 & {}[0.224; 0.281] & {}[-0.019; 0.490] & 0.020 & 95 & 3316*\\
+\cellcolor{gray!10}{Creativity} & \cellcolor{gray!10}{300,171} & \cellcolor{gray!10}{207} & \cellcolor{gray!10}{0.202*} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{{}[0.179; 0.226]} & \cellcolor{gray!10}{{}[-0.016; 0.402]} & \cellcolor{gray!10}{0.012} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{3921*}\\
+Curiosity & 302,278 & 211 & 0.362* & 0.016 & {}[0.334; 0.389] & {}[ 0.086; 0.586] & 0.022 & 95 & 4697*\\
+\cellcolor{gray!10}{Fairness} & \cellcolor{gray!10}{296,350} & \cellcolor{gray!10}{199} & \cellcolor{gray!10}{0.205*} & \cellcolor{gray!10}{0.012} & \cellcolor{gray!10}{{}[0.181; 0.228]} & \cellcolor{gray!10}{{}[-0.003; 0.395]} & \cellcolor{gray!10}{0.011} & \cellcolor{gray!10}{92} & \cellcolor{gray!10}{1390*}\\
+\addlinespace
+Forgiveness & 302,471 & 216 & 0.240* & 0.010 & {}[0.222; 0.258] & {}[ 0.075; 0.392] & 0.007 & 87 & 1143*\\
+\cellcolor{gray!10}{Gratitude} & \cellcolor{gray!10}{321,558} & \cellcolor{gray!10}{231} & \cellcolor{gray!10}{0.412*} & \cellcolor{gray!10}{0.015} & \cellcolor{gray!10}{{}[0.388; 0.437]} & \cellcolor{gray!10}{{}[ 0.156; 0.617]} & \cellcolor{gray!10}{0.020} & \cellcolor{gray!10}{95} & \cellcolor{gray!10}{5746*}\\
+Honesty & 297,101 & 199 & 0.263* & 0.014 & {}[0.236; 0.289] & {}[ 0.015; 0.480] & 0.016 & 94 & 2396*\\
+\cellcolor{gray!10}{Hope} & \cellcolor{gray!10}{344,632} & \cellcolor{gray!10}{224} & \cellcolor{gray!10}{0.522*} & \cellcolor{gray!10}{0.021} & \cellcolor{gray!10}{{}[0.491; 0.552]} & \cellcolor{gray!10}{{}[ 0.161; 0.760]} & \cellcolor{gray!10}{0.044} & \cellcolor{gray!10}{98} & \cellcolor{gray!10}{7787*}\\
+Humility & 342,132 & 204 & 0.072* & 0.010 & {}[0.051; 0.092] & {}[-0.106; 0.245] & 0.008 & 89 & 1832*\\
+\addlinespace
+\cellcolor{gray!10}{Humor} & \cellcolor{gray!10}{346,424} & \cellcolor{gray!10}{221} & \cellcolor{gray!10}{0.264*} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{{}[0.241; 0.287]} & \cellcolor{gray!10}{{}[ 0.043; 0.461]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{2930*}\\
+Judgment & 298,639 & 201 & 0.201* & 0.013 & {}[0.176; 0.225] & {}[-0.023; 0.406] & 0.013 & 93 & 2425*\\
+\cellcolor{gray!10}{Kindness} & \cellcolor{gray!10}{302,253} & \cellcolor{gray!10}{209} & \cellcolor{gray!10}{0.241*} & \cellcolor{gray!10}{0.015} & \cellcolor{gray!10}{{}[0.212; 0.269]} & \cellcolor{gray!10}{{}[-0.040; 0.486]} & \cellcolor{gray!10}{0.021} & \cellcolor{gray!10}{95} & \cellcolor{gray!10}{2492*}\\
+Leadership & 299,212 & 202 & 0.270* & 0.012 & {}[0.248; 0.292] & {}[ 0.065; 0.453] & 0.011 & 92 & 2488*\\
+\cellcolor{gray!10}{Love of learning} & \cellcolor{gray!10}{301,375} & \cellcolor{gray!10}{208} & \cellcolor{gray!10}{0.233*} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{{}[0.207; 0.258]} & \cellcolor{gray!10}{{}[-0.011; 0.451]} & \cellcolor{gray!10}{0.016} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{3584*}\\
+\addlinespace
+Love & 300,315 & 212 & 0.418* & 0.017 & {}[0.390; 0.446] & {}[ 0.128; 0.643] & 0.026 & 96 & 4597*\\
+\cellcolor{gray!10}{Perseverance} & \cellcolor{gray!10}{297,893} & \cellcolor{gray!10}{203} & \cellcolor{gray!10}{0.335*} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{{}[0.312; 0.358]} & \cellcolor{gray!10}{{}[ 0.120; 0.521]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{3590*}\\
+Perspective & 298,434 & 202 & 0.285* & 0.015 & {}[0.258; 0.312] & {}[ 0.030; 0.505] & 0.018 & 94 & 3178*\\
+\cellcolor{gray!10}{Prudence} & \cellcolor{gray!10}{296,512} & \cellcolor{gray!10}{197} & \cellcolor{gray!10}{0.192*} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{{}[0.165; 0.218]} & \cellcolor{gray!10}{{}[-0.045; 0.408]} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{2192*}\\
+Self regulation & 297,483 & 205 & 0.304* & 0.013 & {}[0.281; 0.326] & {}[ 0.095; 0.487] & 0.012 & 91 & 3569*\\
+\addlinespace
+\cellcolor{gray!10}{Social intelligence} & \cellcolor{gray!10}{305,999} & \cellcolor{gray!10}{213} & \cellcolor{gray!10}{0.318*} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{{}[0.292; 0.344]} & \cellcolor{gray!10}{{}[ 0.069; 0.530]} & \cellcolor{gray!10}{0.017} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{2628*}\\
+Spirituality & 298,366 & 208 & 0.216* & 0.012 & {}[0.193; 0.239] & {}[ 0.008; 0.406] & 0.011 & 92 & 5315*\\
+\cellcolor{gray!10}{Teamwork} & \cellcolor{gray!10}{299,515} & \cellcolor{gray!10}{203} & \cellcolor{gray!10}{0.288*} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{{}[0.263; 0.312]} & \cellcolor{gray!10}{{}[ 0.063; 0.485]} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{1868*}\\
+Zest & 318,143 & 213 & 0.517* & 0.020 & {}[0.488; 0.545] & {}[ 0.199; 0.737] & 0.035 & 97 & 5774*\\
+\bottomrule
+\multicolumn{10}{l}{\textsuperscript{*} \makecell[l]{N = total sample size; k = number of effects;\\ r = back-transformed meta-analytic correlation coefficient; se = standard error;\\ CI = confidence intervals; PI = predicted intervals;\\ tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;\\ Q = Q statistic. See the shiny app for additional info}}\\
+\end{tabular}
+\end{table}
+
+\newpage
+
+\hypertarget{detailed-results-on-mental-health-vs-well-being-moderator-analysis}{%
+\section{Detailed results on mental health vs well-being moderator
+analysis}\label{detailed-results-on-mental-health-vs-well-being-moderator-analysis}}
+
+\begin{table}[H]
+\centering\centering\centering
+\caption{Moderator analysis testing for differences between mental health (MH) and well-being (WB) outcomes}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{lcccccccccccc}
+\toprule
+Strength & Outcome & r & N & k & delta r & se & z & tau2 & I2 & Q & QM & PET\\
+\midrule
+\cellcolor{gray!10}{Appreciation of beauty} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.059 [0.028; 0.089]} & \cellcolor{gray!10}{30,000} & \cellcolor{gray!10}{37} & \cellcolor{gray!10}{0.124* [ 0.099; 0.149]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{9.752} & \cellcolor{gray!10}{0.010} & \cellcolor{gray!10}{90} & \cellcolor{gray!10}{1934*} & \cellcolor{gray!10}{95*} & \cellcolor{gray!10}{0.456}\\
+ & WB & 0.182 [0.159; 0.204] & 267,966 & 169 &  &  &  &  &  &  &  & 0.874\\
+\cellcolor{gray!10}{Bravery} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.173 [0.138; 0.208]} & \cellcolor{gray!10}{29,977} & \cellcolor{gray!10}{36} & \cellcolor{gray!10}{0.100* [ 0.073; 0.127]} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{7.360} & \cellcolor{gray!10}{0.016} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{2830*} & \cellcolor{gray!10}{54*} & \cellcolor{gray!10}{0.446}\\
+ & WB & 0.269 [0.242; 0.295] & 267,186 & 165 &  &  &  &  &  &  &  & 0.467\\
+\cellcolor{gray!10}{Creativity} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.107 [0.077; 0.137]} & \cellcolor{gray!10}{32,425} & \cellcolor{gray!10}{40} & \cellcolor{gray!10}{0.120* [ 0.096; 0.144]} & \cellcolor{gray!10}{0.012} & \cellcolor{gray!10}{9.693} & \cellcolor{gray!10}{0.010} & \cellcolor{gray!10}{92} & \cellcolor{gray!10}{3628*} & \cellcolor{gray!10}{94*} & \cellcolor{gray!10}{0.206}\\
+\addlinespace
+ & WB & 0.224 [0.202; 0.247] & 267,746 & 167 &  &  &  &  &  &  &  & 0.442\\
+\cellcolor{gray!10}{Curiosity} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.254 [0.219; 0.288]} & \cellcolor{gray!10}{31,432} & \cellcolor{gray!10}{37} & \cellcolor{gray!10}{0.144* [ 0.118; 0.169]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{10.864} & \cellcolor{gray!10}{0.020} & \cellcolor{gray!10}{95} & \cellcolor{gray!10}{4000*} & \cellcolor{gray!10}{118*} & \cellcolor{gray!10}{0.91}\\
+ & WB & 0.383 [0.357; 0.409] & 270,846 & 174 &  &  &  &  &  &  &  & 0.281\\
+\cellcolor{gray!10}{Fairness} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.140 [0.111; 0.169]} & \cellcolor{gray!10}{28,645} & \cellcolor{gray!10}{34} & \cellcolor{gray!10}{0.077* [ 0.052; 0.103]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{5.955} & \cellcolor{gray!10}{0.008} & \cellcolor{gray!10}{89} & \cellcolor{gray!10}{1185*} & \cellcolor{gray!10}{35*} & \cellcolor{gray!10}{0.52}\\
+ & WB & 0.215 [0.196; 0.235] & 267,705 & 165 &  &  &  &  &  &  &  & 0.533\\
+\addlinespace
+\cellcolor{gray!10}{Forgiveness} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.206 [0.180; 0.231]} & \cellcolor{gray!10}{31,394} & \cellcolor{gray!10}{42} & \cellcolor{gray!10}{0.046* [ 0.022; 0.069]} & \cellcolor{gray!10}{0.012} & \cellcolor{gray!10}{3.785} & \cellcolor{gray!10}{0.007} & \cellcolor{gray!10}{87} & \cellcolor{gray!10}{1068*} & \cellcolor{gray!10}{14*} & \cellcolor{gray!10}{0.768}\\
+ & WB & 0.249 [0.232; 0.266] & 271,077 & 174 &  &  &  &  &  &  &  & 0.315\\
+\cellcolor{gray!10}{Gratitude} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.296 [0.264; 0.327]} & \cellcolor{gray!10}{31,727} & \cellcolor{gray!10}{42} & \cellcolor{gray!10}{0.159* [ 0.135; 0.183]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{12.693} & \cellcolor{gray!10}{0.018} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{5241*} & \cellcolor{gray!10}{161*} & \cellcolor{gray!10}{0.966}\\
+ & WB & 0.435 [0.412; 0.457] & 289,831 & 189 &  &  &  &  &  &  &  & 0.011\\
+\cellcolor{gray!10}{Honesty} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.202 [0.169; 0.235]} & \cellcolor{gray!10}{29,977} & \cellcolor{gray!10}{36} & \cellcolor{gray!10}{0.077* [ 0.050; 0.103]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{5.687} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{2236*} & \cellcolor{gray!10}{32*} & \cellcolor{gray!10}{0.745}\\
+\addlinespace
+ & WB & 0.275 [0.250; 0.300] & 267,124 & 163 &  &  &  &  &  &  &  & 0.731\\
+\cellcolor{gray!10}{Hope} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.459 [0.422; 0.495]} & \cellcolor{gray!10}{31,472} & \cellcolor{gray!10}{41} & \cellcolor{gray!10}{0.100* [ 0.074; 0.126]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{7.557} & \cellcolor{gray!10}{0.041} & \cellcolor{gray!10}{98} & \cellcolor{gray!10}{7073*} & \cellcolor{gray!10}{57*} & \cellcolor{gray!10}{0.407}\\
+ & WB & 0.534 [0.504; 0.563] & 313,160 & 183 &  &  &  &  &  &  &  & 0.115\\
+\cellcolor{gray!10}{Humility} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.057 [0.027; 0.086]} & \cellcolor{gray!10}{29,705} & \cellcolor{gray!10}{35} & \cellcolor{gray!10}{0.018 [-0.008; 0.044]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{1.380} & \cellcolor{gray!10}{0.008} & \cellcolor{gray!10}{89} & \cellcolor{gray!10}{1790*} & \cellcolor{gray!10}{2} & \cellcolor{gray!10}{0.875}\\
+ & WB & 0.075 [0.054; 0.095] & 312,427 & 169 &  &  &  &  &  &  &  & 0.333\\
+\addlinespace
+\cellcolor{gray!10}{Humor} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.195 [0.165; 0.225]} & \cellcolor{gray!10}{30,000} & \cellcolor{gray!10}{37} & \cellcolor{gray!10}{0.087* [ 0.062; 0.111]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{6.918} & \cellcolor{gray!10}{0.011} & \cellcolor{gray!10}{92} & \cellcolor{gray!10}{2606*} & \cellcolor{gray!10}{48*} & \cellcolor{gray!10}{0.613}\\
+ & WB & 0.277 [0.255; 0.298] & 316,424 & 184 &  &  &  &  &  &  &  & 0.878\\
+\cellcolor{gray!10}{Judgment} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.162 [0.130; 0.193]} & \cellcolor{gray!10}{31,632} & \cellcolor{gray!10}{38} & \cellcolor{gray!10}{0.050* [ 0.025; 0.075]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{3.876} & \cellcolor{gray!10}{0.012} & \cellcolor{gray!10}{92} & \cellcolor{gray!10}{2312*} & \cellcolor{gray!10}{15*} & \cellcolor{gray!10}{0.153}\\
+ & WB & 0.210 [0.185; 0.234] & 267,007 & 163 &  &  &  &  &  &  &  & 0.667\\
+\cellcolor{gray!10}{Kindness} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.137 [0.103; 0.171]} & \cellcolor{gray!10}{29,977} & \cellcolor{gray!10}{36} & \cellcolor{gray!10}{0.127* [ 0.101; 0.153]} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{9.392} & \cellcolor{gray!10}{0.015} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{1878*} & \cellcolor{gray!10}{88*} & \cellcolor{gray!10}{0.139}\\
+\addlinespace
+ & WB & 0.259 [0.234; 0.284] & 272,276 & 173 &  &  &  &  &  &  &  & 0.313\\
+\cellcolor{gray!10}{Leadership} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.187 [0.158; 0.217]} & \cellcolor{gray!10}{29,705} & \cellcolor{gray!10}{35} & \cellcolor{gray!10}{0.104* [ 0.078; 0.129]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{7.910} & \cellcolor{gray!10}{0.009} & \cellcolor{gray!10}{90} & \cellcolor{gray!10}{2089*} & \cellcolor{gray!10}{63*} & \cellcolor{gray!10}{0.207}\\
+ & WB & 0.285 [0.265; 0.305] & 269,507 & 167 &  &  &  &  &  &  &  & 0.285\\
+\cellcolor{gray!10}{Love of learning} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.190 [0.157; 0.222]} & \cellcolor{gray!10}{31,432} & \cellcolor{gray!10}{37} & \cellcolor{gray!10}{0.055* [ 0.029; 0.081]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{4.192} & \cellcolor{gray!10}{0.015} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{3502*} & \cellcolor{gray!10}{18*} & \cellcolor{gray!10}{0.432}\\
+ & WB & 0.242 [0.216; 0.267] & 269,943 & 171 &  &  &  &  &  &  &  & 0.432\\
+\addlinespace
+\cellcolor{gray!10}{Love} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.337 [0.301; 0.372]} & \cellcolor{gray!10}{29,705} & \cellcolor{gray!10}{35} & \cellcolor{gray!10}{0.112* [ 0.085; 0.139]} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{8.089} & \cellcolor{gray!10}{0.023} & \cellcolor{gray!10}{95} & \cellcolor{gray!10}{4387*} & \cellcolor{gray!10}{65*} & \cellcolor{gray!10}{0.691}\\
+ & WB & 0.432 [0.405; 0.459] & 270,610 & 177 &  &  &  &  &  &  &  & 0.312\\
+\cellcolor{gray!10}{Perseverance} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.274 [0.244; 0.304]} & \cellcolor{gray!10}{30,705} & \cellcolor{gray!10}{37} & \cellcolor{gray!10}{0.081* [ 0.056; 0.106]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{6.323} & \cellcolor{gray!10}{0.012} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{3422*} & \cellcolor{gray!10}{40*} & \cellcolor{gray!10}{0.651}\\
+ & WB & 0.348 [0.325; 0.370] & 267,188 & 166 &  &  &  &  &  &  &  & 0.597\\
+\cellcolor{gray!10}{Perspective} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.200 [0.167; 0.232]} & \cellcolor{gray!10}{31,432} & \cellcolor{gray!10}{37} & \cellcolor{gray!10}{0.111* [ 0.085; 0.137]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{8.409} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{2664*} & \cellcolor{gray!10}{71*} & \cellcolor{gray!10}{0.414}\\
+\addlinespace
+ & WB & 0.304 [0.280; 0.327] & 267,002 & 165 &  &  &  &  &  &  &  & 0.405\\
+\cellcolor{gray!10}{Prudence} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.180 [0.146; 0.214]} & \cellcolor{gray!10}{29,705} & \cellcolor{gray!10}{35} & \cellcolor{gray!10}{0.014 [-0.013; 0.041]} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{1.018} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{2190*} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{0.071}\\
+ & WB & 0.194 [0.167; 0.220] & 266,807 & 162 &  &  &  &  &  &  &  & 0.318\\
+\cellcolor{gray!10}{Self regulation} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.292 [0.261; 0.323]} & \cellcolor{gray!10}{30,181} & \cellcolor{gray!10}{37} & \cellcolor{gray!10}{0.015 [-0.012; 0.042]} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{1.094} & \cellcolor{gray!10}{0.012} & \cellcolor{gray!10}{91} & \cellcolor{gray!10}{3527*} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{0.614}\\
+ & WB & 0.306 [0.283; 0.329] & 267,302 & 168 &  &  &  &  &  &  &  & 0.984\\
+\addlinespace
+\cellcolor{gray!10}{Social intelligence} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.236 [0.204; 0.268]} & \cellcolor{gray!10}{31,312} & \cellcolor{gray!10}{37} & \cellcolor{gray!10}{0.105* [ 0.080; 0.130]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{8.312} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{2298*} & \cellcolor{gray!10}{69*} & \cellcolor{gray!10}{0.322}\\
+ & WB & 0.333 [0.309; 0.357] & 274,687 & 176 &  &  &  &  &  &  &  & 0.671\\
+\cellcolor{gray!10}{Spirituality} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.135 [0.105; 0.165]} & \cellcolor{gray!10}{30,200} & \cellcolor{gray!10}{38} & \cellcolor{gray!10}{0.100* [ 0.076; 0.125]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{8.030} & \cellcolor{gray!10}{0.011} & \cellcolor{gray!10}{91} & \cellcolor{gray!10}{4911*} & \cellcolor{gray!10}{64*} & \cellcolor{gray!10}{0.809}\\
+ & WB & 0.232 [0.210; 0.254] & 268,166 & 170 &  &  &  &  &  &  &  & 0.022\\
+\cellcolor{gray!10}{Teamwork} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.227 [0.196; 0.258]} & \cellcolor{gray!10}{29,705} & \cellcolor{gray!10}{35} & \cellcolor{gray!10}{0.076* [ 0.050; 0.103]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{5.707} & \cellcolor{gray!10}{0.011} & \cellcolor{gray!10}{91} & \cellcolor{gray!10}{1642*} & \cellcolor{gray!10}{33*} & \cellcolor{gray!10}{0.103}\\
+\addlinespace
+ & WB & 0.298 [0.276; 0.321] & 269,810 & 168 &  &  &  &  &  &  &  & 0.449\\
+\cellcolor{gray!10}{Zest} & \cellcolor{gray!10}{MH} & \cellcolor{gray!10}{0.430 [0.393; 0.466]} & \cellcolor{gray!10}{30,231} & \cellcolor{gray!10}{37} & \cellcolor{gray!10}{0.134* [ 0.107; 0.160]} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{9.860} & \cellcolor{gray!10}{0.034} & \cellcolor{gray!10}{97} & \cellcolor{gray!10}{5543*} & \cellcolor{gray!10}{97*} & \cellcolor{gray!10}{0.733}\\
+ & WB & 0.533 [0.505; 0.560] & 287,912 & 176 &  &  &  &  &  &  &  & 0.046\\
+\bottomrule
+\multicolumn{13}{l}{\textsuperscript{*} \makecell[l]{N = total sample size; k = number of effects;\\ r = back-transformed meta-analytic correlation coefficient; se = standard error;\\ CI = confidence intervals; PI = predicted intervals;\\ tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;\\ Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info;\\ PET = p value of the PET regression for publication bias.}}\\
+\end{tabular}}
+\end{table}
+
+\newpage
+
+\hypertarget{detailed-results-on-short-vs-long-via-formats-mh}{%
+\section{Detailed results on short vs long VIA formats
+(MH)}\label{detailed-results-on-short-vs-long-via-formats-mh}}
+
+\begin{table}[H]
+\centering\centering\centering
+\caption{Moderator analysis testing for differences between short and long VIA formats on MH outcomes}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\fontsize{7}{9}\selectfont
+\begin{tabular}[t]{lccccccccccc}
+\toprule
+Strength & VIA & r & N & k & delta r & se & z & tau2 & I2 & Q & QM\\
+\midrule
+\cellcolor{gray!10}{Appreciation of beauty} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.023 [-0.066; 0.112]} & \cellcolor{gray!10}{8,148} & \cellcolor{gray!10}{9} & \cellcolor{gray!10}{0.005 [-0.103; 0.113]} & \cellcolor{gray!10}{0.053} & \cellcolor{gray!10}{0.091} & \cellcolor{gray!10}{0.011} & \cellcolor{gray!10}{85} & \cellcolor{gray!10}{311*} & \cellcolor{gray!10}{0}\\
+ & Short & 0.028 [-0.033; 0.090] & 21,852 & 28 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Bravery} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.125 [ 0.010; 0.236]} & \cellcolor{gray!10}{8,125} & \cellcolor{gray!10}{8} & \cellcolor{gray!10}{0.011 [-0.128; 0.150]} & \cellcolor{gray!10}{0.069} & \cellcolor{gray!10}{0.157} & \cellcolor{gray!10}{0.021} & \cellcolor{gray!10}{91} & \cellcolor{gray!10}{400*} & \cellcolor{gray!10}{0}\\
+ & Short & 0.135 [ 0.056; 0.213] & 21,852 & 28 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Creativity} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.075 [ 0.003; 0.147]} & \cellcolor{gray!10}{9,580} & \cellcolor{gray!10}{9} & \cellcolor{gray!10}{0.068 [-0.021; 0.155]} & \cellcolor{gray!10}{0.044} & \cellcolor{gray!10}{1.540} & \cellcolor{gray!10}{0.009} & \cellcolor{gray!10}{84} & \cellcolor{gray!10}{421*} & \cellcolor{gray!10}{2}\\
+\addlinespace
+ & Short & 0.142 [ 0.091; 0.192] & 22,845 & 31 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Curiosity} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.270 [ 0.196; 0.341]} & \cellcolor{gray!10}{9,580} & \cellcolor{gray!10}{9} & \cellcolor{gray!10}{-0.040 [-0.137; 0.057]} & \cellcolor{gray!10}{0.048} & \cellcolor{gray!10}{-0.833} & \cellcolor{gray!10}{0.011} & \cellcolor{gray!10}{85} & \cellcolor{gray!10}{303*} & \cellcolor{gray!10}{1}\\
+ & Short & 0.232 [ 0.177; 0.287] & 21,852 & 28 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Fairness} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.082 [-0.002; 0.166]} & \cellcolor{gray!10}{7,853} & \cellcolor{gray!10}{7} & \cellcolor{gray!10}{0.014 [-0.088; 0.116]} & \cellcolor{gray!10}{0.050} & \cellcolor{gray!10}{0.279} & \cellcolor{gray!10}{0.010} & \cellcolor{gray!10}{83} & \cellcolor{gray!10}{264*} & \cellcolor{gray!10}{0}\\
+ & Short & 0.096 [ 0.040; 0.152] & 20,792 & 27 &  &  &  &  &  &  & \\
+\addlinespace
+\cellcolor{gray!10}{Forgiveness} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.218 [ 0.165; 0.270]} & \cellcolor{gray!10}{9,542} & \cellcolor{gray!10}{14} & \cellcolor{gray!10}{-0.049 [-0.121; 0.024]} & \cellcolor{gray!10}{0.036} & \cellcolor{gray!10}{-1.364} & \cellcolor{gray!10}{0.007} & \cellcolor{gray!10}{76} & \cellcolor{gray!10}{176*} & \cellcolor{gray!10}{2}\\
+ & Short & 0.171 [ 0.125; 0.216] & 21,852 & 28 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Gratitude} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.244 [ 0.149; 0.335]} & \cellcolor{gray!10}{8,708} & \cellcolor{gray!10}{11} & \cellcolor{gray!10}{0.078 [-0.045; 0.198]} & \cellcolor{gray!10}{0.061} & \cellcolor{gray!10}{1.284} & \cellcolor{gray!10}{0.019} & \cellcolor{gray!10}{90} & \cellcolor{gray!10}{563*} & \cellcolor{gray!10}{2}\\
+ & Short & 0.316 [ 0.250; 0.380] & 23,019 & 31 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Honesty} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.059 [-0.068; 0.184]} & \cellcolor{gray!10}{8,125} & \cellcolor{gray!10}{8} & \cellcolor{gray!10}{0.126 [-0.029; 0.274]} & \cellcolor{gray!10}{0.076} & \cellcolor{gray!10}{1.658} & \cellcolor{gray!10}{0.025} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{378*} & \cellcolor{gray!10}{3}\\
+\addlinespace
+ & Short & 0.183 [ 0.097; 0.267] & 21,852 & 28 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Hope} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.354 [ 0.260; 0.442]} & \cellcolor{gray!10}{9,620} & \cellcolor{gray!10}{13} & \cellcolor{gray!10}{0.128 [-0.005; 0.257]} & \cellcolor{gray!10}{0.066} & \cellcolor{gray!10}{1.941} & \cellcolor{gray!10}{0.027} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{667*} & \cellcolor{gray!10}{4}\\
+ & Short & 0.461 [ 0.392; 0.525] & 21,852 & 28 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Humility} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{-0.008 [-0.066; 0.051]} & \cellcolor{gray!10}{7,853} & \cellcolor{gray!10}{7} & \cellcolor{gray!10}{0.028 [-0.042; 0.098]} & \cellcolor{gray!10}{0.034} & \cellcolor{gray!10}{0.818} & \cellcolor{gray!10}{0.004} & \cellcolor{gray!10}{64} & \cellcolor{gray!10}{95*} & \cellcolor{gray!10}{1}\\
+ & Short & 0.021 [-0.017; 0.059] & 21,852 & 28 &  &  &  &  &  &  & \\
+\addlinespace
+\cellcolor{gray!10}{Humor} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.206 [ 0.121; 0.289]} & \cellcolor{gray!10}{8,148} & \cellcolor{gray!10}{9} & \cellcolor{gray!10}{-0.058 [-0.164; 0.049]} & \cellcolor{gray!10}{0.053} & \cellcolor{gray!10}{-1.100} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{88} & \cellcolor{gray!10}{296*} & \cellcolor{gray!10}{1}\\
+ & Short & 0.150 [ 0.089; 0.209] & 21,852 & 28 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Judgment} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.153 [ 0.077; 0.228]} & \cellcolor{gray!10}{9,780} & \cellcolor{gray!10}{10} & \cellcolor{gray!10}{-0.028 [-0.125; 0.070]} & \cellcolor{gray!10}{0.048} & \cellcolor{gray!10}{-0.576} & \cellcolor{gray!10}{0.011} & \cellcolor{gray!10}{86} & \cellcolor{gray!10}{324*} & \cellcolor{gray!10}{0}\\
+ & Short & 0.126 [ 0.066; 0.185] & 21,852 & 28 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Kindness} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.083 [ 0.001; 0.164]} & \cellcolor{gray!10}{8,125} & \cellcolor{gray!10}{8} & \cellcolor{gray!10}{-0.014 [-0.114; 0.085]} & \cellcolor{gray!10}{0.049} & \cellcolor{gray!10}{-0.293} & \cellcolor{gray!10}{0.010} & \cellcolor{gray!10}{84} & \cellcolor{gray!10}{227*} & \cellcolor{gray!10}{0}\\
+\addlinespace
+ & Short & 0.069 [ 0.012; 0.125] & 21,852 & 28 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Leadership} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.125 [ 0.021; 0.227]} & \cellcolor{gray!10}{7,853} & \cellcolor{gray!10}{7} & \cellcolor{gray!10}{0.058 [-0.067; 0.181]} & \cellcolor{gray!10}{0.062} & \cellcolor{gray!10}{0.936} & \cellcolor{gray!10}{0.016} & \cellcolor{gray!10}{89} & \cellcolor{gray!10}{338*} & \cellcolor{gray!10}{1}\\
+ & Short & 0.181 [ 0.115; 0.246] & 21,852 & 28 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Love of learning} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.174 [ 0.082; 0.262]} & \cellcolor{gray!10}{9,580} & \cellcolor{gray!10}{9} & \cellcolor{gray!10}{0.005 [-0.111; 0.121]} & \cellcolor{gray!10}{0.057} & \cellcolor{gray!10}{0.089} & \cellcolor{gray!10}{0.016} & \cellcolor{gray!10}{90} & \cellcolor{gray!10}{425*} & \cellcolor{gray!10}{0}\\
+ & Short & 0.178 [ 0.110; 0.245] & 21,852 & 28 &  &  &  &  &  &  & \\
+\addlinespace
+\cellcolor{gray!10}{Love} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.226 [ 0.074; 0.368]} & \cellcolor{gray!10}{7,853} & \cellcolor{gray!10}{7} & \cellcolor{gray!10}{0.115 [-0.070; 0.292]} & \cellcolor{gray!10}{0.091} & \cellcolor{gray!10}{1.263} & \cellcolor{gray!10}{0.033} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{819*} & \cellcolor{gray!10}{2}\\
+ & Short & 0.332 [ 0.240; 0.418] & 21,852 & 28 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Perseverance} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.200 [ 0.103; 0.294]} & \cellcolor{gray!10}{8,853} & \cellcolor{gray!10}{9} & \cellcolor{gray!10}{0.086 [-0.036; 0.205]} & \cellcolor{gray!10}{0.060} & \cellcolor{gray!10}{1.429} & \cellcolor{gray!10}{0.015} & \cellcolor{gray!10}{89} & \cellcolor{gray!10}{394*} & \cellcolor{gray!10}{2}\\
+ & Short & 0.281 [ 0.215; 0.344] & 21,852 & 28 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Perspective} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.198 [ 0.114; 0.278]} & \cellcolor{gray!10}{9,580} & \cellcolor{gray!10}{9} & \cellcolor{gray!10}{-0.065 [-0.170; 0.042]} & \cellcolor{gray!10}{0.053} & \cellcolor{gray!10}{-1.235} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{88} & \cellcolor{gray!10}{348*} & \cellcolor{gray!10}{2}\\
+\addlinespace
+ & Short & 0.134 [ 0.072; 0.196] & 21,852 & 28 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Prudence} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.087 [-0.047; 0.218]} & \cellcolor{gray!10}{7,853} & \cellcolor{gray!10}{7} & \cellcolor{gray!10}{0.075 [-0.085; 0.231]} & \cellcolor{gray!10}{0.079} & \cellcolor{gray!10}{0.950} & \cellcolor{gray!10}{0.024} & \cellcolor{gray!10}{92} & \cellcolor{gray!10}{591*} & \cellcolor{gray!10}{1}\\
+ & Short & 0.161 [ 0.075; 0.244] & 21,852 & 28 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Self regulation} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.235 [ 0.129; 0.335]} & \cellcolor{gray!10}{8,329} & \cellcolor{gray!10}{9} & \cellcolor{gray!10}{0.052 [-0.081; 0.183]} & \cellcolor{gray!10}{0.066} & \cellcolor{gray!10}{0.788} & \cellcolor{gray!10}{0.019} & \cellcolor{gray!10}{90} & \cellcolor{gray!10}{408*} & \cellcolor{gray!10}{1}\\
+ & Short & 0.283 [ 0.212; 0.352] & 21,852 & 28 &  &  &  &  &  &  & \\
+\addlinespace
+\cellcolor{gray!10}{Social intelligence} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.161 [ 0.057; 0.261]} & \cellcolor{gray!10}{9,460} & \cellcolor{gray!10}{9} & \cellcolor{gray!10}{0.068 [-0.063; 0.196]} & \cellcolor{gray!10}{0.064} & \cellcolor{gray!10}{1.050} & \cellcolor{gray!10}{0.019} & \cellcolor{gray!10}{91} & \cellcolor{gray!10}{488*} & \cellcolor{gray!10}{1}\\
+ & Short & 0.226 [ 0.151; 0.299] & 21,852 & 28 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Spirituality} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.130 [ 0.042; 0.216]} & \cellcolor{gray!10}{8,348} & \cellcolor{gray!10}{10} & \cellcolor{gray!10}{0.019 [-0.090; 0.129]} & \cellcolor{gray!10}{0.054} & \cellcolor{gray!10}{0.359} & \cellcolor{gray!10}{0.012} & \cellcolor{gray!10}{87} & \cellcolor{gray!10}{384*} & \cellcolor{gray!10}{0}\\
+ & Short & 0.149 [ 0.085; 0.211] & 21,852 & 28 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Teamwork} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.115 [ 0.012; 0.217]} & \cellcolor{gray!10}{7,853} & \cellcolor{gray!10}{7} & \cellcolor{gray!10}{0.077 [-0.047; 0.199]} & \cellcolor{gray!10}{0.061} & \cellcolor{gray!10}{1.259} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{88} & \cellcolor{gray!10}{358*} & \cellcolor{gray!10}{2}\\
+\addlinespace
+ & Short & 0.191 [ 0.125; 0.255] & 21,852 & 28 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Zest} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.369 [ 0.242; 0.484]} & \cellcolor{gray!10}{8,053} & \cellcolor{gray!10}{8} & \cellcolor{gray!10}{0.163 [-0.007; 0.324]} & \cellcolor{gray!10}{0.084} & \cellcolor{gray!10}{1.953} & \cellcolor{gray!10}{0.032} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{825*} & \cellcolor{gray!10}{4}\\
+ & Short & 0.502 [ 0.426; 0.572] & 21,852 & 28 &  &  &  &  &  &  & \\
+\bottomrule
+\multicolumn{12}{l}{\textsuperscript{*} \makecell[l]{N = total sample size; k = number of effects;\\ r = back-transformed meta-analytic correlation coefficient; se = standard error;\\ CI = confidence intervals; PI = predicted intervals;\\ tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;\\ Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info}}\\
+\end{tabular}}
+\end{table}
+
+\newpage
+
+\hypertarget{detailed-results-on-short-vs-long-via-formats-wb}{%
+\section{Detailed results on short vs long VIA formats
+(WB)}\label{detailed-results-on-short-vs-long-via-formats-wb}}
+
+\begin{table}[H]
+\centering\centering\centering
+\caption{Moderator analysis testing for differences between short and long VIA formats on WB outcomes}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{lccccccccccc}
+\toprule
+Strength & VIA & r & N & k & delta r & se & z & tau2 & I2 & Q & QM\\
+\midrule
+\cellcolor{gray!10}{Appreciation of beauty} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.195 [0.170; 0.220]} & \cellcolor{gray!10}{132,486} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{-0.018 [-0.047;  0.011]} & \cellcolor{gray!10}{0.015} & \cellcolor{gray!10}{-1.246} & \cellcolor{gray!10}{0.010} & \cellcolor{gray!10}{90} & \cellcolor{gray!10}{1528*} & \cellcolor{gray!10}{2}\\
+ & Short & 0.177 [0.148; 0.206] & 135,480 & 69 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Bravery} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.289 [0.262; 0.316]} & \cellcolor{gray!10}{131,644} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{-0.020 [-0.051;  0.011]} & \cellcolor{gray!10}{0.016} & \cellcolor{gray!10}{-1.284} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{92} & \cellcolor{gray!10}{2385*} & \cellcolor{gray!10}{2}\\
+ & Short & 0.271 [0.239; 0.302] & 135,480 & 69 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Creativity} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.231 [0.204; 0.258]} & \cellcolor{gray!10}{131,630} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{-0.004 [-0.032;  0.024]} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{-0.264} & \cellcolor{gray!10}{0.012} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{2639*} & \cellcolor{gray!10}{0}\\
+\addlinespace
+ & Short & 0.227 [0.197; 0.257] & 136,116 & 73 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Curiosity} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.403 [0.372; 0.433]} & \cellcolor{gray!10}{133,907} & \cellcolor{gray!10}{98} & \cellcolor{gray!10}{-0.063* [-0.096; -0.031]} & \cellcolor{gray!10}{0.016} & \cellcolor{gray!10}{-3.856} & \cellcolor{gray!10}{0.023} & \cellcolor{gray!10}{96} & \cellcolor{gray!10}{3656*} & \cellcolor{gray!10}{15*}\\
+ & Short & 0.349 [0.313; 0.383] & 136,939 & 76 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Fairness} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.226 [0.202; 0.250]} & \cellcolor{gray!10}{131,845} & \cellcolor{gray!10}{95} & \cellcolor{gray!10}{-0.002 [-0.030;  0.027]} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{-0.113} & \cellcolor{gray!10}{0.008} & \cellcolor{gray!10}{89} & \cellcolor{gray!10}{844*} & \cellcolor{gray!10}{0}\\
+ & Short & 0.225 [0.197; 0.252] & 135,860 & 70 &  &  &  &  &  &  & \\
+\addlinespace
+\cellcolor{gray!10}{Forgiveness} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.253 [0.231; 0.274]} & \cellcolor{gray!10}{132,897} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{-0.005 [-0.033;  0.023]} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{-0.360} & \cellcolor{gray!10}{0.007} & \cellcolor{gray!10}{87} & \cellcolor{gray!10}{878*} & \cellcolor{gray!10}{0}\\
+ & Short & 0.248 [0.223; 0.273] & 138,180 & 74 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Gratitude} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.428 [0.400; 0.454]} & \cellcolor{gray!10}{150,549} & \cellcolor{gray!10}{108} & \cellcolor{gray!10}{0.025 [-0.005;  0.055]} & \cellcolor{gray!10}{0.015} & \cellcolor{gray!10}{1.622} & \cellcolor{gray!10}{0.020} & \cellcolor{gray!10}{95} & \cellcolor{gray!10}{4298*} & \cellcolor{gray!10}{3}\\
+ & Short & 0.448 [0.418; 0.476] & 139,220 & 79 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Honesty} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.296 [0.270; 0.321]} & \cellcolor{gray!10}{131,644} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{-0.021 [-0.051;  0.009]} & \cellcolor{gray!10}{0.015} & \cellcolor{gray!10}{-1.358} & \cellcolor{gray!10}{0.011} & \cellcolor{gray!10}{92} & \cellcolor{gray!10}{1506*} & \cellcolor{gray!10}{2}\\
+\addlinespace
+ & Short & 0.277 [0.247; 0.306] & 135,480 & 69 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Hope} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.540 [0.505; 0.572]} & \cellcolor{gray!10}{175,967} & \cellcolor{gray!10}{103} & \cellcolor{gray!10}{0.016 [-0.018;  0.050]} & \cellcolor{gray!10}{0.017} & \cellcolor{gray!10}{0.939} & \cellcolor{gray!10}{0.046} & \cellcolor{gray!10}{98} & \cellcolor{gray!10}{6393*} & \cellcolor{gray!10}{1}\\
+ & Short & 0.551 [0.515; 0.585] & 137,193 & 80 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Humility} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.084 [0.058; 0.109]} & \cellcolor{gray!10}{174,627} & \cellcolor{gray!10}{96} & \cellcolor{gray!10}{-0.010 [-0.039;  0.020]} & \cellcolor{gray!10}{0.015} & \cellcolor{gray!10}{-0.641} & \cellcolor{gray!10}{0.009} & \cellcolor{gray!10}{91} & \cellcolor{gray!10}{1173*} & \cellcolor{gray!10}{0}\\
+ & Short & 0.074 [0.045; 0.104] & 137,800 & 73 &  &  &  &  &  &  & \\
+\addlinespace
+\cellcolor{gray!10}{Humor} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.314 [0.291; 0.338]} & \cellcolor{gray!10}{178,624} & \cellcolor{gray!10}{111} & \cellcolor{gray!10}{-0.086* [-0.114; -0.059]} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{-6.102} & \cellcolor{gray!10}{0.010} & \cellcolor{gray!10}{92} & \cellcolor{gray!10}{1687*} & \cellcolor{gray!10}{37*}\\
+ & Short & 0.234 [0.206; 0.262] & 137,800 & 73 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Judgment} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.228 [0.200; 0.256]} & \cellcolor{gray!10}{131,527} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{-0.033 [-0.058; -0.007]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{-2.554} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{1891*} & \cellcolor{gray!10}{7}\\
+ & Short & 0.197 [0.166; 0.227] & 135,480 & 69 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Kindness} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.274 [0.246; 0.301]} & \cellcolor{gray!10}{132,264} & \cellcolor{gray!10}{96} & \cellcolor{gray!10}{-0.025 [-0.056;  0.005]} & \cellcolor{gray!10}{0.016} & \cellcolor{gray!10}{-1.635} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{92} & \cellcolor{gray!10}{1463*} & \cellcolor{gray!10}{3}\\
+\addlinespace
+ & Short & 0.250 [0.219; 0.280] & 138,375 & 75 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Leadership} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.304 [0.281; 0.327]} & \cellcolor{gray!10}{131,327} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{-0.038 [-0.066; -0.009]} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{-2.616} & \cellcolor{gray!10}{0.009} & \cellcolor{gray!10}{89} & \cellcolor{gray!10}{1719*} & \cellcolor{gray!10}{7}\\
+ & Short & 0.270 [0.243; 0.296] & 138,180 & 74 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Love of learning} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.267 [0.236; 0.297]} & \cellcolor{gray!10}{133,907} & \cellcolor{gray!10}{98} & \cellcolor{gray!10}{-0.062* [-0.093; -0.031]} & \cellcolor{gray!10}{0.016} & \cellcolor{gray!10}{-3.892} & \cellcolor{gray!10}{0.018} & \cellcolor{gray!10}{95} & \cellcolor{gray!10}{2975*} & \cellcolor{gray!10}{15*}\\
+ & Short & 0.208 [0.173; 0.243] & 135,974 & 71 &  &  &  &  &  &  & \\
+\addlinespace
+\cellcolor{gray!10}{Love} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.435 [0.405; 0.464]} & \cellcolor{gray!10}{131,742} & \cellcolor{gray!10}{96} & \cellcolor{gray!10}{0.005 [-0.029;  0.038]} & \cellcolor{gray!10}{0.017} & \cellcolor{gray!10}{0.280} & \cellcolor{gray!10}{0.023} & \cellcolor{gray!10}{95} & \cellcolor{gray!10}{3562*} & \cellcolor{gray!10}{0}\\
+ & Short & 0.439 [0.406; 0.471] & 138,806 & 79 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Perseverance} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.357 [0.331; 0.383]} & \cellcolor{gray!10}{131,522} & \cellcolor{gray!10}{96} & \cellcolor{gray!10}{-0.018 [-0.048;  0.012]} & \cellcolor{gray!10}{0.015} & \cellcolor{gray!10}{-1.178} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{2980*} & \cellcolor{gray!10}{1}\\
+ & Short & 0.341 [0.312; 0.370] & 135,666 & 70 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Perspective} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.343 [0.316; 0.369]} & \cellcolor{gray!10}{131,522} & \cellcolor{gray!10}{96} & \cellcolor{gray!10}{-0.075* [-0.103; -0.047]} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{-5.291} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{2258*} & \cellcolor{gray!10}{28*}\\
+\addlinespace
+ & Short & 0.274 [0.244; 0.304] & 135,480 & 69 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Prudence} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.208 [0.178; 0.238]} & \cellcolor{gray!10}{131,327} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{-0.027 [-0.059;  0.004]} & \cellcolor{gray!10}{0.016} & \cellcolor{gray!10}{-1.695} & \cellcolor{gray!10}{0.015} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{1391*} & \cellcolor{gray!10}{3}\\
+ & Short & 0.182 [0.148; 0.216] & 135,480 & 69 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Self regulation} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.330 [0.304; 0.356]} & \cellcolor{gray!10}{131,760} & \cellcolor{gray!10}{97} & \cellcolor{gray!10}{-0.057* [-0.089; -0.026]} & \cellcolor{gray!10}{0.016} & \cellcolor{gray!10}{-3.636} & \cellcolor{gray!10}{0.012} & \cellcolor{gray!10}{91} & \cellcolor{gray!10}{3032*} & \cellcolor{gray!10}{13*}\\
+ & Short & 0.278 [0.247; 0.308] & 135,480 & 69 &  &  &  &  &  &  & \\
+\addlinespace
+\cellcolor{gray!10}{Social intelligence} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.349 [0.322; 0.374]} & \cellcolor{gray!10}{136,065} & \cellcolor{gray!10}{98} & \cellcolor{gray!10}{-0.012 [-0.043;  0.019]} & \cellcolor{gray!10}{0.016} & \cellcolor{gray!10}{-0.769} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{1807*} & \cellcolor{gray!10}{1}\\
+ & Short & 0.338 [0.309; 0.367] & 138,622 & 78 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Spirituality} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.246 [0.219; 0.272]} & \cellcolor{gray!10}{132,686} & \cellcolor{gray!10}{101} & \cellcolor{gray!10}{-0.040* [-0.069; -0.011]} & \cellcolor{gray!10}{0.015} & \cellcolor{gray!10}{-2.684} & \cellcolor{gray!10}{0.012} & \cellcolor{gray!10}{92} & \cellcolor{gray!10}{3864*} & \cellcolor{gray!10}{7*}\\
+ & Short & 0.208 [0.177; 0.238] & 135,480 & 69 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Teamwork} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.322 [0.297; 0.346]} & \cellcolor{gray!10}{131,630} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{-0.043* [-0.072; -0.014]} & \cellcolor{gray!10}{0.015} & \cellcolor{gray!10}{-2.923} & \cellcolor{gray!10}{0.011} & \cellcolor{gray!10}{91} & \cellcolor{gray!10}{1252*} & \cellcolor{gray!10}{9*}\\
+\addlinespace
+ & Short & 0.283 [0.254; 0.311] & 138,180 & 74 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Zest} & \cellcolor{gray!10}{Long} & \cellcolor{gray!10}{0.522 [0.487; 0.555]} & \cellcolor{gray!10}{151,426} & \cellcolor{gray!10}{101} & \cellcolor{gray!10}{0.014 [-0.021;  0.049]} & \cellcolor{gray!10}{0.018} & \cellcolor{gray!10}{0.794} & \cellcolor{gray!10}{0.043} & \cellcolor{gray!10}{98} & \cellcolor{gray!10}{4680*} & \cellcolor{gray!10}{1}\\
+ & Short & 0.532 [0.495; 0.567] & 136,486 & 75 &  &  &  &  &  &  & \\
+\bottomrule
+\multicolumn{12}{l}{\textsuperscript{*} \makecell[l]{N = total sample size; k = number of effects;\\ r = back-transformed meta-analytic correlation coefficient; se = standard error;\\ CI = confidence intervals; PI = predicted intervals;\\ tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;\\ Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info}}\\
+\end{tabular}}
+\end{table}
+
+\newpage
+
+\hypertarget{detailed-results-on-specific-well-being-outcomes}{%
+\section{Detailed results on specific well-being
+outcomes}\label{detailed-results-on-specific-well-being-outcomes}}
+
+\begin{table}[H]
+\centering\centering
+\caption{Moderator analysis testing for differences between specific WB outcomes. Back-transformed meta-analytic correlation coefficient and confidence intervals are reported.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{lccccccccccc}
+\toprule
+Strength & Domain satisfaction & Happyness & Life satisfaction & Negative affect & Positive affect & Psychological wellbeing & Subjective wellbeing & Overall effect & tau2 & Q & QM\\
+\midrule
+\cellcolor{gray!10}{Appreciation of beauty} & \cellcolor{gray!10}{0.150 [0.107; 0.192]} & \cellcolor{gray!10}{0.211 [0.169; 0.252]} & \cellcolor{gray!10}{0.185 [0.159; 0.211]} & \cellcolor{gray!10}{0.097 [ 0.065; 0.130]} & \cellcolor{gray!10}{0.270 [0.240; 0.299]} & \cellcolor{gray!10}{0.184 [0.153; 0.215]} & \cellcolor{gray!10}{0.167 [ 0.071; 0.261]} & \cellcolor{gray!10}{0.182 [0.159; 0.204]} & \cellcolor{gray!10}{0.009} & \cellcolor{gray!10}{944.411(157)*} & \cellcolor{gray!10}{31.581(6)*}\\
+Bravery & 0.193 [0.148; 0.237] & 0.413 [0.374; 0.451] & 0.261 [0.233; 0.288] & 0.129 [ 0.094; 0.164] & 0.323 [0.292; 0.354] & 0.362 [0.331; 0.392] & 0.204 [ 0.104; 0.301] & 0.269 [0.242; 0.295] & 0.012 & 1604.310(153)* & 72.091(6)*\\
+\cellcolor{gray!10}{Creativity} & \cellcolor{gray!10}{0.161 [0.119; 0.203]} & \cellcolor{gray!10}{0.312 [0.271; 0.351]} & \cellcolor{gray!10}{0.218 [0.190; 0.246]} & \cellcolor{gray!10}{0.026 [-0.008; 0.060]} & \cellcolor{gray!10}{0.344 [0.314; 0.373]} & \cellcolor{gray!10}{0.291 [0.259; 0.322]} & \cellcolor{gray!10}{0.161 [ 0.064; 0.255]} & \cellcolor{gray!10}{0.224 [0.202; 0.247]} & \cellcolor{gray!10}{0.012} & \cellcolor{gray!10}{1321.943(155)*} & \cellcolor{gray!10}{129.023(6)*}\\
+Curiosity & 0.254 [0.207; 0.300] & 0.534 [0.498; 0.569] & 0.374 [0.344; 0.403] & 0.137 [ 0.099; 0.175] & 0.464 [0.433; 0.493] & 0.410 [0.377; 0.441] & 0.348 [ 0.252; 0.438] & 0.383 [0.357; 0.409] & 0.018 & 2032.533(161)* & 172.652(6)*\\
+\cellcolor{gray!10}{Fairness} & \cellcolor{gray!10}{0.231 [0.189; 0.272]} & \cellcolor{gray!10}{0.304 [0.263; 0.344]} & \cellcolor{gray!10}{0.210 [0.184; 0.236]} & \cellcolor{gray!10}{0.187 [ 0.155; 0.220]} & \cellcolor{gray!10}{0.231 [0.199; 0.262]} & \cellcolor{gray!10}{0.226 [0.195; 0.257]} & \cellcolor{gray!10}{0.186 [ 0.088; 0.280]} & \cellcolor{gray!10}{0.215 [0.196; 0.235]} & \cellcolor{gray!10}{0.010} & \cellcolor{gray!10}{722.874(153)*} & \cellcolor{gray!10}{6.118(6)*}\\
+\addlinespace
+Forgiveness & 0.243 [0.204; 0.282] & 0.320 [0.282; 0.357] & 0.250 [0.226; 0.274] & 0.266 [ 0.236; 0.295] & 0.279 [0.250; 0.307] & 0.201 [0.171; 0.230] & 0.202 [ 0.108; 0.292] & 0.249 [0.232; 0.266] & 0.008 & 774.577(162)* & 8.784(6)*\\
+\cellcolor{gray!10}{Gratitude} & \cellcolor{gray!10}{0.313 [0.268; 0.358]} & \cellcolor{gray!10}{0.519 [0.482; 0.554]} & \cellcolor{gray!10}{0.487 [0.461; 0.513]} & \cellcolor{gray!10}{0.227 [ 0.190; 0.263]} & \cellcolor{gray!10}{0.434 [0.403; 0.464]} & \cellcolor{gray!10}{0.425 [0.393; 0.455]} & \cellcolor{gray!10}{0.391 [ 0.297; 0.477]} & \cellcolor{gray!10}{0.435 [0.412; 0.457]} & \cellcolor{gray!10}{0.019} & \cellcolor{gray!10}{2863.571(176)*} & \cellcolor{gray!10}{114.851(6)*}\\
+Honesty & 0.212 [0.170; 0.254] & 0.341 [0.301; 0.380] & 0.275 [0.249; 0.300] & 0.160 [ 0.126; 0.193] & 0.283 [0.252; 0.313] & 0.376 [0.347; 0.404] & 0.257 [ 0.161; 0.348] & 0.275 [0.250; 0.300] & 0.010 & 971.300(151)* & 44.344(6)*\\
+\cellcolor{gray!10}{Hope} & \cellcolor{gray!10}{0.357 [0.307; 0.405]} & \cellcolor{gray!10}{0.674 [0.643; 0.703]} & \cellcolor{gray!10}{0.558 [0.529; 0.586]} & \cellcolor{gray!10}{0.384 [ 0.344; 0.422]} & \cellcolor{gray!10}{0.581 [0.551; 0.610]} & \cellcolor{gray!10}{0.523 [0.489; 0.556]} & \cellcolor{gray!10}{0.554 [ 0.471; 0.627]} & \cellcolor{gray!10}{0.534 [0.504; 0.563]} & \cellcolor{gray!10}{0.032} & \cellcolor{gray!10}{3535.491(170)*} & \cellcolor{gray!10}{126.908(6)*}\\
+Humility & 0.118 [0.073; 0.163] & 0.093 [0.047; 0.138] & 0.095 [0.066; 0.123] & 0.053 [ 0.019; 0.087] & 0.053 [0.019; 0.086] & 0.062 [0.028; 0.096] & 0.064 [-0.038; 0.166] & 0.075 [0.054; 0.095] & 0.011 & 1143.567(157)* & 2.873(6)\\
+\addlinespace
+\cellcolor{gray!10}{Humor} & \cellcolor{gray!10}{0.238 [0.198; 0.276]} & \cellcolor{gray!10}{0.431 [0.396; 0.464]} & \cellcolor{gray!10}{0.271 [0.247; 0.294]} & \cellcolor{gray!10}{0.126 [ 0.096; 0.156]} & \cellcolor{gray!10}{0.323 [0.297; 0.350]} & \cellcolor{gray!10}{0.316 [0.289; 0.343]} & \cellcolor{gray!10}{0.287 [ 0.199; 0.372]} & \cellcolor{gray!10}{0.277 [0.255; 0.298]} & \cellcolor{gray!10}{0.008} & \cellcolor{gray!10}{1400.857(172)*} & \cellcolor{gray!10}{74.981(6)*}\\
+Judgment & 0.186 [0.141; 0.230] & 0.256 [0.213; 0.298] & 0.210 [0.181; 0.239] & 0.069 [ 0.033; 0.105] & 0.273 [0.241; 0.306] & 0.275 [0.242; 0.308] & 0.162 [ 0.061; 0.259] & 0.210 [0.185; 0.234] & 0.013 & 1226.730(151)* & 53.705(6)*\\
+\cellcolor{gray!10}{Kindness} & \cellcolor{gray!10}{0.247 [0.202; 0.292]} & \cellcolor{gray!10}{0.330 [0.286; 0.372]} & \cellcolor{gray!10}{0.254 [0.225; 0.283]} & \cellcolor{gray!10}{0.114 [ 0.077; 0.149]} & \cellcolor{gray!10}{0.284 [0.251; 0.317]} & \cellcolor{gray!10}{0.316 [0.284; 0.347]} & \cellcolor{gray!10}{0.216 [ 0.114; 0.314]} & \cellcolor{gray!10}{0.259 [0.234; 0.284]} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{1095.738(160)*} & \cellcolor{gray!10}{45.059(6)*}\\
+Leadership & 0.228 [0.196; 0.260] & 0.360 [0.327; 0.392] & 0.287 [0.268; 0.306] & 0.146 [ 0.118; 0.173] & 0.340 [0.315; 0.363] & 0.344 [0.319; 0.367] & 0.220 [ 0.131; 0.306] & 0.285 [0.265; 0.305] & 0.005 & 814.174(155)* & 58.132(6)*\\
+\cellcolor{gray!10}{Love of learning} & \cellcolor{gray!10}{0.246 [0.200; 0.290]} & \cellcolor{gray!10}{0.350 [0.307; 0.391]} & \cellcolor{gray!10}{0.210 [0.179; 0.242]} & \cellcolor{gray!10}{0.161 [ 0.124; 0.197]} & \cellcolor{gray!10}{0.325 [0.291; 0.357]} & \cellcolor{gray!10}{0.260 [0.225; 0.295]} & \cellcolor{gray!10}{0.202 [ 0.100; 0.300]} & \cellcolor{gray!10}{0.242 [0.216; 0.267]} & \cellcolor{gray!10}{0.017} & \cellcolor{gray!10}{2181.254(158)*} & \cellcolor{gray!10}{40.356(6)*}\\
+\addlinespace
+Love & 0.383 [0.340; 0.425] & 0.498 [0.460; 0.535] & 0.468 [0.441; 0.494] & 0.202 [ 0.165; 0.239] & 0.397 [0.365; 0.428] & 0.460 [0.430; 0.490] & 0.442 [ 0.351; 0.525] & 0.432 [0.405; 0.459] & 0.017 & 2188.001(165)* & 103.194(6)*\\
+\cellcolor{gray!10}{Perseverance} & \cellcolor{gray!10}{0.263 [0.221; 0.305]} & \cellcolor{gray!10}{0.410 [0.372; 0.447]} & \cellcolor{gray!10}{0.359 [0.332; 0.384]} & \cellcolor{gray!10}{0.186 [ 0.151; 0.219]} & \cellcolor{gray!10}{0.388 [0.359; 0.417]} & \cellcolor{gray!10}{0.407 [0.378; 0.436]} & \cellcolor{gray!10}{0.285 [ 0.191; 0.374]} & \cellcolor{gray!10}{0.348 [0.325; 0.370]} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{1930.815(154)*} & \cellcolor{gray!10}{74.661(6)*}\\
+Perspective & 0.216 [0.171; 0.260] & 0.390 [0.350; 0.429] & 0.325 [0.297; 0.352] & 0.140 [ 0.104; 0.175] & 0.386 [0.356; 0.416] & 0.368 [0.337; 0.399] & 0.261 [ 0.163; 0.354] & 0.304 [0.280; 0.327] & 0.013 & 1453.834(153)* & 86.717(6)*\\
+\cellcolor{gray!10}{Prudence} & \cellcolor{gray!10}{0.174 [0.126; 0.221]} & \cellcolor{gray!10}{0.201 [0.154; 0.248]} & \cellcolor{gray!10}{0.214 [0.183; 0.245]} & \cellcolor{gray!10}{0.128 [ 0.090; 0.165]} & \cellcolor{gray!10}{0.200 [0.164; 0.236]} & \cellcolor{gray!10}{0.224 [0.187; 0.259]} & \cellcolor{gray!10}{0.094 [-0.013; 0.198]} & \cellcolor{gray!10}{0.194 [0.167; 0.220]} & \cellcolor{gray!10}{0.015} & \cellcolor{gray!10}{1072.768(150)*} & \cellcolor{gray!10}{10.562(6)*}\\
+Self regulation & 0.197 [0.152; 0.241] & 0.338 [0.296; 0.378] & 0.336 [0.310; 0.362] & 0.287 [ 0.254; 0.319] & 0.353 [0.322; 0.382] & 0.321 [0.290; 0.352] & 0.206 [ 0.104; 0.304] & 0.306 [0.283; 0.329] & 0.011 & 2319.536(156)* & 14.123(6)*\\
+\addlinespace
+\cellcolor{gray!10}{Social intelligence} & \cellcolor{gray!10}{0.264 [0.222; 0.305]} & \cellcolor{gray!10}{0.439 [0.402; 0.475]} & \cellcolor{gray!10}{0.338 [0.313; 0.363]} & \cellcolor{gray!10}{0.170 [ 0.137; 0.203]} & \cellcolor{gray!10}{0.403 [0.375; 0.430]} & \cellcolor{gray!10}{0.393 [0.364; 0.421]} & \cellcolor{gray!10}{0.290 [ 0.194; 0.381]} & \cellcolor{gray!10}{0.333 [0.309; 0.357]} & \cellcolor{gray!10}{0.011} & \cellcolor{gray!10}{925.274(164)*} & \cellcolor{gray!10}{87.935(6)*}\\
+Spirituality & 0.171 [0.128; 0.214] & 0.328 [0.289; 0.367] & 0.254 [0.227; 0.280] & 0.103 [ 0.069; 0.136] & 0.257 [0.226; 0.288] & 0.226 [0.194; 0.258] & 0.210 [ 0.114; 0.303] & 0.232 [0.210; 0.254] & 0.011 & 2765.557(158)* & 41.181(6)*\\
+\cellcolor{gray!10}{Teamwork} & \cellcolor{gray!10}{0.300 [0.258; 0.340]} & \cellcolor{gray!10}{0.340 [0.299; 0.379]} & \cellcolor{gray!10}{0.306 [0.280; 0.332]} & \cellcolor{gray!10}{0.202 [ 0.169; 0.235]} & \cellcolor{gray!10}{0.299 [0.269; 0.330]} & \cellcolor{gray!10}{0.332 [0.301; 0.362]} & \cellcolor{gray!10}{0.287 [ 0.191; 0.377]} & \cellcolor{gray!10}{0.298 [0.276; 0.321]} & \cellcolor{gray!10}{0.011} & \cellcolor{gray!10}{894.757(156)*} & \cellcolor{gray!10}{18.691(6)*}\\
+Zest & 0.399 [0.355; 0.441] & 0.684 [0.652; 0.715] & 0.529 [0.495; 0.561] & 0.300 [ 0.254; 0.345] & 0.602 [0.569; 0.633] & 0.500 [0.461; 0.537] & 0.474 [ 0.379; 0.560] & 0.533 [0.505; 0.560] & 0.040 & 2689.395(164)* & 205.386(6)*\\
+\bottomrule
+\multicolumn{12}{l}{\textsuperscript{*} \makecell[l]{tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;\\ Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info}}\\
+\end{tabular}}
+\end{table}
+
+\hypertarget{detailed-results-on-specific-mental-health-outcome}{%
+\section{Detailed results on specific mental health
+outcome}\label{detailed-results-on-specific-mental-health-outcome}}
+
+\begin{table}[H]
+\centering\centering
+\caption{Moderator analysis testing for differences between specific MH outcomes. Back-transformed meta-analytic correlation coefficient and confidence intervals are reported.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{lccccccccc}
+\toprule
+Strength & Anxiety & Depression & General mental health & Stress & Overall effect & tau2 & I2 & Q & QM\\
+\midrule
+\cellcolor{gray!10}{Appreciation of beauty} & \cellcolor{gray!10}{-0.05 [-0.12; 0.02]} & \cellcolor{gray!10}{0.03 [-0.03; 0.08]} & \cellcolor{gray!10}{0.07 [-0.01; 0.15]} & \cellcolor{gray!10}{0 [-0.07; 0.07]} & \cellcolor{gray!10}{0.06 [0.03; 0.09]} & \cellcolor{gray!10}{0.012} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{302.745*} & \cellcolor{gray!10}{4.155}\\
+Bravery & 0.08 [0; 0.15] & 0.17 [0.1; 0.23] & 0.15 [0.06; 0.23] & 0.11 [0.03; 0.19] & 0.17 [0.14; 0.21] & 0.017 & 95 & 270.841* & 4.333\\
+\cellcolor{gray!10}{Creativity} & \cellcolor{gray!10}{0.03 [-0.04; 0.09]} & \cellcolor{gray!10}{0.14 [0.09; 0.2]} & \cellcolor{gray!10}{0.16 [0.08; 0.23]} & \cellcolor{gray!10}{0.07 [0.01; 0.14]} & \cellcolor{gray!10}{0.11 [0.08; 0.14]} & \cellcolor{gray!10}{0.012} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{444.320*} & \cellcolor{gray!10}{9.814*}\\
+Curiosity & 0.12 [0.05; 0.18] & 0.29 [0.24; 0.34] & 0.25 [0.18; 0.32] & 0.18 [0.12; 0.25] & 0.25 [0.22; 0.29] & 0.012 & 95 & 197.336* & 17.623*\\
+\cellcolor{gray!10}{Fairness} & \cellcolor{gray!10}{0.06 [0; 0.13]} & \cellcolor{gray!10}{0.08 [0.03; 0.13]} & \cellcolor{gray!10}{0.1 [0.03; 0.18]} & \cellcolor{gray!10}{0.13 [0.07; 0.2]} & \cellcolor{gray!10}{0.14 [0.11; 0.17]} & \cellcolor{gray!10}{0.008} & \cellcolor{gray!10}{92} & \cellcolor{gray!10}{214.068*} & \cellcolor{gray!10}{1.724}\\
+\addlinespace
+Forgiveness & 0.15 [0.1; 0.2] & 0.19 [0.15; 0.23] & 0.16 [0.1; 0.23] & 0.25 [0.19; 0.3] & 0.21 [0.18; 0.23] & 0.007 & 87 & 134.141* & 3.778\\
+\cellcolor{gray!10}{Gratitude} & \cellcolor{gray!10}{0.14 [0.07; 0.22]} & \cellcolor{gray!10}{0.34 [0.28; 0.4]} & \cellcolor{gray!10}{0.23 [0.15; 0.32]} & \cellcolor{gray!10}{0.22 [0.14; 0.3]} & \cellcolor{gray!10}{0.3 [0.26; 0.33]} & \cellcolor{gray!10}{0.022} & \cellcolor{gray!10}{95} & \cellcolor{gray!10}{449.677*} & \cellcolor{gray!10}{24.174*}\\
+Honesty & 0.13 [0.06; 0.2] & 0.19 [0.13; 0.25] & 0.14 [0.05; 0.22] & 0.16 [0.08; 0.24] & 0.2 [0.17; 0.23] & 0.014 & 94 & 288.411* & 2.171\\
+\cellcolor{gray!10}{Hope} & \cellcolor{gray!10}{0.3 [0.22; 0.38]} & \cellcolor{gray!10}{0.48 [0.42; 0.54]} & \cellcolor{gray!10}{0.34 [0.24; 0.42]} & \cellcolor{gray!10}{0.34 [0.25; 0.42]} & \cellcolor{gray!10}{0.46 [0.42; 0.5]} & \cellcolor{gray!10}{0.035} & \cellcolor{gray!10}{98} & \cellcolor{gray!10}{500.465*} & \cellcolor{gray!10}{27.882*}\\
+Humility & 0.01 [-0.04; 0.06] & -0.01 [-0.04; 0.03] & 0.05 [-0.01; 0.1] & 0.06 [0; 0.11] & 0.06 [0.03; 0.09] & 0.003 & 89 & 72.977* & 2.371\\
+\addlinespace
+\cellcolor{gray!10}{Humor} & \cellcolor{gray!10}{0.1 [0.04; 0.17]} & \cellcolor{gray!10}{0.18 [0.12; 0.23]} & \cellcolor{gray!10}{0.22 [0.14; 0.29]} & \cellcolor{gray!10}{0.12 [0.04; 0.19]} & \cellcolor{gray!10}{0.2 [0.16; 0.22]} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{212.629*} & \cellcolor{gray!10}{5.260*}\\
+Judgment & 0.11 [0.04; 0.17] & 0.14 [0.09; 0.19] & 0.13 [0.06; 0.21] & 0.14 [0.08; 0.21] & 0.16 [0.13; 0.19] & 0.011 & 93 & 302.016* & 0.715\\
+\cellcolor{gray!10}{Kindness} & \cellcolor{gray!10}{0.02 [-0.05; 0.09]} & \cellcolor{gray!10}{0.09 [0.03; 0.14]} & \cellcolor{gray!10}{0.06 [-0.02; 0.14]} & \cellcolor{gray!10}{0.08 [0; 0.15]} & \cellcolor{gray!10}{0.14 [0.1; 0.17]} & \cellcolor{gray!10}{0.011} & \cellcolor{gray!10}{95} & \cellcolor{gray!10}{161.189*} & \cellcolor{gray!10}{2.212}\\
+Leadership & 0.12 [0.04; 0.19] & 0.19 [0.12; 0.25] & 0.18 [0.09; 0.27] & 0.1 [0.02; 0.18] & 0.19 [0.16; 0.22] & 0.019 & 92 & 304.859* & 3.884\\
+\cellcolor{gray!10}{Love of learning} & \cellcolor{gray!10}{0.09 [0.02; 0.16]} & \cellcolor{gray!10}{0.2 [0.14; 0.26]} & \cellcolor{gray!10}{0.21 [0.12; 0.29]} & \cellcolor{gray!10}{0.13 [0.05; 0.2]} & \cellcolor{gray!10}{0.19 [0.16; 0.22]} & \cellcolor{gray!10}{0.017} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{379.885*} & \cellcolor{gray!10}{6.881*}\\
+\addlinespace
+Love & 0.18 [0.07; 0.27] & 0.36 [0.28; 0.44] & 0.22 [0.11; 0.33] & 0.2 [0.09; 0.3] & 0.34 [0.3; 0.37] & 0.040 & 96 & 732.454* & 22.523*\\
+\cellcolor{gray!10}{Perseverance} & \cellcolor{gray!10}{0.17 [0.09; 0.24]} & \cellcolor{gray!10}{0.31 [0.24; 0.37]} & \cellcolor{gray!10}{0.18 [0.09; 0.27]} & \cellcolor{gray!10}{0.17 [0.09; 0.26]} & \cellcolor{gray!10}{0.27 [0.24; 0.3]} & \cellcolor{gray!10}{0.021} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{343.252*} & \cellcolor{gray!10}{15.308*}\\
+Perspective & 0.06 [-0.01; 0.13] & 0.18 [0.12; 0.24] & 0.16 [0.07; 0.24] & 0.12 [0.05; 0.2] & 0.2 [0.17; 0.23] & 0.018 & 94 & 307.158* & 7.934*\\
+\cellcolor{gray!10}{Prudence} & \cellcolor{gray!10}{0.11 [0.02; 0.2]} & \cellcolor{gray!10}{0.15 [0.07; 0.23]} & \cellcolor{gray!10}{0.1 [0; 0.2]} & \cellcolor{gray!10}{0.16 [0.07; 0.25]} & \cellcolor{gray!10}{0.18 [0.15; 0.21]} & \cellcolor{gray!10}{0.027} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{553.154*} & \cellcolor{gray!10}{1.694}\\
+Self regulation & 0.24 [0.17; 0.31] & 0.26 [0.2; 0.32] & 0.28 [0.2; 0.36] & 0.35 [0.28; 0.42] & 0.29 [0.26; 0.32] & 0.017 & 91 & 311.970* & 4.212\\
+\addlinespace
+\cellcolor{gray!10}{Social intelligence} & \cellcolor{gray!10}{0.12 [0.05; 0.2]} & \cellcolor{gray!10}{0.21 [0.14; 0.27]} & \cellcolor{gray!10}{0.22 [0.14; 0.3]} & \cellcolor{gray!10}{0.2 [0.11; 0.28]} & \cellcolor{gray!10}{0.24 [0.2; 0.27]} & \cellcolor{gray!10}{0.019} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{401.463*} & \cellcolor{gray!10}{4.161}\\
+Spirituality & 0.05 [-0.02; 0.12] & 0.18 [0.12; 0.23] & 0.09 [0.01; 0.17] & 0.09 [0.01; 0.16] & 0.14 [0.1; 0.16] & 0.012 & 92 & 324.245* & 10.510*\\
+\cellcolor{gray!10}{Teamwork} & \cellcolor{gray!10}{0.12 [0.04; 0.19]} & \cellcolor{gray!10}{0.19 [0.12; 0.25]} & \cellcolor{gray!10}{0.15 [0.06; 0.24]} & \cellcolor{gray!10}{0.14 [0.06; 0.22]} & \cellcolor{gray!10}{0.23 [0.2; 0.26]} & \cellcolor{gray!10}{0.017} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{311.059*} & \cellcolor{gray!10}{2.879}\\
+Zest & 0.28 [0.18; 0.37] & 0.52 [0.44; 0.58] & 0.38 [0.27; 0.47] & 0.31 [0.21; 0.41] & 0.43 [0.39; 0.47] & 0.045 & 97 & 673.665* & 44.837*\\
+\bottomrule
+\multicolumn{10}{l}{\textsuperscript{*} \makecell[l]{tau2 = total variance (between + within);\\ I2 = percentage of variance due to heterogeneity;\\ Q = Q statistic; QM = Q test for the moderator analysis.\\ See the shiny app for additional info}}\\
+\end{tabular}}
+\end{table}
+
+\newpage
+
+\hypertarget{clinical-and-non-clinical-samples}{%
+\section{Clinical and non-clinical
+samples}\label{clinical-and-non-clinical-samples}}
+
+For what concerns clinical and non-clinical population, results for both
+well-being and mental health outcomes are mainly inconclusive. Indeed,
+although effects are generally higher in non-clinical populations,
+effects within clinical populations are extremely heterogeneous and
+significance tests not informative. The high heterogeneity of the
+findings, other than visually clear, is supported by the Q and tau
+statistics. According to these results, we did not proceed with further
+analysis of clinical populations.
+
+\begin{figure}
+
+{\centering \includegraphics{Figures/WB.png}
+
+}
+
+\caption{Well-being associations by population}
+
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{Figures/MH.png}
+
+}
+
+\caption{Mental health associations by population}
+
+\end{figure}
+
+\newpage
+
+\hypertarget{well-being---detailed-results-on-clinical-vs-non-clinical-population}{%
+\subsection{Well-being - Detailed results on clinical vs non-clinical
+population}\label{well-being---detailed-results-on-clinical-vs-non-clinical-population}}
+
+\begin{table}[H]
+\centering\centering
+\caption{Moderator analysis testing for differences between clinical and non-clinical population on WB outcomes}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{lccccccccccc}
+\toprule
+Strength & Population & r & N & k & delta r & se & z & tau2 & I2 & Q & QM\\
+\midrule
+\cellcolor{gray!10}{Appreciation of beauty} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.250 [ 0.123; 0.369]} & \cellcolor{gray!10}{736} & \cellcolor{gray!10}{9} & \cellcolor{gray!10}{-0.066 [-0.198; 0.067]} & \cellcolor{gray!10}{0.068} & \cellcolor{gray!10}{-0.981} & \cellcolor{gray!10}{0.009} & \cellcolor{gray!10}{91} & \cellcolor{gray!10}{1601*} & \cellcolor{gray!10}{1}\\
+ & Not clinical & 0.186 [0.163; 0.209] & 267,230 & 160 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Bravery} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.157 [-0.017; 0.322]} & \cellcolor{gray!10}{541} & \cellcolor{gray!10}{6} & \cellcolor{gray!10}{0.137 [-0.040; 0.305]} & \cellcolor{gray!10}{0.090} & \cellcolor{gray!10}{1.530} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{2423*} & \cellcolor{gray!10}{2}\\
+ & Not clinical & 0.288 [0.262; 0.313] & 266,645 & 159 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Creativity} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.220 [ 0.099; 0.334]} & \cellcolor{gray!10}{835} & \cellcolor{gray!10}{8} & \cellcolor{gray!10}{0.011 [-0.114; 0.135]} & \cellcolor{gray!10}{0.063} & \cellcolor{gray!10}{0.169} & \cellcolor{gray!10}{0.012} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{3156*} & \cellcolor{gray!10}{0}\\
+\addlinespace
+ & Not clinical & 0.230 [0.205; 0.255] & 266,911 & 159 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Curiosity} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.308 [ 0.119; 0.475]} & \cellcolor{gray!10}{541} & \cellcolor{gray!10}{6} & \cellcolor{gray!10}{0.087 [-0.113; 0.281]} & \cellcolor{gray!10}{0.102} & \cellcolor{gray!10}{0.858} & \cellcolor{gray!10}{0.022} & \cellcolor{gray!10}{96} & \cellcolor{gray!10}{3653*} & \cellcolor{gray!10}{1}\\
+ & Not clinical & 0.384 [0.355; 0.413] & 270,305 & 168 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Fairness} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.201 [ 0.051; 0.343]} & \cellcolor{gray!10}{541} & \cellcolor{gray!10}{6} & \cellcolor{gray!10}{0.026 [-0.128; 0.179]} & \cellcolor{gray!10}{0.078} & \cellcolor{gray!10}{0.334} & \cellcolor{gray!10}{0.008} & \cellcolor{gray!10}{90} & \cellcolor{gray!10}{921*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.226 [0.204; 0.248] & 267,164 & 159 &  &  &  &  &  &  & \\
+\addlinespace
+\cellcolor{gray!10}{Forgiveness} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.284 [ 0.188; 0.375]} & \cellcolor{gray!10}{3,061} & \cellcolor{gray!10}{11} & \cellcolor{gray!10}{-0.037 [-0.140; 0.067]} & \cellcolor{gray!10}{0.053} & \cellcolor{gray!10}{-0.704} & \cellcolor{gray!10}{0.007} & \cellcolor{gray!10}{88} & \cellcolor{gray!10}{842*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.250 [0.230; 0.269] & 268,016 & 163 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Gratitude} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.363 [ 0.224; 0.487]} & \cellcolor{gray!10}{839} & \cellcolor{gray!10}{9} & \cellcolor{gray!10}{0.092 [-0.063; 0.243]} & \cellcolor{gray!10}{0.079} & \cellcolor{gray!10}{1.171} & \cellcolor{gray!10}{0.020} & \cellcolor{gray!10}{95} & \cellcolor{gray!10}{4657*} & \cellcolor{gray!10}{1}\\
+ & Not clinical & 0.440 [0.414; 0.465] & 288,992 & 180 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Honesty} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.214 [ 0.053; 0.364]} & \cellcolor{gray!10}{541} & \cellcolor{gray!10}{6} & \cellcolor{gray!10}{0.081 [-0.084; 0.243]} & \cellcolor{gray!10}{0.084} & \cellcolor{gray!10}{0.969} & \cellcolor{gray!10}{0.011} & \cellcolor{gray!10}{92} & \cellcolor{gray!10}{1851*} & \cellcolor{gray!10}{1}\\
+\addlinespace
+ & Not clinical & 0.290 [0.267; 0.314] & 266,583 & 157 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Hope} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.434 [ 0.261; 0.580]} & \cellcolor{gray!10}{936} & \cellcolor{gray!10}{10} & \cellcolor{gray!10}{0.151 [-0.050; 0.341]} & \cellcolor{gray!10}{0.103} & \cellcolor{gray!10}{1.487} & \cellcolor{gray!10}{0.045} & \cellcolor{gray!10}{98} & \cellcolor{gray!10}{6363*} & \cellcolor{gray!10}{2}\\
+ & Not clinical & 0.549 [0.516; 0.581] & 312,224 & 173 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Humility} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.172 [ 0.053; 0.286]} & \cellcolor{gray!10}{2,861} & \cellcolor{gray!10}{10} & \cellcolor{gray!10}{-0.096 [-0.216; 0.026]} & \cellcolor{gray!10}{0.062} & \cellcolor{gray!10}{-1.551} & \cellcolor{gray!10}{0.009} & \cellcolor{gray!10}{91} & \cellcolor{gray!10}{1655*} & \cellcolor{gray!10}{2}\\
+ & Not clinical & 0.077 [0.054; 0.100] & 309,566 & 159 &  &  &  &  &  &  & \\
+\addlinespace
+\cellcolor{gray!10}{Humor} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.271 [ 0.165; 0.371]} & \cellcolor{gray!10}{3,089} & \cellcolor{gray!10}{14} & \cellcolor{gray!10}{0.017 [-0.097; 0.130]} & \cellcolor{gray!10}{0.058} & \cellcolor{gray!10}{0.292} & \cellcolor{gray!10}{0.011} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{2304*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.287 [0.264; 0.309] & 313,335 & 170 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Judgment} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.183 [ 0.038; 0.319]} & \cellcolor{gray!10}{741} & \cellcolor{gray!10}{7} & \cellcolor{gray!10}{0.037 [-0.112; 0.183]} & \cellcolor{gray!10}{0.075} & \cellcolor{gray!10}{0.486} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{1976*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.218 [0.191; 0.244] & 266,266 & 156 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Kindness} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.339 [ 0.203; 0.462]} & \cellcolor{gray!10}{2,861} & \cellcolor{gray!10}{10} & \cellcolor{gray!10}{-0.077 [-0.224; 0.072]} & \cellcolor{gray!10}{0.076} & \cellcolor{gray!10}{-1.021} & \cellcolor{gray!10}{0.015} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{1579*} & \cellcolor{gray!10}{1}\\
+\addlinespace
+ & Not clinical & 0.269 [0.242; 0.296] & 269,415 & 163 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Leadership} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.305 [ 0.195; 0.407]} & \cellcolor{gray!10}{2,861} & \cellcolor{gray!10}{10} & \cellcolor{gray!10}{-0.016 [-0.135; 0.103]} & \cellcolor{gray!10}{0.061} & \cellcolor{gray!10}{-0.261} & \cellcolor{gray!10}{0.008} & \cellcolor{gray!10}{89} & \cellcolor{gray!10}{1739*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.291 [0.270; 0.311] & 266,646 & 157 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Love of learning} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.210 [ 0.032; 0.375]} & \cellcolor{gray!10}{541} & \cellcolor{gray!10}{6} & \cellcolor{gray!10}{0.039 [-0.143; 0.219]} & \cellcolor{gray!10}{0.093} & \cellcolor{gray!10}{0.425} & \cellcolor{gray!10}{0.016} & \cellcolor{gray!10}{95} & \cellcolor{gray!10}{3072*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.247 [0.219; 0.275] & 269,402 & 165 &  &  &  &  &  &  & \\
+\addlinespace
+\cellcolor{gray!10}{Love} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.422 [ 0.284; 0.542]} & \cellcolor{gray!10}{2,959} & \cellcolor{gray!10}{12} & \cellcolor{gray!10}{0.021 [-0.139; 0.181]} & \cellcolor{gray!10}{0.082} & \cellcolor{gray!10}{0.261} & \cellcolor{gray!10}{0.024} & \cellcolor{gray!10}{96} & \cellcolor{gray!10}{3502*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.439 [0.410; 0.467] & 267,651 & 165 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Perseverance} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.338 [ 0.204; 0.460]} & \cellcolor{gray!10}{736} & \cellcolor{gray!10}{9} & \cellcolor{gray!10}{0.015 [-0.132; 0.161]} & \cellcolor{gray!10}{0.075} & \cellcolor{gray!10}{0.203} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{3025*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.352 [0.327; 0.376] & 266,452 & 157 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Perspective} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.308 [ 0.170; 0.434]} & \cellcolor{gray!10}{736} & \cellcolor{gray!10}{9} & \cellcolor{gray!10}{0.011 [-0.137; 0.159]} & \cellcolor{gray!10}{0.076} & \cellcolor{gray!10}{0.149} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{2311*} & \cellcolor{gray!10}{0}\\
+\addlinespace
+ & Not clinical & 0.318 [0.293; 0.343] & 266,266 & 156 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Prudence} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.171 [-0.004; 0.336]} & \cellcolor{gray!10}{541} & \cellcolor{gray!10}{6} & \cellcolor{gray!10}{0.029 [-0.149; 0.206]} & \cellcolor{gray!10}{0.091} & \cellcolor{gray!10}{0.322} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{1583*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.199 [0.171; 0.227] & 266,266 & 156 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Self regulation} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.296 [ 0.158; 0.422]} & \cellcolor{gray!10}{736} & \cellcolor{gray!10}{9} & \cellcolor{gray!10}{0.019 [-0.128; 0.165]} & \cellcolor{gray!10}{0.075} & \cellcolor{gray!10}{0.258} & \cellcolor{gray!10}{0.012} & \cellcolor{gray!10}{92} & \cellcolor{gray!10}{3119*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.313 [0.289; 0.337] & 266,566 & 159 &  &  &  &  &  &  & \\
+\addlinespace
+\cellcolor{gray!10}{Social intelligence} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.324 [ 0.222; 0.419]} & \cellcolor{gray!10}{3,355} & \cellcolor{gray!10}{13} & \cellcolor{gray!10}{0.025 [-0.088; 0.137]} & \cellcolor{gray!10}{0.057} & \cellcolor{gray!10}{0.436} & \cellcolor{gray!10}{0.013} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{1761*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.346 [0.321; 0.370] & 271,332 & 163 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Spirituality} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.192 [ 0.071; 0.307]} & \cellcolor{gray!10}{936} & \cellcolor{gray!10}{10} & \cellcolor{gray!10}{0.045 [-0.081; 0.169]} & \cellcolor{gray!10}{0.064} & \cellcolor{gray!10}{0.701} & \cellcolor{gray!10}{0.011} & \cellcolor{gray!10}{92} & \cellcolor{gray!10}{4517*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.234 [0.210; 0.258] & 267,230 & 160 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Teamwork} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.343 [ 0.228; 0.450]} & \cellcolor{gray!10}{2,861} & \cellcolor{gray!10}{10} & \cellcolor{gray!10}{-0.043 [-0.170; 0.085]} & \cellcolor{gray!10}{0.065} & \cellcolor{gray!10}{-0.657} & \cellcolor{gray!10}{0.010} & \cellcolor{gray!10}{91} & \cellcolor{gray!10}{1231*} & \cellcolor{gray!10}{0}\\
+\addlinespace
+ & Not clinical & 0.305 [0.283; 0.328] & 266,949 & 158 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Zest} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.383 [ 0.222; 0.524]} & \cellcolor{gray!10}{1,034} & \cellcolor{gray!10}{12} & \cellcolor{gray!10}{0.190 [ 0.008; 0.359]} & \cellcolor{gray!10}{0.093} & \cellcolor{gray!10}{2.063} & \cellcolor{gray!10}{0.041} & \cellcolor{gray!10}{98} & \cellcolor{gray!10}{4649*} & \cellcolor{gray!10}{4}\\
+ & Not clinical & 0.534 [0.501; 0.566] & 286,878 & 164 &  &  &  &  &  &  & \\
+\bottomrule
+\multicolumn{12}{l}{\textsuperscript{*} \makecell[l]{N = total sample size; k = number of effects;\\ r = back-transformed meta-analytic correlation coefficient; se = standard error;\\ CI = confidence intervals; PI = predicted intervals;\\ tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;\\ Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info}}\\
+\end{tabular}}
+\end{table}
+
+\newpage
+
+\hypertarget{mental-health---detailed-results-on-clinical-vs-non-clinical-populations}{%
+\subsection{Mental health - Detailed results on clinical vs non-clinical
+populations}\label{mental-health---detailed-results-on-clinical-vs-non-clinical-populations}}
+
+\begin{table}[H]
+\centering\centering
+\caption{Moderator analysis testing for differences between clinical and non-clinical populations on MH outcomes}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{lccccccccccc}
+\toprule
+Strength & Population & r & N & k & delta r & se & z & tau2 & I2 & Q & QM\\
+\midrule
+\cellcolor{gray!10}{Appreciation of beauty} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{-0.061 [-0.203; 0.084]} & \cellcolor{gray!10}{1,302} & \cellcolor{gray!10}{3} & \cellcolor{gray!10}{0.097 [-0.055; 0.244]} & \cellcolor{gray!10}{0.075} & \cellcolor{gray!10}{1.296} & \cellcolor{gray!10}{0.010} & \cellcolor{gray!10}{85} & \cellcolor{gray!10}{318*} & \cellcolor{gray!10}{2}\\
+ & Not clinical & 0.036 [-0.014; 0.087] & 28,698 & 34 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Bravery} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.000 [-0.205; 0.205]} & \cellcolor{gray!10}{1,248} & \cellcolor{gray!10}{2} & \cellcolor{gray!10}{0.146 [-0.071; 0.350]} & \cellcolor{gray!10}{0.107} & \cellcolor{gray!10}{1.369} & \cellcolor{gray!10}{0.019} & \cellcolor{gray!10}{91} & \cellcolor{gray!10}{381*} & \cellcolor{gray!10}{2}\\
+ & Not clinical & 0.146 [ 0.082; 0.209] & 28,729 & 34 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Creativity} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.023 [-0.131; 0.176]} & \cellcolor{gray!10}{1,248} & \cellcolor{gray!10}{2} & \cellcolor{gray!10}{0.104 [-0.056; 0.260]} & \cellcolor{gray!10}{0.080} & \cellcolor{gray!10}{1.316} & \cellcolor{gray!10}{0.010} & \cellcolor{gray!10}{85} & \cellcolor{gray!10}{462*} & \cellcolor{gray!10}{2}\\
+\addlinespace
+ & Not clinical & 0.127 [ 0.084; 0.171] & 31,177 & 38 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Curiosity} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.275 [ 0.115; 0.421]} & \cellcolor{gray!10}{1,248} & \cellcolor{gray!10}{2} & \cellcolor{gray!10}{-0.033 [-0.204; 0.139]} & \cellcolor{gray!10}{0.086} & \cellcolor{gray!10}{-0.391} & \cellcolor{gray!10}{0.011} & \cellcolor{gray!10}{87} & \cellcolor{gray!10}{341*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.244 [ 0.196; 0.290] & 30,184 & 35 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Fairness} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.000 [-0.151; 0.151]} & \cellcolor{gray!10}{1,248} & \cellcolor{gray!10}{2} & \cellcolor{gray!10}{0.101 [-0.057; 0.255]} & \cellcolor{gray!10}{0.078} & \cellcolor{gray!10}{1.301} & \cellcolor{gray!10}{0.009} & \cellcolor{gray!10}{83} & \cellcolor{gray!10}{255*} & \cellcolor{gray!10}{2}\\
+ & Not clinical & 0.101 [ 0.054; 0.148] & 27,397 & 32 &  &  &  &  &  &  & \\
+\addlinespace
+\cellcolor{gray!10}{Forgiveness} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.172 [ 0.059; 0.281]} & \cellcolor{gray!10}{1,502} & \cellcolor{gray!10}{4} & \cellcolor{gray!10}{0.021 [-0.099; 0.141]} & \cellcolor{gray!10}{0.060} & \cellcolor{gray!10}{0.354} & \cellcolor{gray!10}{0.007} & \cellcolor{gray!10}{79} & \cellcolor{gray!10}{181*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.193 [ 0.155; 0.230] & 29,892 & 38 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Gratitude} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.193 [ 0.036; 0.340]} & \cellcolor{gray!10}{1,502} & \cellcolor{gray!10}{4} & \cellcolor{gray!10}{0.118 [-0.049; 0.279]} & \cellcolor{gray!10}{0.083} & \cellcolor{gray!10}{1.432} & \cellcolor{gray!10}{0.019} & \cellcolor{gray!10}{91} & \cellcolor{gray!10}{552*} & \cellcolor{gray!10}{2}\\
+ & Not clinical & 0.304 [ 0.247; 0.359] & 30,225 & 38 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Honesty} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.173 [-0.078; 0.403]} & \cellcolor{gray!10}{1,248} & \cellcolor{gray!10}{2} & \cellcolor{gray!10}{-0.034 [-0.291; 0.227]} & \cellcolor{gray!10}{0.130} & \cellcolor{gray!10}{-0.262} & \cellcolor{gray!10}{0.028} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{381*} & \cellcolor{gray!10}{0}\\
+\addlinespace
+ & Not clinical & 0.139 [ 0.059; 0.218] & 28,729 & 34 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Hope} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.370 [ 0.188; 0.528]} & \cellcolor{gray!10}{1,502} & \cellcolor{gray!10}{4} & \cellcolor{gray!10}{0.066 [-0.144; 0.272]} & \cellcolor{gray!10}{0.105} & \cellcolor{gray!10}{0.635} & \cellcolor{gray!10}{0.031} & \cellcolor{gray!10}{94} & \cellcolor{gray!10}{667*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.426 [ 0.364; 0.485] & 29,970 & 37 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Humility} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.000 [-0.112; 0.112]} & \cellcolor{gray!10}{1,248} & \cellcolor{gray!10}{2} & \cellcolor{gray!10}{0.013 [-0.104; 0.130]} & \cellcolor{gray!10}{0.058} & \cellcolor{gray!10}{0.229} & \cellcolor{gray!10}{0.004} & \cellcolor{gray!10}{66} & \cellcolor{gray!10}{102*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.013 [-0.020; 0.047] & 28,457 & 33 &  &  &  &  &  &  & \\
+\addlinespace
+\cellcolor{gray!10}{Humor} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.002 [-0.144; 0.148]} & \cellcolor{gray!10}{1,302} & \cellcolor{gray!10}{3} & \cellcolor{gray!10}{0.183 [ 0.030; 0.327]} & \cellcolor{gray!10}{0.076} & \cellcolor{gray!10}{2.429} & \cellcolor{gray!10}{0.010} & \cellcolor{gray!10}{86} & \cellcolor{gray!10}{262*} & \cellcolor{gray!10}{6}\\
+ & Not clinical & 0.185 [ 0.139; 0.231] & 28,698 & 34 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Judgment} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.202 [ 0.066; 0.331]} & \cellcolor{gray!10}{1,448} & \cellcolor{gray!10}{3} & \cellcolor{gray!10}{-0.076 [-0.221; 0.071]} & \cellcolor{gray!10}{0.073} & \cellcolor{gray!10}{-1.047} & \cellcolor{gray!10}{0.011} & \cellcolor{gray!10}{86} & \cellcolor{gray!10}{332*} & \cellcolor{gray!10}{1}\\
+ & Not clinical & 0.128 [ 0.078; 0.177] & 30,184 & 35 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Kindness} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{-0.050 [-0.199; 0.102]} & \cellcolor{gray!10}{1,248} & \cellcolor{gray!10}{2} & \cellcolor{gray!10}{0.135 [-0.023; 0.286]} & \cellcolor{gray!10}{0.078} & \cellcolor{gray!10}{1.738} & \cellcolor{gray!10}{0.009} & \cellcolor{gray!10}{82} & \cellcolor{gray!10}{216*} & \cellcolor{gray!10}{3}\\
+\addlinespace
+ & Not clinical & 0.086 [ 0.040; 0.131] & 28,729 & 34 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Leadership} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.098 [-0.097; 0.286]} & \cellcolor{gray!10}{1,248} & \cellcolor{gray!10}{2} & \cellcolor{gray!10}{0.074 [-0.130; 0.272]} & \cellcolor{gray!10}{0.101} & \cellcolor{gray!10}{0.738} & \cellcolor{gray!10}{0.016} & \cellcolor{gray!10}{90} & \cellcolor{gray!10}{339*} & \cellcolor{gray!10}{1}\\
+ & Not clinical & 0.171 [ 0.113; 0.228] & 28,457 & 33 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Love of learning} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.191 [ 0.001; 0.368]} & \cellcolor{gray!10}{1,248} & \cellcolor{gray!10}{2} & \cellcolor{gray!10}{-0.016 [-0.214; 0.183]} & \cellcolor{gray!10}{0.099} & \cellcolor{gray!10}{-0.163} & \cellcolor{gray!10}{0.016} & \cellcolor{gray!10}{90} & \cellcolor{gray!10}{430*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.175 [ 0.118; 0.231] & 30,184 & 35 &  &  &  &  &  &  & \\
+\addlinespace
+\cellcolor{gray!10}{Love} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.223 [-0.051; 0.465]} & \cellcolor{gray!10}{1,248} & \cellcolor{gray!10}{2} & \cellcolor{gray!10}{0.093 [-0.196; 0.368]} & \cellcolor{gray!10}{0.144} & \cellcolor{gray!10}{0.651} & \cellcolor{gray!10}{0.035} & \cellcolor{gray!10}{95} & \cellcolor{gray!10}{806*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.310 [ 0.225; 0.390] & 28,457 & 33 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Perseverance} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.303 [ 0.117; 0.469]} & \cellcolor{gray!10}{1,248} & \cellcolor{gray!10}{2} & \cellcolor{gray!10}{-0.058 [-0.258; 0.146]} & \cellcolor{gray!10}{0.101} & \cellcolor{gray!10}{-0.578} & \cellcolor{gray!10}{0.016} & \cellcolor{gray!10}{91} & \cellcolor{gray!10}{396*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.249 [ 0.190; 0.307] & 29,457 & 35 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Perspective} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{-0.024 [-0.189; 0.141]} & \cellcolor{gray!10}{1,248} & \cellcolor{gray!10}{2} & \cellcolor{gray!10}{0.199 [ 0.028; 0.359]} & \cellcolor{gray!10}{0.086} & \cellcolor{gray!10}{2.357} & \cellcolor{gray!10}{0.011} & \cellcolor{gray!10}{86} & \cellcolor{gray!10}{322*} & \cellcolor{gray!10}{6}\\
+\addlinespace
+ & Not clinical & 0.175 [ 0.128; 0.222] & 30,184 & 35 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Prudence} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.125 [-0.112; 0.349]} & \cellcolor{gray!10}{1,248} & \cellcolor{gray!10}{2} & \cellcolor{gray!10}{0.016 [-0.231; 0.261]} & \cellcolor{gray!10}{0.123} & \cellcolor{gray!10}{0.127} & \cellcolor{gray!10}{0.025} & \cellcolor{gray!10}{93} & \cellcolor{gray!10}{604*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.141 [ 0.063; 0.217] & 28,457 & 33 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Self regulation} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.291 [ 0.089; 0.470]} & \cellcolor{gray!10}{1,248} & \cellcolor{gray!10}{2} & \cellcolor{gray!10}{-0.026 [-0.242; 0.192]} & \cellcolor{gray!10}{0.109} & \cellcolor{gray!10}{-0.243} & \cellcolor{gray!10}{0.019} & \cellcolor{gray!10}{90} & \cellcolor{gray!10}{408*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.267 [ 0.205; 0.326] & 28,933 & 35 &  &  &  &  &  &  & \\
+\addlinespace
+\cellcolor{gray!10}{Social intelligence} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.153 [-0.024; 0.321]} & \cellcolor{gray!10}{1,448} & \cellcolor{gray!10}{3} & \cellcolor{gray!10}{0.059 [-0.131; 0.244]} & \cellcolor{gray!10}{0.094} & \cellcolor{gray!10}{0.628} & \cellcolor{gray!10}{0.019} & \cellcolor{gray!10}{91} & \cellcolor{gray!10}{488*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.210 [ 0.145; 0.274] & 29,864 & 34 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Spirituality} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.147 [ 0.012; 0.277]} & \cellcolor{gray!10}{1,502} & \cellcolor{gray!10}{4} & \cellcolor{gray!10}{-0.006 [-0.150; 0.139]} & \cellcolor{gray!10}{0.072} & \cellcolor{gray!10}{-0.081} & \cellcolor{gray!10}{0.012} & \cellcolor{gray!10}{88} & \cellcolor{gray!10}{385*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.141 [ 0.087; 0.195] & 28,698 & 34 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Teamwork} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.074 [-0.109; 0.252]} & \cellcolor{gray!10}{1,248} & \cellcolor{gray!10}{2} & \cellcolor{gray!10}{0.106 [-0.087; 0.291]} & \cellcolor{gray!10}{0.095} & \cellcolor{gray!10}{1.115} & \cellcolor{gray!10}{0.014} & \cellcolor{gray!10}{88} & \cellcolor{gray!10}{370*} & \cellcolor{gray!10}{1}\\
+\addlinespace
+ & Not clinical & 0.178 [ 0.120; 0.236] & 28,457 & 33 &  &  &  &  &  &  & \\
+\cellcolor{gray!10}{Zest} & \cellcolor{gray!10}{Clinical} & \cellcolor{gray!10}{0.472 [ 0.263; 0.639]} & \cellcolor{gray!10}{1,448} & \cellcolor{gray!10}{3} & \cellcolor{gray!10}{-0.030 [-0.282; 0.227]} & \cellcolor{gray!10}{0.128} & \cellcolor{gray!10}{-0.231} & \cellcolor{gray!10}{0.039} & \cellcolor{gray!10}{96} & \cellcolor{gray!10}{860*} & \cellcolor{gray!10}{0}\\
+ & Not clinical & 0.449 [ 0.372; 0.519] & 28,783 & 34 &  &  &  &  &  &  & \\
+\bottomrule
+\multicolumn{12}{l}{\textsuperscript{*} \makecell[l]{N = total sample size; k = number of effects;\\ r = back-transformed meta-analytic correlation coefficient; se = standard error;\\ CI = confidence intervals; PI = predicted intervals;\\ tau2 = total variance (between + within); I2 = percentage of variance due to heterogeneity;\\ Q = Q statistic; QM = Q test for the moderator analysis. See the shiny app for additional info}}\\
+\end{tabular}}
+\end{table}
+
+\newpage
+
+\hypertarget{robustness-checks}{%
+\section{Robustness checks}\label{robustness-checks}}
+
+\hypertarget{well-being}{%
+\subsection{Well-being}\label{well-being}}
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-1.pdf}\textbf{Figure
+FigureS1.} Appreciation of beauty and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-2.pdf}\textbf{Figure
+FigureS2.} Bravery and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-3.pdf}\textbf{Figure
+FigureS3.} Creativity and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-4.pdf}\textbf{Figure
+FigureS4.} Curiosity and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-5.pdf}\textbf{Figure
+FigureS5.} Fairness and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-6.pdf}\textbf{Figure
+FigureS6.} Forgiveness and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-7.pdf}\textbf{Figure
+FigureS7.} Gratitude and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-8.pdf}\textbf{Figure
+FigureS8.} Honesty and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-9.pdf}\textbf{Figure
+FigureS9.} Hope and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-10.pdf}\textbf{Figure
+FigureS10.} Humility and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-11.pdf}\textbf{Figure
+FigureS11.} Humor and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-12.pdf}\textbf{Figure
+FigureS12.} Judgment and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-13.pdf}\textbf{Figure
+FigureS13.} Kindness and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-14.pdf}\textbf{Figure
+FigureS14.} Leadership and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-15.pdf}\textbf{Figure
+FigureS15.} Love of learning and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-16.pdf}\textbf{Figure
+FigureS16.} Love and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-17.pdf}\textbf{Figure
+FigureS17.} Perseverance and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-18.pdf}\textbf{Figure
+FigureS18.} Perspective and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-19.pdf}\textbf{Figure
+FigureS19.} Prudence and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-20.pdf}\textbf{Figure
+FigureS20.} Self regulation and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-21.pdf}\textbf{Figure
+FigureS21.} Social intelligence and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-22.pdf}\textbf{Figure
+FigureS22.} Spirituality and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-23.pdf}\textbf{Figure
+FigureS23.} Teamwork and well-being leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-11-24.pdf}\textbf{Figure
+FigureS24.} Zest and well-being leave one out results
+
+\hypertarget{mental-health}{%
+\subsection{Mental health}\label{mental-health}}
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-1.pdf}\textbf{Figure
+FigureS25.} Appreciation of beauty and mental health leave one out
+results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-2.pdf}\textbf{Figure
+FigureS26.} Bravery and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-3.pdf}\textbf{Figure
+FigureS27.} Creativity and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-4.pdf}\textbf{Figure
+FigureS28.} Curiosity and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-5.pdf}\textbf{Figure
+FigureS29.} Fairness and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-6.pdf}\textbf{Figure
+FigureS30.} Forgiveness and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-7.pdf}\textbf{Figure
+FigureS31.} Gratitude and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-8.pdf}\textbf{Figure
+FigureS32.} Honesty and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-9.pdf}\textbf{Figure
+FigureS33.} Hope and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-10.pdf}\textbf{Figure
+FigureS34.} Humility and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-11.pdf}\textbf{Figure
+FigureS35.} Humor and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-12.pdf}\textbf{Figure
+FigureS36.} Judgment and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-13.pdf}\textbf{Figure
+FigureS37.} Kindness and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-14.pdf}\textbf{Figure
+FigureS38.} Leadership and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-15.pdf}\textbf{Figure
+FigureS39.} Love of learning and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-16.pdf}\textbf{Figure
+FigureS40.} Love and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-17.pdf}\textbf{Figure
+FigureS41.} Perseverance and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-18.pdf}\textbf{Figure
+FigureS42.} Perspective and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-19.pdf}\textbf{Figure
+FigureS43.} Prudence and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-20.pdf}\textbf{Figure
+FigureS44.} Self regulation and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-21.pdf}\textbf{Figure
+FigureS45.} Social intelligence and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-22.pdf}\textbf{Figure
+FigureS46.} Spirituality and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-23.pdf}\textbf{Figure
+FigureS47.} Teamwork and mental health leave one out results
+
+\includegraphics{SupplementaryResults_files/figure-pdf/unnamed-chunk-12-24.pdf}\textbf{Figure
+FigureS48.} Zest and mental health leave one out results
+
+
+
+\end{document}
