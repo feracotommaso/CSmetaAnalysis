@@ -50,7 +50,7 @@ library(pacman)
 
 # utils functions for the paper
 output_format <- knitr::opts_knit$get("rmarkdown.pandoc.to")
-source(here("supplementary", "R/utils-paper.R"), local = knitr::knit_global())
+source(here("R/utils-paper.R"), local = knitr::knit_global())
 # 
 folder_path <- "R"  # Adjust this if the folder is located elsewhere
 r_files <- list.files(folder_path, full.names = TRUE, pattern = "\\.R$")
@@ -67,7 +67,7 @@ dtot = read_excel(here::here("Data_and_code/metaData/finalMetaData.xlsx"))
 strengths24 <- colnames(dtot[, which(colnames(dtot) == "Appreciation_of_beauty"):
                             which(colnames(dtot) == "Zest")])
 #Reverse negative scales
-dtot[dtot$Valence == "neg", strengths24] <- dtot[dtot$Valence == "neg", strengths24] * -1
+# dtot[dtot$Valence == "neg", strengths24] <- dtot[dtot$Valence == "neg", strengths24] * -1
 
 # Create dataset with non-duplicated samples for descriptive stats
 uniqueD <- dtot[!duplicated(dtot$sample), ]
@@ -81,7 +81,7 @@ uniqueD <- dtot[!duplicated(dtot$sample), ]
 Following discussions with the Editor and the Reviewers, we modified part of the analysis and slightly deviated from our preregistration. For transparency, we report here all the deviations from the preregistration.
 
 | Topic                                                     | Deviation                                                                                              | Explanation                                      |
-|-----------------------------------------------------------|--------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+|--------------------|----------------------------------|------------------|
 | Moderation analyses for clinical and non-clinical samples | Not performed in the main paper but reported in supplementary.                                         | The minimum number of k effects was not reached. |
 | Robustness check                                          | We performed a non-preregistered leave-one-out analysis to check the robustness of our findings.       | Accepted reviewers' suggestion                   |
 | Publication bias analysis                                 | We performed non-preregistered PET regressions to test for possible publication bias in our data.      | Accepted reviewers' suggestion                   |
@@ -94,7 +94,7 @@ Following discussions with the Editor and the Reviewers, we modified part of the
 # Comparisons with personality traits
 
 | Character strength     | Most correlated facet¹     | Corresponding broad trait | Expected r with well-being² | Expected r with mental health³ |
-|------------------------|----------------------------|---------------------------|:---------------------------:|:------------------------------:|
+|---------------|---------------|---------------|:-------------:|:-------------:|
 | Appreciation of beauty | **Aesthetic Appreciation** | HEXACO Openness           |          .16 ‒ .19          |           -.02 ‒ .06           |
 |                        | **Aesthetics**             | Big 5 Openness            |                             |                                |
 | Bravery                | **Social boldness**        | HEXACO Extraversion       |          .16 ‒ .46          |           -.02 ‒ .40           |
@@ -190,7 +190,7 @@ Following discussions with the Editor and the Reviewers, we modified part of the
 \newpage
 
 | Character strength     | Broad trait | Exp. r well-being² | $\hat{r}$ well-being | Exp. r mental health³ | $\hat{r}$ mental health |
-|------------------------|:-----------:|:------------------:|:--------------------:|:---------------------:|:-----------------------:|
+|------------|:----------:|:----------:|:----------:|:----------:|:----------:|
 | Appreciation of beauty |      O      |      .16 –.19      |         .18          |       -.02 –.06       |           .06           |
 | Bravery                |   E, O, N   |      .16 –.46      |         .27          |       -.02 –.40       |           .17           |
 | Creativity             |      O      |      .16 –.19      |         .22          |       -.02 –.06       |           .11           |
@@ -234,7 +234,7 @@ $\hat{r}$ = meta-analytical correlation
 :::
 
 | Character strength | Trait       | Life satisfaction | Positive affect | Negative affect | SWB            | PWB            |
-|:-------------------|:------------|:------------------|:----------------|:----------------|:---------------|:---------------|
+|:----------|:----------|:----------|:----------|:----------|:----------|:----------|
 | App. Beauty        | O           | .16 (.05 –.10)    | .23 (.13 –.24)  | .08 (.01 – .04) | .14 (.08)      | .15 (.11)      |
 | Brav.              | E, O, N     | .21 (.05 –.48)    | .27 (.13 –.51)  | .10 (.01 – .39) | .17 (.08 –.42) | .30 (.09 –.37) |
 | Creat.             | O           | .19 (.05 –.10)    | .30 (.13 –.24)  | .02 (.01 – .04) | .14 (.08)      | .25 (.11)      |
@@ -283,7 +283,7 @@ $\hat{r}$ = meta-analytical association
 :::
 
 | Character strength  | Broad trait | General mental health | Anxiety         | Depression      | Stress         |
-|---------------------|-------------|-----------------------|-----------------|-----------------|----------------|
+|------------|------------|------------|------------|------------|------------|
 | App. Beauty         | O           | .06 (.13)             | –.04 (.10)      | .02 (.06)       | .00 (.06)      |
 | Bravery             | E, O, N     | .12 (.13 –.56)        | .06 (.10 –.45)  | .14 (.06 –.46)  | .09 (.06 –.33) |
 | Creativity          | O           | .14 (.16)             | .02 (.12)       | .12 (.08)       | .06 (.07)      |
