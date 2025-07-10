@@ -17,6 +17,7 @@ format:
     toc-expand: 3 
     code-fold: false 
     message: false
+    link-external-newwindow: true
 #    css: "assets/custom.css"
 editor: visual
 ---
