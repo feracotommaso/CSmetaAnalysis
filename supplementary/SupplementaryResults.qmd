@@ -1,6 +1,6 @@
 ---
-title: "Supplementary materials: detailed results"
-subtitle: "Character strengths, well-being, and ill-being"
+title: "Bridges over troubled water: A meta-analysis of the associations of character strengths with well-being and common mental health disorders"
+subtitle: "Supplementary materials"
 format: 
   pdf:
     toc: true

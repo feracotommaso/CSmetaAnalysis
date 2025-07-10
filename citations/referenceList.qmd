@@ -1,0 +1,9 @@
+---
+title: "Bridges over troubled water: A meta-analysis of the associations of character strengths with well-being and common mental health disorders"
+subtitle: "Complete list of references included in the meta-analysis"
+format: pdf
+editor: visual
+bibliography: "filtered_articles.bib"
+csl: apa.csl
+nocite: "@*"
+---

@@ -352,17 +352,53 @@ display: none;
 </div>
 
 
-<div id="a-meta-analysis-of-character-strengths-well-being-and-mental-health" class="section level1">
-<h1>A meta-analysis of character strengths, well-being, and mental
-health</h1>
+<div id="bridges-over-troubled-water-a-meta-analysis-of-the-associations-of-character-strengths-with-well-being-and-common-mental-health-disorders" class="section level1">
+<h1>Bridges over troubled water: A meta-analysis of the associations of
+character strengths with well-being and common mental health
+disorders</h1>
 <div id="direct-links-of-interest" class="section level2">
 <h2>Direct links of interest</h2>
 <p>Shiny app for navigating results: <a href="https://feracoshiny.shinyapps.io/character-meta-v3/" class="uri">https://feracoshiny.shinyapps.io/character-meta-v3/</a></p>
-<p>OSF project: <a href="https://osf.io/prjxb/?view_only=ac793325b8c94a97b604677f482dfe0e" class="uri">https://osf.io/prjxb/?view_only=ac793325b8c94a97b604677f482dfe0e</a></p>
+<p>OSF project: <a href="https://doi.org10.17605/OSF.IO/PRJXB" class="uri">https://doi.org10.17605/OSF.IO/PRJXB</a></p>
 <p>PROSPERO preregistration: <a href="https://www.crd.york.ac.uk/prospero/display_record.php?ID=CRD42023488089" class="uri">https://www.crd.york.ac.uk/prospero/display_record.php?ID=CRD42023488089</a>
 and <a href="https://feracotommaso.github.io/CSmetaAnalysis/PROSPERO_preregistration.pdf" class="uri">https://feracotommaso.github.io/CSmetaAnalysis/PROSPERO_preregistration.pdf</a></p>
 <p>Supplementary results: <a href="https://feracotommaso.github.io/CSmetaAnalysis/supplementary/SupplementaryResults.pdf" class="uri">https://feracotommaso.github.io/CSmetaAnalysis/supplementary/SupplementaryResults.pdf</a></p>
-<p>Author version of the paper: NA</p>
+<p>Author version of the paper: <a href="https://feracotommaso.github.io/CSmetaAnalysis/paper/paper.pdf" class="uri">https://feracotommaso.github.io/CSmetaAnalysis/paper/paper.pdf</a></p>
+</div>
+<div id="project-structure" class="section level2">
+<h2>Project Structure</h2>
+<ul>
+<li><code>Data_and_code/</code>
+<ul>
+<li>Contains the scripts for running the main analyses
+(<code>1.MetaAnalisi.R</code>) and creating the plots
+(<code>0.Prisma.R</code>, <code>2.Figures.R</code>)</li>
+<li><code>metaData/</code>: Contains the final dataset for the analyses
+(<code>finalMetaData.xlsx</code>) and the <strong>data
+dictionary</strong> (<code>dataDictionary.xlsx</code>)</li>
+</ul></li>
+<li><code>results/</code>: Contains the already-computed results of the
+metaanalysis in .RDS format</li>
+<li><code>paper/</code>: Contains the author version of the
+manuscript</li>
+<li><code>Shiny_app_code/</code>
+<ul>
+<li>Contains the R script to run the app locally
+(<code>app.R</code>)</li>
+<li><code>R/</code>: Contains custom functions for the Shiny app</li>
+<li><code>results/</code>: Contains the meta-analytic results used in
+the Shiny app for the plots</li>
+</ul></li>
+<li><code>supplementary/</code>: Contains the markdown summary of the
+complete and supplementary results</li>
+<li><code>citations</code>: Contains the citations of all the studies
+included in the meta-analysis</li>
+<li><code>R</code>: Contains custom functions</li>
+<li><code>PROSPERO_preregistration.pdf</code></li>
+<li><code>index.Qmd</code></li>
+<li><code>README.md</code></li>
+<li><code>GitMeta..Rproj</code></li>
+</ul>
 </div>
 <div id="how-to-run-the-analysis" class="section level2">
 <h2>How to run the analysis</h2>
